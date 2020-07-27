@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
     if @user 
       sign_in!(@user)
     else
-      render json: ['The password you entered is incorrect.'], status 401
+      render json: ['The password you entered is incorrect.'], status: 401
     end 
   end 
 
