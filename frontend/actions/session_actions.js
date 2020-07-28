@@ -19,14 +19,13 @@ export const receiveErrors = errors => ({
 });
 
 export const login = formUser => dispatch => {
-  debugger
   return SessionAPIUtil.login(formUser)
     .then(user => dispatch(receiveCurrentUser(user)))
 };
 
 export const logout = () => dispatch => {
-  return SessionAPIUtil.logout(user)
-    .then(user => dispatch(logoutCurrentUser(user)))
+  return SessionAPIUtil.logout()
+    .then(() => dispatch(logoutCurrentUser()))
 };
 
 export const signup = user => dispatch => {

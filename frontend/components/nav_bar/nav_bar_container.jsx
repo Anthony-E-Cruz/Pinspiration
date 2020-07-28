@@ -8,7 +8,7 @@ const msp = ({ session, entities: { users } }) => {
   };
 };
 
-const mdp = (dispatch) => ({
+const mdp = dispatch => ({
   logout: () => dispatch(logout())
 })
 
