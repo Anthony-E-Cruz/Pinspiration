@@ -10,9 +10,9 @@ const navBar = ({ currentUser, logout }) => {
     )
   } else {
     return (
-      <div>
-        <Link className="btn" to="/signup">Sign Up</Link>
-        <Link className="btn" to="/login">Log In</Link>
+      <div className="btns">
+        <Link className="signup-btn" to="/login">Log In</Link>
+        <Link className="login-btn" to="/signup">Sign Up</Link>
       </div>
     )
   }
