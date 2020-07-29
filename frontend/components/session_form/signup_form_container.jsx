@@ -19,9 +19,12 @@ const mdp = dispatch => {
   return {
     processForm: (user) => dispatch(signup(user)),
     otherForm: (
-      <button onClick={() => dispatch(openModal('login'))}>
+      <button className="switch-pages" onClick={() => dispatch(openModal('login'))}>
         Already a member? Log in
       </button>
+    ),
+    findNew: (
+      <p className="modal-find-new">Find new inspiration</p> 
     ),
     closeModal: () => dispatch(closeModal()),
     demoUser: () => dispatch(demoUser())

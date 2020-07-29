@@ -19,8 +19,8 @@ const mdp = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
     otherForm: (
-      <button onClick={() => dispatch(openModal('signup'))}>
-        Signup
+      <button className="switch-pages" onClick={() => dispatch(openModal('signup'))}>
+        Not on Pinspiration yet? Sign up
       </button>
     ),
     closeModal: () => dispatch(closeModal()),

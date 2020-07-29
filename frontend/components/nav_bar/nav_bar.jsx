@@ -5,7 +5,7 @@ const navBar = ({ currentUser, logout, openModal }) => {
   if (currentUser) {
     return (
       <div>
-        <button onClick={logout}>Logout</button>  
+        <button className="logout-btn" onClick={logout}>Logout</button>  
       </div>
     )
   } else {

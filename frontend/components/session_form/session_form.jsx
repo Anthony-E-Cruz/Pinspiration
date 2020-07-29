@@ -41,8 +41,8 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="modal-welcome">
-            <p className="welcome">Welcome to Pinspiration</p> 
-            <p className="modal-find-new">Find new inspiration</p> 
+            <p className="welcome">Welcome to Pinspiration</p>
+            {this.props.findNew} 
           </div>
           {/* <br /> */}
           {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
