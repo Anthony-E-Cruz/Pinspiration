@@ -26,11 +26,11 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="errors" >
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <p className="errors" key={`error-${i}`}>
             {error}
-          </li>
+          </p>
         ))}
       </ul>
     );
@@ -38,6 +38,8 @@ class SessionForm extends React.Component {
 
   render() {
     return (
+      // <div> 
+      //   <div onClick={this.props.closeModal} className="close-x">X</div>
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="modal-welcome">
@@ -45,8 +47,6 @@ class SessionForm extends React.Component {
             {this.props.findNew} 
           </div>
           {/* <br /> */}
-          {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
-          {this.renderErrors()}
           <div className="login-form">
             {/* <br /> */}
             {/* <label>Email: */}
@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
                 className="login-input"
                 />
             {/* </label> */}
-            <br />
+            {/* <br /> */}
             {/* <label>Password: */}
               <input type="password"
                 className="login-credentials"
@@ -67,6 +67,7 @@ class SessionForm extends React.Component {
                 onChange={this.update('password')}
                 className="login-input"
                 />
+            {this.renderErrors()}
             {/* </label> */}
             <br />
             <input className="session-submit" type="submit" value={this.props.formType} />
@@ -79,6 +80,7 @@ class SessionForm extends React.Component {
             <br /> 
           </div>
         </form>
+      {/* </div> */}
       </div>
     );
   }

@@ -105,8 +105,16 @@
   }
 
   .close-x {
+    font-family: Nunito, sans-serif;
+    display: flex;
+    justify-content: flex-end;
     font-size: 50px;
+    color: black;
+    cursor: pointer;
     color: white;
+    margin-top: 28px;
+    margin-right: 50px;
+    font-size: 20px
   }
 
   .modal-welcome{
@@ -140,8 +148,15 @@
   }
 
   .login-input:focus{
-    outline: 3px solid radius 20px;
+    outline: none;
     box-shadow: 5px red;
+  }
+
+  .errors {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: red;
+    font-size: 14px;
+    margin: 0px;
   }
 
   .session-submit {
