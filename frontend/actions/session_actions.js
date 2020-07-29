@@ -34,7 +34,6 @@ export const signup = user => dispatch => {
 };
 
 export const demoUser = () => dispatch => {
-  debugger
   return SessionAPIUtil.demoUser()
     .then(user => dispatch(receiveCurrentUser(user)))
 };
