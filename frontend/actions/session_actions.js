@@ -1,4 +1,5 @@
 import * as SessionAPIUtil from '../util/session_api_util';
+import { closeModal} from  './modal_actions'
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -36,4 +37,5 @@ export const signup = user => dispatch => {
 export const demoUser = () => dispatch => {
   return SessionAPIUtil.demoUser()
     .then(user => dispatch(receiveCurrentUser(user)))
+    .then(() => dispatch(closeModal()))
 };
