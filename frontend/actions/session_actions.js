@@ -22,7 +22,7 @@ export const receiveErrors = errors => ({
 export const login = formUser => dispatch => {
   return SessionAPIUtil.login(formUser)
     .then(user => dispatch(receiveCurrentUser(user)))
-      // errors => (dispatch(receiveErrors(errors.responseJSON)))
+      .fail(errors => (dispatch(receiveErrors(errors.responseJSON))))
 };
 
 export const logout = () => dispatch => {
@@ -33,6 +33,7 @@ export const logout = () => dispatch => {
 export const signup = user => dispatch => {
   return SessionAPIUtil.signup(user)
     .then(user => dispatch(receiveCurrentUser(user)))
+      .fail(errors => (dispatch(receiveErrors(errors.responseJSON))))
 };
 
 export const demoUser = () => dispatch => {

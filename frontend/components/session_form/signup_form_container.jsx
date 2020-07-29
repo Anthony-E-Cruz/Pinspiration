@@ -5,9 +5,9 @@ import { signup, demoUser } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
-const msp = ({ errors }) => {
+const msp = ( state ) => {
   return {
-    errors: errors.session,
+    errors: state.errors.session,
     formType: 'Continue',
     passwordText: 'Create a password',
     // switchPages: "Already a member? Log in",

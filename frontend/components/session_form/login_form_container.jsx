@@ -5,9 +5,9 @@ import { login, demoUser } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
-const msp = ({ errors }) => {
+const msp = ( state ) => {
   return {
-    errors: errors.session,
+    errors: state.errors.session,
     formType: 'Log in',
     switchPages: "Not on Pinterest yet? Sign up",
     passwordText: 'Password',
