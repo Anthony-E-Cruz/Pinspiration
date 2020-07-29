@@ -79,7 +79,7 @@
 
   .login-form-box {
     /* display: flex; */
-
+    text-align: center;
     align-items: center;
   } 
 
@@ -109,16 +109,80 @@
     color: white;
   }
 
+  .modal-welcome{
+    display: block;
+    justify-content: center;
+    text-align: center
+  }
+
   .welcome {
+    color: rgb(51, 51, 51);
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     font-size: 35px;
     font-weight: 500;
+    margin-bottom: 0;
+  }
+
+  .modal-find-new {
+    color: rgb(51, 51, 51);
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 5px;
   }
 
   input {
-    height: 50px;
+    height: 44px;
     width: 270px;
     margin: 5px;
     border: solid 2px rgb(201, 201, 201);
-    border-radius: 15px
+    border-radius: 20px
   }
+
+  .session-submit {
+    border: none;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    text-decoration: none;
+    height: 40px;
+    width: 270px;
+    margin: 8px;
+    color: white;
+    font-weight: 645;
+    background-color: rgb(230, 0, 35);
+    font-size: 16px;
+    background-size: 50px;
+    border-radius: 30px;
+    padding: 11px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .or {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    margin: 7.5px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .demo-login {
+    border: none;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    text-decoration: none;
+    height: 40px;
+    width: 270px;
+    margin: 8px;
+    color: rgb(51, 51, 51);
+    font-weight: 700;
+    background-color: rgb(239, 239, 239);
+    font-size: 16px;
+    background-size: 50px;
+    border-radius: 30px;
+    padding: 11px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  switch-pages {
+    text-decoration: none;
+  }
+  

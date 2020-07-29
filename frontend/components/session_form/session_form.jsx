@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -39,7 +40,10 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <p className="welcome">Welcome to Pinspiration</p> 
+          <div className="modal-welcome">
+            <p className="welcome">Welcome to Pinspiration</p> 
+            <p className="modal-find-new">Find new inspiration</p> 
+          </div>
           {/* <br /> */}
           {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
           {this.renderErrors()}
@@ -58,7 +62,7 @@ class SessionForm extends React.Component {
             {/* <label>Password: */}
               <input type="password"
                 className="login-credentials"
-                placeholder="Password"
+                placeholder={this.props.passwordText}
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input"
@@ -66,10 +70,13 @@ class SessionForm extends React.Component {
             {/* </label> */}
             <br />
             <input className="session-submit" type="submit" value={this.props.formType} />
+            <p className="or">OR</p>
+            <button className="demo-login" onClick={this.props.demoUser}>Demo Login</button>
             <br />
-            Please {this.props.formType} or {this.props.otherForm}
+            {/* <Link className="login-btn" to={() => openModal('login')}>Log in</Link> */}
+            {/* <Link to={this.props.otherForm}>{this.props.switchPages}</Link> */}
+            {this.props.otherForm}
             <br /> 
-            <button onClick={this.props.demoUser}>Demo Login</button>
           </div>
         </form>
       </div>

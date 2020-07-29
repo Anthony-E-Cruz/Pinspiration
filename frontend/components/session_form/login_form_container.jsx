@@ -8,7 +8,9 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 const msp = ({ errors }) => {
   return {
     errors: errors.session,
-    formType: 'login',
+    formType: 'Log in',
+    switchPages: "Not on Pinterest yet? Sign up",
+    passwordText: 'Password',
     // navLink: <Link to="/signup">sign up!</Link>,
   };
 };
