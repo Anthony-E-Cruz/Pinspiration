@@ -43,6 +43,7 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="modal-welcome">
+            <img className="welcome-logo" src={window.logo} />
             <p className="welcome">Welcome to Pinspiration</p>
             {this.props.findNew} 
           </div>

@@ -10,7 +10,10 @@ const App = () => (
   <div className="outter-div">
     <ModalContainer />
     <header className="header">
-      <h1>Pinspiration</h1>
+      <div className="logo_and_title">
+        <img className="logo" src={window.logo} />
+        <h1 className="logo-title" >Pinspiration</h1>
+      </div>
       <NavBar />
     </header>
 

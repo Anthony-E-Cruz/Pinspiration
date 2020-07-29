@@ -26,10 +26,21 @@
     margin: 0px;
   }
 
-  .header > h1 {
-    margin: 0px;
+  .logo_and_title {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    width: 34px;
+    height: 34px;
     margin-left: 24px;
-    font-size: 20px;
+  }
+
+  .logo-title {
+    margin: 0px;
+    font-size: 18px;
+    margin-left: 5px;
     color: rgb(230, 0, 35);
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   }
@@ -129,6 +140,14 @@
     font-size: 35px;
     font-weight: 500;
     margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .welcome-logo {
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
 
   .modal-find-new {
@@ -214,7 +233,4 @@
     margin-top: 10px;
   }
 
-  /* .logout-btn {
-
-  } */
   
