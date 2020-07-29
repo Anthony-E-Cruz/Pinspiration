@@ -77,6 +77,12 @@
     align-items: center;
   }
 
+  .login-form-box {
+    /* display: flex; */
+
+    align-items: center;
+  } 
+
   .modal-background {
     position: fixed;
     top: 0;
@@ -92,6 +98,27 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    height: 625px;
+    width: 485px
   }
 
-  
+  .close-x {
+    font-size: 50px;
+    color: white;
+  }
+
+  .welcome {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+  }
+
+  input {
+    height: 50px;
+    width: 270px;
+    margin: 5px;
+    border: solid 2px rgb(201, 201, 201);
+    border-radius: 15px
+  }
