@@ -7,7 +7,7 @@ import LogInFormContainer from './session_form/login_form_container';
 
 
 const App = () => (
-  <div>
+  <div className="outter-div">
     <header className="header">
       <h1>Pinspiration</h1>
       <NavBar />

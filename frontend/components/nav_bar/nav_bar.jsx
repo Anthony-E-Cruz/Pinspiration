@@ -11,8 +11,8 @@ const navBar = ({ currentUser, logout }) => {
   } else {
     return (
       <div className="btns">
-        <Link className="signup-btn" to="/login">Log In</Link>
-        <Link className="login-btn" to="/signup">Sign Up</Link>
+        <Link className="login-btn" to="/login">Log in</Link>
+        <Link className="signup-btn" to="/signup">Sign up</Link>
       </div>
     )
   }

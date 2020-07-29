@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+  
+  .vsc-initialized {
+    margin: 0px;
+  }
 
   .header {
     display: flex;
@@ -27,25 +31,48 @@
     margin-left: 24px;
     font-size: 20px;
     color: rgb(230, 0, 35);
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
-  }
-
-  .signup-btn {
-    text-decoration: none;
-    height: 40px;
-    margin: 8px;
-    color: white;
-    background-color: rgb(230, 0, 35);
-    font-size: 20px
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   }
 
   .login-btn {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     text-decoration: none;
     height: 40px;
+    min-width: 70.25px;
     margin: 8px;
     color: white;
-    background-color: rgb(239, 239, 239);
-    font-size: 20px
+    background-color: rgb(230, 0, 35);
+    font-size: 16px;
+    font-weight: 450;
+    border-radius: 30px;
+    padding: 11px;
+    padding-right: 12px;
+    padding-left: 11px;
   }
 
+  .signup-btn {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    text-decoration: none;
+    height: 40px;
+    width: 70.25px;
+    margin: 8px;
+    color: black;
+    font-weight: 645;
+    background-color: rgb(239, 239, 239);
+    font-size: 16px;
+    background-size: 50px;
+    border-radius: 30px;
+    padding: 11px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .btns {
+    padding-right: 20px;
+  }
+
+  .login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
