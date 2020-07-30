@@ -74,7 +74,6 @@ class SessionForm extends React.Component {
             <br />
             <input className="session-submit" type="submit" value={this.props.formType} />
             <p className="or">OR</p>
-            <button className="demo-login" onClick={this.props.demoUser}>Demo Login</button>
             <br />
             {/* <Link className="login-btn" to={() => openModal('login')}>Log in</Link> */}
             <Link to={this.props.otherForm}>{this.props.switchPages}</Link>
@@ -82,6 +81,7 @@ class SessionForm extends React.Component {
             <br /> 
           </div>
         </form>
+        <button className="demo-login" onClick={this.props.demoUser}>Demo Login</button>
       {/* </div> */}
       </div>
     );
