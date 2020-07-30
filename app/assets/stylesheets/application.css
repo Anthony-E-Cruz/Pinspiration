@@ -28,11 +28,6 @@
     width: 400px;
   }
 
-  /* .login-form {
-    height: 241px;
-    margin-top: 5px;
-  } */
-
   .login-form-box{
     display: flex;
     flex-direction: column;
@@ -89,46 +84,6 @@
   .btns {
     padding-right: 20px;
   }
-
-  /* .modal-background {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 10;
-  }
-
-  .modal-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border-radius: 10px;
-    height: 625px;
-    width: 485px
-  } */
-/* 
-  .close-x {
-    font-family: Nunito, sans-serif;
-    display: flex;
-    justify-content: flex-end;
-    font-size: 50px;
-    color: black;
-    cursor: pointer;
-    color: white;
-    margin-top: 28px;
-    margin-right: 50px;
-    font-size: 20px
-  } */
-/* 
-  .modal-welcome{
-    display: block;
-    justify-content: center;
-    text-align: center
-  } */
 
   .welcome {
     color: rgb(51, 51, 51);
