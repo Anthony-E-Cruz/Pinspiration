@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
   
   .vsc-initialized {
     margin: 0px;
@@ -92,7 +92,6 @@
     font-weight: 500;
     margin-bottom: 0;
     margin-top: 0;
-    /* height: 200px */
   }
 
   .welcome-logo {
@@ -126,7 +125,7 @@
   .login-input:focus{
     outline: none;
     box-shadow: 5px red;
-  } */
+  }
 
   .errors {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -194,7 +193,6 @@
     color: rgb(33, 25, 34);
     font-weight: 650;
     margin-top: 10px;
-    /* display: flex; */
     align-items: center;
   }
 
