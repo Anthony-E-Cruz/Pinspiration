@@ -9,5 +9,6 @@
 
 demoUser = User.create!(
   email: "demouser@gmail.com",
-  password: "hunter12"
+  password: "hunter12",
+  age: "27"
 )

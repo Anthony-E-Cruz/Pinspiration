@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { signup, demoUser, resetErrors } from '../../actions/session_actions';
-import SessionForm from './session_form';
+import signupForm from './signup_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const msp = ( state ) => {
@@ -33,5 +33,5 @@ const mdp = dispatch => {
   };
 };
 
-export default connect(msp, mdp)(SessionForm);
+export default connect(msp, mdp)(signupForm);
 
