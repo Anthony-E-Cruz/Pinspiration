@@ -11,22 +11,23 @@ const msp = ( state ) => {
     formType: 'Continue',
     passwordText: 'Create a password',
     // switchPages: "Already a member? Log in",
-    // navLink: <Link to="/login">log in</Link>,
+    navLink: <Link to="/login">log in</Link>,
   };
 };
 
 const mdp = dispatch => {
   return {
     processForm: (user) => dispatch(signup(user)),
-    otherForm: (
-      <button className="switch-pages" onClick={() => dispatch(openModal('login'))}>
-        Already a member? Log in
-      </button>
-    ),
+    // otherForm: (
+    //   <button className="switch-pages" onClick={() => dispatch(openModal('login'))}>
+    //     Already a member? Log in
+    //   </button>
+    // ),
     findNew: (
       <p className="modal-find-new">Find new inspiration</p> 
     ),
-    closeModal: () => dispatch(closeModal()),
+    otherForm: <Link className="switch-pages" to="/login">Already a member? Log in</Link>,
+    // closeModal: () => dispatch(closeModal()),
     demoUser: () => dispatch(demoUser())
   };
 };

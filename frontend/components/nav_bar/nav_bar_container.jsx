@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import navBar from './nav_bar';
-import { openModal } from '../../actions/modal_actions';
+// import { openModal } from '../../actions/modal_actions';
 
 const msp = ({ session, entities: { users } }) => {
   return {
@@ -11,7 +11,7 @@ const msp = ({ session, entities: { users } }) => {
 
 const mdp = dispatch => ({
   logout: () => dispatch(logout()),
-  openModal: modal => dispatch(openModal(modal))
+  // openModal: modal => dispatch(openModal(modal))
   // openModal: () => dispatch(openModal())
 })
 

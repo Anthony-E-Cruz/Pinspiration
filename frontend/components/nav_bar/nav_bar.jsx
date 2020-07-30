@@ -11,10 +11,10 @@ const navBar = ({ currentUser, logout, openModal }) => {
   } else {
     return (
       <div className="btns">
-        {/* <Link className="login-btn" to="/login">Log in</Link>
-        <Link className="signup-btn" to="/signup">Sign up</Link> */}
-        <Link className="login-btn" to={() => openModal('login')}>Log in</Link>
-        <Link className="signup-btn" to={() => openModal('signup')}>Sign up</Link>
+        <Link className="login-btn" to="/login">Log in</Link>
+        <Link className="signup-btn" to="/signup">Sign up</Link>
+        {/* <Link className="login-btn" to={() => openModal('login')}>Log in</Link>
+        <Link className="signup-btn" to={() => openModal('signup')}>Sign up</Link> */}
       </div>
     )
   }

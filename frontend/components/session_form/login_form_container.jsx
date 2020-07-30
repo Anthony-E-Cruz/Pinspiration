@@ -10,7 +10,7 @@ const msp = ( state ) => {
   return {
     errors: state.errors.session,
     formType: 'Log in',
-    switchPages: "Not on Pinterest yet? Sign up",
+    // switchPages: "Not on Pinterest yet? Sign up",
     passwordText: 'Password',
     // navLink: <Link to="/signup">sign up!</Link>,
   };
@@ -19,12 +19,13 @@ const msp = ( state ) => {
 const mdp = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
-    otherForm: (
-      <button className="switch-pages" onClick={() => dispatch(openModal('signup'))}>
-        Not on Pinspiration yet? Sign up
-      </button>
-    ),
-    closeModal: () => dispatch(closeModal()),
+    // otherForm: (
+    //   <button className="switch-pages" onClick={() => dispatch(openModal('signup'))}>
+    //     Not on Pinspiration yet? Sign up
+    //   </button>
+    // ),
+    otherForm: <Link className="switch-pages" to="/signup">Not on Pinterest yet? Sign up</Link>,
+    // closeModal: () => dispatch(closeModal()),
     demoUser: () => dispatch(demoUser())
   };
 };
