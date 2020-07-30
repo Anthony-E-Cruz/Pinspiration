@@ -18,9 +18,11 @@ const App = () => (
       <NavBar />
     </header>
     {/* <ModalContainer /> */}
-
-    <AuthRoute exact path="/login" component={LogInFormContainer} />
-    <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+    <switch>  
+      <AuthRoute exact path="/" component={LogInFormContainer} />
+      <AuthRoute exact path="/login" component={LogInFormContainer} />
+      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+    </switch>
   </div>
 );
 
