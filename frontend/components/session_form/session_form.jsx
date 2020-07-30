@@ -30,7 +30,8 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    return (
+    if (this.props.errors) {
+      return (
       <ul>
         {this.props.errors.map((error, i) => (
           <p key={`error-${i}`}>
@@ -39,6 +40,7 @@ class SessionForm extends React.Component {
         ))}
       </ul>
     );
+    };
   }
 
   render() {
