@@ -17839,3 +17839,35 @@ Processing by Api::SessionsController#destroy as JSON
 Completed 200 OK in 42ms (Views: 9.8ms | ActiveRecord: 21.7ms)
 
 
+Started POST "/api/session" for ::1 at 2020-07-30 16:23:41 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"sdfsd", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sdfsd"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+Completed 401 Unauthorized in 16ms (Views: 6.6ms | ActiveRecord: 6.5ms)
+
+
+  [1m[35m (21.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8440331273687646585)[0m
+  ↳ bin/rails:9
+  [1m[35m (34.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (13.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8440331273687646585)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (7.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demouser@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (12.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "demouser@gmail.com"], ["password_digest", "$2a$12$JnZPnacfcEyJChmkZq32WuVH4fHXMscW62F5ns15ypS/zPxgQBDCa"], ["session_token", "rVoU0DiFyiIBnCuEUd6kJ7ccpPpeHOxE0L3OptZ/w+w6FpmCgVIy+GX0JzJphHo9HOEsx2r1ZEy8zxUxM21OUw=="], ["created_at", "2020-07-30 20:30:55.592789"], ["updated_at", "2020-07-30 20:30:55.592789"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10

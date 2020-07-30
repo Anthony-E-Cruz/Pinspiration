@@ -24,7 +24,7 @@ const mdp = dispatch => {
     //     Not on Pinspiration yet? Sign up
     //   </button>
     // ),
-    otherForm: <Link className="switch-pages" to="/signup">Not on Pinterest yet? Sign up</Link>,
+    otherForm: <Link className="switch-pages" to="/signup">Not on Pinspiration yet? Sign up</Link>,
     // closeModal: () => dispatch(closeModal()),
     demoUser: () => dispatch(demoUser())
   };
