@@ -8,17 +8,19 @@ import ModalContainer from './modal/modal_container';
 
 const App = () => (
   <div className="outter-div">
-    <ModalContainer />
     <header className="header">
+      <Link to="/" className="header-link">
       <div className="logo_and_title">
         <img className="logo" src={window.logo} />
         <h1 className="logo-title" >Pinspiration</h1>
       </div>
+      </Link>
       <NavBar />
     </header>
+    <ModalContainer />
 
-    {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
-    <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
+    <AuthRoute exact path="/login" component={LogInFormContainer} />
+    <AuthRoute exact path="/signup" component={SignUpFormContainer} />
   </div>
 );
 

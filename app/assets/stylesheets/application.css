@@ -38,6 +38,7 @@
   }
 
   .logo-title {
+    text-decoration: none;
     margin: 0px;
     font-size: 18px;
     margin-left: 5px;
@@ -163,7 +164,12 @@
     width: 270px;
     margin: 5px;
     border: solid 2px rgb(201, 201, 201);
-    border-radius: 20px
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 
   .login-input:focus{
@@ -219,6 +225,10 @@
     padding: 11px;
     padding-right: 12px;
     padding-left: 12px;
+  }
+
+  .demo-login:hover {
+    cursor: pointer;
   }
 
   .switch-pages {
