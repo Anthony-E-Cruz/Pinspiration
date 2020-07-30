@@ -31,9 +31,9 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul className="errors" >
+      <ul>
         {this.props.errors.map((error, i) => (
-          <p className="errors" key={`error-${i}`}>
+          <p key={`error-${i}`}>
             {error}
           </p>
         ))}
@@ -45,11 +45,13 @@ class SessionForm extends React.Component {
     return (
       // <div> 
       //   <div onClick={this.props.closeModal} className="close-x">X</div>
+      <div className="full-login">
       <div className="login-form-container">
+        <div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <div className="modal-welcome">
+          <div className="welcome">
             <img className="welcome-logo" src={window.logo} />
-            <p className="welcome">Welcome to Pinspiration</p>
+                <p className="welcome">Welcome to Pinspiration</p>
             {this.props.findNew} 
           </div>
           {/* <br /> */}
@@ -75,18 +77,18 @@ class SessionForm extends React.Component {
                 />
             {this.renderErrors()}
             {/* </label> */}
-            <br />
             <input className="session-submit" type="submit" value={this.props.formType} />
             <p className="or">OR</p>
-            <br />
             {/* <Link className="login-btn" to={() => openModal('login')}>Log in</Link> */}
             <Link to={this.props.otherForm}>{this.props.switchPages}</Link>
-            {this.props.otherForm}
-            <br /> 
           </div>
         </form>
+      <div className="demo-login-container"> 
         <button className="demo-login" onClick={this.props.demoUser}>Demo Login</button>
-      {/* </div> */}
+        <p className="switch-form"> {this.props.otherForm} </p> 
+      </div>
+      </div>
+      </div>
       </div>
     );
   }

@@ -18,34 +18,41 @@
     margin: 0px;
   }
 
-  .header {
+  .full-login {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    margin: 0px;
+    justify-content: center;
   }
-
-  .logo_and_title {
+  
+  .login-form-container {
     display: flex;
+    width: 400px;
+  }
+
+  /* .login-form {
+    height: 241px;
+    margin-top: 5px;
+  } */
+
+  .login-form-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
     align-items: center;
   }
 
-  .logo {
-    width: 34px;
-    height: 34px;
-    margin-left: 24px;
+  .demo-login-container{
+    display: block;
+    justify-content: center;
+    margin-top: 0;
+    margin-left: 58px
   }
 
-  .logo-title {
-    text-decoration: none;
-    margin: 0px;
-    font-size: 18px;
-    margin-left: 5px;
-    color: rgb(230, 0, 35);
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  .switch-form{
+    margin-left: 73px;
+    margin-top: 5px;
   }
-
+  
   .login-btn {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     text-decoration: none;
@@ -83,19 +90,7 @@
     padding-right: 20px;
   }
 
-  .login-form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .login-form-box {
-    /* display: flex; */
-    text-align: center;
-    align-items: center;
-  } 
-
-  .modal-background {
+  /* .modal-background {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -114,8 +109,8 @@
     border-radius: 10px;
     height: 625px;
     width: 485px
-  }
-
+  } */
+/* 
   .close-x {
     font-family: Nunito, sans-serif;
     display: flex;
@@ -127,13 +122,13 @@
     margin-top: 28px;
     margin-right: 50px;
     font-size: 20px
-  }
-
+  } */
+/* 
   .modal-welcome{
     display: block;
     justify-content: center;
     text-align: center
-  }
+  } */
 
   .welcome {
     color: rgb(51, 51, 51);
@@ -142,6 +137,7 @@
     font-weight: 500;
     margin-bottom: 0;
     margin-top: 0;
+    /* height: 200px */
   }
 
   .welcome-logo {
@@ -175,13 +171,15 @@
   .login-input:focus{
     outline: none;
     box-shadow: 5px red;
-  }
+  } */
 
   .errors {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     color: red;
     font-size: 14px;
     margin: 0px;
+    margin-block-end: 0px;
+    margin-block-start: 0px;
   }
 
   .session-submit {
@@ -241,6 +239,8 @@
     color: rgb(33, 25, 34);
     font-weight: 650;
     margin-top: 10px;
+    /* display: flex; */
+    align-items: center;
   }
 
   
