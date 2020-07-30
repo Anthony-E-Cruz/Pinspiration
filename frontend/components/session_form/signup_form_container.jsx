@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signup, demoUser } from '../../actions/session_actions';
+import { signup, demoUser, resetErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
@@ -18,6 +18,7 @@ const msp = ( state ) => {
 const mdp = dispatch => {
   return {
     processForm: (user) => dispatch(signup(user)),
+    resetErrors: () => dispatch(resetErrors()),
     // otherForm: (
     //   <button className="switch-pages" onClick={() => dispatch(openModal('login'))}>
     //     Already a member? Log in
