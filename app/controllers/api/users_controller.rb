@@ -7,12 +7,11 @@ class Api::UsersController < ApplicationController
       (email.dup.split("@").length == 2) && (email.split(".").length == 2)
     end 
 
-    if @user.save
+    if !check_email(@user.email)
+      render json: ["Hmm...that doesn't look like an email address"], status: 401
+    elsif @user.save
       sign_in(@user)
       render "api/users/show"
-    elsif !check_email(@user.email)
-      debugger
-      render json: ["Hmm...that doesn't look like an email address"], status: 401
     else
       render json: ['Your password is too short! You need 6+ characters.'], status: 401
     end 
