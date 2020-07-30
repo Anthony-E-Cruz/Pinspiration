@@ -7,6 +7,8 @@ class Api::UsersController < ApplicationController
       (email.dup.split("@").length == 2) && (email.split(".").length == 2)
     end 
 
+    @user.username = @user.email.split("@")[0]
+
     if !check_email(@user.email)
       render json: ["Hmm...that doesn't look like an email address"], status: 401
     elsif @user.save
@@ -18,6 +20,6 @@ class Api::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :age)
   end
 end
