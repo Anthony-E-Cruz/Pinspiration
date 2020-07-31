@@ -6,6 +6,8 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import ModalContainer from './modal/modal_container';
 import ProfileContainer from './profile/profile_container';
+import ProfileEditContainer from './profile/profile_edit_container';
+
 
 const App = () => (
   <div className="outter-div">
@@ -23,7 +25,8 @@ const App = () => (
       <AuthRoute exact path="/" component={LogInFormContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      {/* <AuthRoute exact path="/anthony1" component={ProfileContainer} /> */}
+      <Route path="/:username" component={ProfileContainer} />
+      <route path="/:username/edit" component={ProfileEditContainer} />
       {/* <Route path="/" component */}
     </Switch>
   </div>

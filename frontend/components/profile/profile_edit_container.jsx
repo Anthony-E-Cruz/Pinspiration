@@ -5,10 +5,10 @@ import { logout } from '../../actions/session_actions';
 import profile from './profile'
 import { receiveCurrentUser } from '../../actions/session_actions';
 
-const msp = ( state, ownProps ) => {
+const msp = (state, ownProps) => {
   let userId = ownProps.match.params.userId
   // currentUser: state.session
-  return{
+  return {
     users: state.users,
   }
 };
