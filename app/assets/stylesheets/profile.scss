@@ -1,20 +1,36 @@
 
 .profile {
-  display: block;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: 100px;
-}
-
-.profile-img {
-  size: 100px;
+  align-items: center;
+  font-size: 50px;
 }
 
 .profile-header {
-  // display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
+.profile-img {
+  height: 100px;
+  width: 100px;
+}
+
+
+// .profile-header > h1 {
+//   justify-content: center;
+//   align-items: center;
+//   width: 400px;
+// }
+
 // .profile-sub-header {
+//   display: block;
+// }
+
+// .profile-img{
 //   display: block;
 // }
 

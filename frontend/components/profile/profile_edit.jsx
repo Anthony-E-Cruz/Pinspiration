@@ -14,12 +14,11 @@ class Profile extends React.Component {
   render() {
     const currentUser = this.props.match.params.username;
     return (
-      <div className="edit-profile">
-        <img className="logo" src={window.profile_img} />
-        <h1>{currentUser}</h1>
-        {/* <h1>{currentUser}</h1> */}
-        {/* <h1>this.props.currentUser</h1>   */}
-        {/* <h1>user</h1> */}
+      <div className="profile">
+        <div className="profile-header">
+          <img className="profile-img" src={window.profile_img} />
+          <h1>{currentUser}</h1>
+        </div>
       </div>
     )
   }

@@ -23,7 +23,7 @@ class Profile extends React.Component {
           <Link className="login-btn" to={`/${currentUser}/edit`}>Edit</Link>
           <button className="boards-button">Boards</button>
         </div> 
-
+        
         {/* <h1>{currentUser}</h1> */}
         {/* <h1>this.props.currentUser</h1>   */}
         {/* <h1>user</h1> */}

@@ -4,3 +4,23 @@
   justify-content: center;
   font-size: 100px;
 }
+
+.edit-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img {
+  height: 100px;
+  width: 100px;
+}
