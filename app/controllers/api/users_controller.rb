@@ -19,18 +19,13 @@ class Api::UsersController < ApplicationController
     end 
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def update
     @user = user.find(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:notices] = ['user updated!']
-      render "api/users/show"
-    else
-      render json: ['Your password is too short! You need 6+ characters.'], status: 491
-    end
+    @user.update!(user_params)
+    #   render "api/users/show"
+    # else
+    #   render json: ['not updated'], status: 491
+    # end
   end
 
   def user_params

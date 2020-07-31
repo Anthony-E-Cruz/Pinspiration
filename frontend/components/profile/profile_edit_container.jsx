@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { update } from '../../actions/session_actions';
 // import navBar from './nav_bar';
 // import { openModal } from '../../actions/modal_actions';
 import Editprofile from './profile_edit'
@@ -8,12 +8,14 @@ import { receiveCurrentUser } from '../../actions/session_actions';
 const msp = (state, ownProps) => {
   let userId = ownProps.match.params.userId
   // currentUser: state.session
+  debugger
   return {
-    users: state.users,
+    users: state.entities.users,
   }
 };
 
 const mdp = dispatch => ({
+
   processForm: user => dispatch(update(user)),
   // receiveCurrentUser: (currentUser) => dispatch(receiveCurrentUser(currentUser))
   // logout: () => dispatch(logout()),
@@ -21,4 +23,4 @@ const mdp = dispatch => ({
   // openModal: () => dispatch(openModal())
 })
 
-export default connect(msp)(Editprofile);
+export default connect(msp, mdp)(Editprofile);
