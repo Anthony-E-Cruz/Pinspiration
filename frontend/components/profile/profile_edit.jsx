@@ -37,6 +37,7 @@ class Profile extends React.Component {
           <label>Location 
             <input type="text" placeholder="New York City, San Francisco, .ect"/>
           </label>
+          
         </div>
       </div>
     )
