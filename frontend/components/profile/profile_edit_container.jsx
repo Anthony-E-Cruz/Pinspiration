@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 // import navBar from './nav_bar';
 // import { openModal } from '../../actions/modal_actions';
-import profile from './profile'
+import Editprofile from './profile_edit'
 import { receiveCurrentUser } from '../../actions/session_actions';
 
 const msp = (state, ownProps) => {
@@ -20,4 +20,4 @@ const msp = (state, ownProps) => {
 //   // openModal: () => dispatch(openModal())
 // })
 
-export default connect(msp)(profile);
+export default connect(msp)(Editprofile);

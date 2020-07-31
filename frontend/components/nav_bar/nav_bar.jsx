@@ -5,8 +5,10 @@ const navBar = ({ currentUser, logout, openModal }) => {
   if (currentUser) {
     return (
       <div>
-        <button className="signup-btn" onClick={logout}>Logout</button> 
-        <Link className="login-btn" to={`/${currentUser.username}`}>PROFILE</Link>
+        <Link to="/">
+          <button className="signup-btn" onClick={logout}>Logout</button> 
+        </Link>
+        <Link className="login-btn" to={`/${currentUser.username}`}>Profile</Link>
         {/* <p className="login-btn">user</p>  */}
       </div>
     )

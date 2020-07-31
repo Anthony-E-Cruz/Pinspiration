@@ -14,7 +14,8 @@ class Profile extends React.Component {
   render() {
     const currentUser = this.props.match.params.username;
     return (
-      <div className="profile">
+      <div className="edit-profile">
+        <img className="logo" src={window.profile_img} />
         <h1>{currentUser}</h1>
         {/* <h1>{currentUser}</h1> */}
         {/* <h1>this.props.currentUser</h1>   */}
@@ -22,4 +23,6 @@ class Profile extends React.Component {
       </div>
     )
   }
-}
+};
+
+export default Profile;
