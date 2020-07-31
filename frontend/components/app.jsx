@@ -5,6 +5,7 @@ import { Link, Switch, Route } from 'react-router-dom';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import ModalContainer from './modal/modal_container';
+import ProfileContainer from './profile/profile_container';
 
 const App = () => (
   <div className="outter-div">
@@ -19,6 +20,7 @@ const App = () => (
     </header>
     {/* <ModalContainer /> */}
     <Switch>  
+      {/* <AuthRoute exact path="/:username" component={ProfileContainer} /> */}
       <AuthRoute exact path="/" component={LogInFormContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
