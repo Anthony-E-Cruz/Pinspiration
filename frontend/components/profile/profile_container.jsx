@@ -5,7 +5,7 @@ import { logout } from '../../actions/session_actions';
 import profile from './profile'
 
 const msp = ( state, ownProps ) => {
-  users: state.users[ownProps.match.params.userId]
+  currentUser: state.session
 };
 
 const mdp = dispatch => ({

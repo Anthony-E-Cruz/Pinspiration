@@ -20,10 +20,10 @@ const App = () => (
     </header>
     {/* <ModalContainer /> */}
     <Switch>  
-      {/* <AuthRoute exact path="/:username" component={ProfileContainer} /> */}
       <AuthRoute exact path="/" component={LogInFormContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+      {/* <AuthRoute exact path="/anthony1" component={ProfileContainer} /> */}
       {/* <Route path="/" component */}
     </Switch>
   </div>

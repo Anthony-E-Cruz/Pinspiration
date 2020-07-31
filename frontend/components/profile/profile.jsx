@@ -6,10 +6,17 @@ class Profile extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    this.props.receiveCurrentUser();
+  }
+
   render() {
-    const {user} = this.props;
+    const {currentUser} = this.props;
     return (
-      <h1>user.username</h1>
+      <div>
+        <h1>currentUser={currentUser}</h1>
+        <h1>user</h1>
+      </div>
     )
   }
 }

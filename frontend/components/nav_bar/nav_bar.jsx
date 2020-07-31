@@ -2,13 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const navBar = ({ currentUser, logout, openModal }) => {
-  debugger
-  const user = currentUser.username
   if (currentUser) {
     return (
       <div>
         <button className="signup-btn" onClick={logout}>Logout</button> 
-        {/* <Link className="login-btn" to={`/${user}`}>PROFILE</Link> */}
+        <Link className="login-btn" to={`/${currentUser.username}`}>PROFILE</Link>
         {/* <p className="login-btn">user</p>  */}
       </div>
     )
