@@ -13,11 +13,12 @@ const msp = (state, ownProps) => {
   }
 };
 
-// const mdp = dispatch => ({
-//   receiveCurrentUser: (currentUser) => dispatch(receiveCurrentUser(currentUser))
-//   // logout: () => dispatch(logout()),
-//   // openModal: modal => dispatch(openModal(modal))
-//   // openModal: () => dispatch(openModal())
-// })
+const mdp = dispatch => ({
+  processForm: user => dispatch(update(user)),
+  // receiveCurrentUser: (currentUser) => dispatch(receiveCurrentUser(currentUser))
+  // logout: () => dispatch(logout()),
+  // openModal: modal => dispatch(openModal(modal))
+  // openModal: () => dispatch(openModal())
+})
 
 export default connect(msp)(Editprofile);

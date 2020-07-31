@@ -21,6 +21,14 @@ export const logout = () => (
   })
 );
 
+export const update = user => (
+  $.ajax({
+    method: 'PATCH',
+    url: '/api/users',
+    data: { user }
+  })
+);
+
 export const demoUser = () => (
   $.ajax({
     method: "POST",
@@ -28,3 +36,5 @@ export const demoUser = () => (
     data: { user: { email: 'demouser@gmail.com' , password: 'hunter12' } } 
   })
 );
+
+

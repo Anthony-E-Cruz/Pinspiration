@@ -48,3 +48,9 @@ export const demoUser = () => dispatch => {
     .then(user => dispatch(receiveCurrentUser(user)))
     // .then(() => dispatch(closeModal()))
 };
+
+export const update = user => dispatch => {
+  return SessionAPIUtil.update(user)
+    .then(user => dispatch(receiveCurrentUser(user)))
+    .fail(errors => (dispatch(receiveErrors(errors.responseJSON))))
+};
