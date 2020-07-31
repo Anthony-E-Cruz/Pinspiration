@@ -14,10 +14,29 @@ class Profile extends React.Component {
   render() {
     const currentUser = this.props.match.params.username;
     return (
-      <div className="profile">
-        <div className="profile-header">
-          <img className="profile-img" src={window.profile_img} />
-          <h1>{currentUser}</h1>
+      <div> 
+        <div className="profile">
+          <div className="profile-header">
+            <img className="profile-img" src={window.profile_img} />
+            <h1>{currentUser}</h1>
+          </div>
+        </div>
+        <div className="edit-profile-form">
+          <label>First name
+            <input type="text" placeholder="First name"/>
+          </label>
+          <label>Last name
+            <input type="text" placeholder="Last name" placeholder="Last name"/>
+          </label>
+          <label>Username
+            <input type="text" value={currentUser} />
+          </label>
+          <label>About you 
+            <textarea type="textarea" />
+          </label>
+          <label>Location 
+            <input type="text" placeholder="New York City, San Francisco, .ect"/>
+          </label>
         </div>
       </div>
     )

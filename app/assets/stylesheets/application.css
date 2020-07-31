@@ -118,6 +118,15 @@
     cursor: pointer;
   }
 
+  textarea {
+    height: 100px;
+    width: 270px;
+    margin: 5px;
+    border: solid 2px rgb(201, 201, 201);
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
   button:hover {
     cursor: pointer;
   }
