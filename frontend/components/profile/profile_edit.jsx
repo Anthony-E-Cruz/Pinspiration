@@ -5,6 +5,17 @@ class Profile extends React.Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
+    const { user } = this.props;
+    debugger
+    this.state = {
+      email: user.email,
+      age: user.age,
+      email: user.email, 
+      first_name: user.first_name, 
+      last_name: user.last_name, 
+      about_you: user.about_you, 
+      location: user.location
+    };
     // const currentUser: ownProps.match.params.username;
   }
 
@@ -19,17 +30,17 @@ class Profile extends React.Component {
     const user = Object.assign({}, this.state);
     debugger
     this.props.processForm(user);
-    // .then(this.props.closeModal);;
   }
 
-  // componentDidMount() {
-  //   this.props.receiveCurrentUser();
-  // }
 
   render() {
     const currentUser = this.props.match.params.username;
+    const {checkingstate} = this.state;
+
+    debugger
     return (
       <div> 
+        {/* <h1>{checkingstate.email}</h1> */}
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="profile">
             <div className="profile-header">
@@ -47,7 +58,6 @@ class Profile extends React.Component {
             <label>Last name
               <input type="text" 
                 placeholder="Last name" 
-
               />
             </label>
             <label>Username
