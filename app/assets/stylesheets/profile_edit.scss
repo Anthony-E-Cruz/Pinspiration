@@ -24,3 +24,14 @@
   height: 100px;
   width: 100px;
 }
+
+.file-uploader {
+    height: 44px;
+    width: 270px;
+    margin: 5px;
+    // border: solid 2px rgb(201, 201, 201);
+    border: none;
+    // border-radius: 20px;
+    border-radius: 0;
+    cursor: pointer;
+  }

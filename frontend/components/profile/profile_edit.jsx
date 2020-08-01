@@ -13,7 +13,7 @@ class Profile extends React.Component {
     const currentUser = user[userId]
     console.log(currentUser)
     this.state = {
-      photoUrl: currentUser.photoUrl,
+      // photoUrl: currentUser.photoUrl,
       first_name: currentUser.first_name, 
       last_name: currentUser.last_name, 
       username: currentUser.username,
@@ -21,7 +21,7 @@ class Profile extends React.Component {
       location: currentUser.location
     };
     console.log(this.state)
-    this.handleFile = this.handleFile.bind(this);
+    // this.handleFile = this.handleFile.bind(this);
   }
 
   update(field) {
@@ -30,17 +30,17 @@ class Profile extends React.Component {
     });
   }
 
-  handleFile(e) {
-    debugger
-  }
+  // handleFile(e) {
+  //   this.setState({photoUrl: e.currentTarget.files[0]})
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     const { userId } = this.props;
     this.props.processForm(user, userId);
+    
   }
-
 
   render() {
     const currentUserId = this.props.match.params.userId;
@@ -54,15 +54,16 @@ class Profile extends React.Component {
       // <div>
       //   <h1>Edit Page</h1>
       //   <h1>{currentUser.email}</h1>
-      //   <input type="file" onChange={this.handleFile} name="" id=""/>
       // </div>
       <div> 
+        <img src={currentUser.photoUrl} alt=""/>
         {/* <img src={currentUser.photoUrl}/> */}
+        {/* <input type="file" onChange={this.handleFile} name="" id=""/> */}
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="profile">
             <div className="profile-header">
               <img className="profile-img" src={window.profile_img} />
-              <input type="file" onChange={this.handleFile} name="" id="" />
+              {/* <input className="file-uploader" type="file" onChange={this.handleFile} name="" id="" /> */}
               <h1>{currentUser.username}</h1>
             </div>
           </div>
@@ -75,26 +76,28 @@ class Profile extends React.Component {
             </label>
             <label>Last name
               <input type="text" 
-                // placeholder="Last name"
+                placeholder={currentUser.last_name}
                 onChange={this.update('last_name')} 
               />
             </label>
             <label>Username
               <input type="text" 
-                value={currentUser.username} 
+                placeholder={currentUser.username} 
                 onChange={this.update('username')}
               />
             </label>
             <label>About you 
               <input type="textarea" 
-                placeholder="Write a little bit about yourself here"
+              placeholder={currentUser.about_you} 
+                // placeholder="Write a little bit about yourself here"
                 onChange={this.update('about_you')}
               />
             </label>
             <label>Location 
               <input type="text" 
-                placeholder="New York City, San Francisco, .ect"
-                onChange={this.update('Location')}
+                placeholder={currentUser.location}
+                // placeholder="New York City, San Francisco, .ect"
+                onChange={this.update('location')}
               />
             </label>
             <input className="session-submit" type="submit" value={this.props.formType} />
