@@ -6,11 +6,12 @@ import profile from './profile'
 import { receiveCurrentUser } from '../../actions/session_actions';
 
 const msp = ( state, ownProps ) => {
-  let userId = ownProps.match.params.userId
+  
   debugger
   // currentUser: state.session
   return{
     users: state.entities.users,
+    userId: ownProps.match.params.userId
   }
 };
 

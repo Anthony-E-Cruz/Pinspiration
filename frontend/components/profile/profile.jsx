@@ -5,6 +5,7 @@ class Profile extends React.Component {
   constructor(props) {
     super(props)
     // const currentUser: ownProps.match.params.username;
+    const {userId} = this.props
   }
   
   // componentDidMount() {
@@ -12,15 +13,15 @@ class Profile extends React.Component {
     // }
     
     render() {
-    const currentUser = this.props.match.params.username;
+    const userId = this.props.match.params.userId;
     return (
       <div className="profile">
         <div className="profile-header">
           <img className="profile-img" src={window.profile_img} />
-          <h1>{currentUser}</h1>
+          <h1>{userId}</h1>
         </div>
         <div className="profile-sub-header">
-          <Link className="login-btn" to={`/${currentUser}/edit`}>Edit</Link>
+          <Link className="login-btn" to={`/${userId}/edit`}>Edit</Link>
           <button className="boards-button">Boards</button>
         </div> 
         

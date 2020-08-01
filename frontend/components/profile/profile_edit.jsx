@@ -5,18 +5,20 @@ class Profile extends React.Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
+    // const userId = ownProps.match.params.userId;
+    // const { userId } = this.props;
     const { user } = this.props;
+    const currentUser = user[userId]
     debugger
-    this.state = {
-      email: user.email,
-      age: user.age,
-      email: user.email, 
-      first_name: user.first_name, 
-      last_name: user.last_name, 
-      about_you: user.about_you, 
-      location: user.location
-    };
-    // const currentUser: ownProps.match.params.username;
+    // this.state = {
+    //   email: user.userId.email,
+    //   age: user.age,
+    //   email: user.email, 
+    //   first_name: user.first_name, 
+    //   last_name: user.last_name, 
+    //   about_you: user.about_you, 
+    //   location: user.location
+    // };
   }
 
   update(field) {
@@ -34,14 +36,14 @@ class Profile extends React.Component {
 
 
   render() {
-    const currentUser = this.props.match.params.username;
-    const {checkingstate} = this.state;
+    const currentUser = this.props.match.params.userId;
+    // const {checkingstate} = this.state;
 
     debugger
     return (
-      <h1>{checkingstate.email}</h1>
-      // <div> 
-        /* <form onSubmit={this.handleSubmit} className="login-form-box">
+      // <h1>{checkingstate.email}</h1>
+      <div> 
+        <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="profile">
             <div className="profile-header">
               <img className="profile-img" src={window.profile_img} />
@@ -78,7 +80,7 @@ class Profile extends React.Component {
             <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
         </form>
-      </div> */
+      </div> 
     )
   }
 };
