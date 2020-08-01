@@ -17,7 +17,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
 
-  processForm: user => dispatch(update(user)),
+  processForm: (user, id) => dispatch(update(user, id)),
   // receiveCurrentUser: (currentUser) => dispatch(receiveCurrentUser(currentUser))
   // logout: () => dispatch(logout()),
   // openModal: modal => dispatch(openModal(modal))

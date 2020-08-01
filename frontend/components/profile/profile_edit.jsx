@@ -8,20 +8,19 @@ class Profile extends React.Component {
     // const userId = ownProps.match.params.userId;
     const { userId } = this.props;
     const { user } = this.props;
-    // const currentUser = user[userId]
-    // debugger
+    console.log(user)
+    console.log(userId)
+    const currentUser = user[userId]
+    console.log(currentUser)
     this.state = {
-      user = 
-    }
-    // this.state = {
-    //   email: currentUser.email,
-    //   age: currentUser.age,
-    //   email: currentUser.email, 
-    //   first_name: currentUser.first_name, 
-    //   last_name: currentUser.last_name, 
-    //   about_you: currentUser.about_you, 
-    //   location: currentUser.location
-    // };
+      photoUrl: currentUser.photoUrl,
+      first_name: currentUser.first_name, 
+      last_name: currentUser.last_name, 
+      username: currentUser.username,
+      about_you: currentUser.about_you, 
+      location: currentUser.location
+    };
+    console.log(this.state)
     this.handleFile = this.handleFile.bind(this);
   }
 
@@ -38,61 +37,70 @@ class Profile extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    debugger
-    this.props.processForm(user);
+    const { userId } = this.props;
+    this.props.processForm(user, userId);
   }
 
 
   render() {
-    // const currentUser = this.props.match.params.userId;
-    const {user} = this.props.user[1];
-
+    const currentUserId = this.props.match.params.userId;
+    const {user} = this.props;
+    // console.log(currentUserId);
+    // console.log(user[1]);
+    // console.log(user[currentUserId]);
+    const currentUser = user[currentUserId] ;
     // debugger
     return (
-      <div>
-        <h1>Edit Page</h1>
-        <input type="file" onChange={this.handleFile} name="" id=""/>
-      </div>
-      // <div> 
-      // <h1>{user.email}</h1>
-      //   <form onSubmit={this.handleSubmit} className="login-form-box">
-      //     <div className="profile">
-      //       <div className="profile-header">
-      //         <img className="profile-img" src={window.profile_img} />
-      //         <h1>{currentUser}</h1>
-      //       </div>
-      //     </div>
-      //     <div className="edit-profile-form">
-      //       <label>First name
-      //         <input type="text" 
-      //           placeholder="First name"
-      //           onChange={this.update('email')}
-      //         />
-      //       </label>
-      //       <label>Last name
-      //         <input type="text" 
-      //           placeholder="Last name" 
-      //         />
-      //       </label>
-      //       <label>Username
-      //         <input type="text" 
-      //           value={currentUser} 
-      //           onChange={this.update('username')}
-      //         />
-      //       </label>
-      //       <label>About you 
-      //         <textarea type="textarea" />
-      //       </label>
-      //       <label>Location 
-      //         <input type="text" 
-      //           placeholder="New York City, San Francisco, .ect"
-      //           onChange={this.update('Location')}
-      //         />
-      //       </label>
-      //       <input className="session-submit" type="submit" value={this.props.formType} />
-      //     </div>
-      //   </form>
-      // </div> 
+      // <div>
+      //   <h1>Edit Page</h1>
+      //   <h1>{currentUser.email}</h1>
+      //   <input type="file" onChange={this.handleFile} name="" id=""/>
+      // </div>
+      <div> 
+        {/* <img src={currentUser.photoUrl}/> */}
+        <form onSubmit={this.handleSubmit} className="login-form-box">
+          <div className="profile">
+            <div className="profile-header">
+              <img className="profile-img" src={window.profile_img} />
+              <input type="file" onChange={this.handleFile} name="" id="" />
+              <h1>{currentUser.username}</h1>
+            </div>
+          </div>
+          <div className="edit-profile-form">
+            <label>First name
+              <input type="text" 
+                placeholder={currentUser.first_name}
+                onChange={this.update('first_name')}
+              />
+            </label>
+            <label>Last name
+              <input type="text" 
+                // placeholder="Last name"
+                onChange={this.update('last_name')} 
+              />
+            </label>
+            <label>Username
+              <input type="text" 
+                value={currentUser.username} 
+                onChange={this.update('username')}
+              />
+            </label>
+            <label>About you 
+              <input type="textarea" 
+                placeholder="Write a little bit about yourself here"
+                onChange={this.update('about_you')}
+              />
+            </label>
+            <label>Location 
+              <input type="text" 
+                placeholder="New York City, San Francisco, .ect"
+                onChange={this.update('Location')}
+              />
+            </label>
+            <input className="session-submit" type="submit" value={this.props.formType} />
+          </div>
+        </form>
+      </div> 
     )
   }
 };

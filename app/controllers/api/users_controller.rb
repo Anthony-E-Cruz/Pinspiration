@@ -18,14 +18,11 @@ class Api::UsersController < ApplicationController
       render json: ['Your password is too short! You need 6+ characters.'], status: 401
     end 
   end
-
+  
   def update
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
     @user.update!(user_params)
-    #   render "api/users/show"
-    # else
-    #   render json: ['not updated'], status: 491
-    # end
+    render "api/users/show"
   end
 
   def user_params

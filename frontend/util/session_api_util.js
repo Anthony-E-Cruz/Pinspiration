@@ -21,13 +21,14 @@ export const logout = () => (
   })
 );
 
-export const update = (user, id) => (
-  $.ajax({
+export const update = (user, id) => {
+  debugger
+  return $.ajax({
     method: 'PATCH',
     url: `/api/users/${id}`,
     data: { user }
   })
-);
+};
 
 export const demoUser = () => (
   $.ajax({
