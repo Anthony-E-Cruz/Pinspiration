@@ -39,9 +39,9 @@ class Profile extends React.Component {
 
     debugger
     return (
-      <div> 
-        {/* <h1>{checkingstate.email}</h1> */}
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+      <h1>{checkingstate.email}</h1>
+      // <div> 
+        /* <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="profile">
             <div className="profile-header">
               <img className="profile-img" src={window.profile_img} />
@@ -78,7 +78,7 @@ class Profile extends React.Component {
             <input className="session-submit" type="submit" value={this.props.formType} />
           </div>
         </form>
-      </div>
+      </div> */
     )
   }
 };
