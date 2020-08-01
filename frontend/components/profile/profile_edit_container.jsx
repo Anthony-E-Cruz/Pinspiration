@@ -8,9 +8,9 @@ import { receiveCurrentUser } from '../../actions/session_actions';
 const msp = (state, ownProps) => {
   // let userId = ownProps.match.params.userId;
   // const user = state.entities.users[userId];
-  debugger
+  // debugger
   return {
-    // userId: ownProps.match.params.userId,
+    userId: ownProps.match.params.userId,
     user: state.entities.users
   }
 };

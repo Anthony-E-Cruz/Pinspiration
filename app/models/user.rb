@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_one_attached :profile_photo
+  has_one_attached :photo
 
   def password=(password)
     @password = password
