@@ -22,7 +22,6 @@ export const logout = () => (
 );
 
 export const update = (user, id) => {
-  debugger
   return $.ajax({
     method: 'PATCH',
     url: `/api/users/${id}`,

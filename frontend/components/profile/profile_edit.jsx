@@ -49,7 +49,6 @@ class Profile extends React.Component {
     // console.log(user[1]);
     // console.log(user[currentUserId]);
     const currentUser = user[currentUserId] ;
-    // debugger
     return (
       // <div>
       //   <h1>Edit Page</h1>
