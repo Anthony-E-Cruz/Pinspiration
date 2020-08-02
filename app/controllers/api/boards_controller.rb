@@ -16,15 +16,15 @@ class Api::BoardsController < ApplicationController
     end 
   end 
 
-  # def show
-  #   @pin = Pin.find(pin_params[:id])
-  #   render "api/pins/show"
-  # end 
-
-  def index
-    @board = Board.all
-    render "api/boards/index"
+  def show
+    @board = Board.find(board_params[:id])
+    render "api/boards/show"
   end 
+
+  # def index
+  #   @board = Board.all
+  #   render "api/boards/index"
+  # end 
 
   private
 
