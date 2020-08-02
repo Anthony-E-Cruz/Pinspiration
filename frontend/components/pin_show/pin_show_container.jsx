@@ -59,55 +59,13 @@ class Pins extends React.Component {
     // );
   }
 
-  // pinDisplay() {
-  //   const { pins } = this.props;
-  //   const allPins = Object.values(pins);
-  //   return(
-  //     <div>
-  //       <ul>
-  //         {allPins.map(pin =>
-  //           <h1>
-  //             {pin.title}
-  //           </h1>
-  //         )}
-  //       </ul>
-  //     </div>
-  //   )
-  // }
-
-  // pinCreateForm() {
-  //   const { pins } = this.props;
-  //   const allPins = Object.values(pins);
-  //   return(
-  //   <form onSubmit={this.handleSubmit.bind(this)}>
-  //     <h1>Create a Pin!</h1>
-  //     {/* <input type="file" onChange={this.handleFile.bind(this)} name="" id=""/>
-  //         <input type="text" onChange={this.handleFile.bind(this)} /> */}
-  //     <input type="text"
-  //       id="post-body"
-  //       value={this.state.title}
-  //       onChange={this.handleInput.bind(this)} />
-  //     <input type="file"
-  //       onChange={this.handleFile.bind(this)} />
-  //     <button>Submit!</button>
-  //   </form>
-  //   )
-  // }
-
-
-  render() {
-    // debugger
-    // console.log(this.props.pins);
+  pinDisplay() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-
-    console.log(allPins);
-    return (
+    return(
       <div className="pin-show">
-        {/* {pinDisplay()}
-        {pinCreateForm()} */}
-        <div className="pin-container">
-          {allPins.map(pin => 
+         <div className="pin-container">
+           {allPins.map(pin => 
           <div className="pin-conainer">
             <p>
               {pin.title }
@@ -116,7 +74,27 @@ class Pins extends React.Component {
           </div>
           )} 
         </div>
-        {/* <form onSubmit={this.handleSubmit.bind(this)}>
+      </div>
+    )
+  }
+
+  pinCreateForm() {
+    const { pins } = this.props;
+    const allPins = Object.values(pins);
+    return(
+    // <form onSubmit={this.handleSubmit.bind(this)}>
+    //   <h1>Create a Pin!</h1>
+    //   {/* <input type="file" onChange={this.handleFile.bind(this)} name="" id=""/>
+    //       <input type="text" onChange={this.handleFile.bind(this)} /> */}
+    //   <input type="text"
+    //     id="post-body"
+    //     value={this.state.title}
+    //     onChange={this.handleInput.bind(this)} />
+    //   <input type="file"
+    //     onChange={this.handleFile.bind(this)} />
+    //   <button>Submit!</button>
+    // </form>
+        <form onSubmit={this.handleSubmit.bind(this)}>
           <h1>Create a Pin!</h1>
           <input type="file" onChange={this.handleFile.bind(this)} name="" id=""/>
           <input type="text" onChange={this.handleFile.bind(this)} />
@@ -127,8 +105,49 @@ class Pins extends React.Component {
           <input type="file"
             onChange={this.handleFile.bind(this)} />
           <button>Submit!</button>
-        </form> */}
+        </form> 
+    )
+  }
+
+
+  render() {
+    // debugger
+    // console.log(this.props.pins);
+    const { pins } = this.props;
+    const allPins = Object.values(pins);
+
+    console.log(allPins);
+    return (
+      <div>
+        {this.pinDisplay()}
+        {/* {this.pinCreateForm()}  */}
       </div>
+        
+
+      // <div className="pin-show">
+      //   <div className="pin-container">
+      //     {allPins.map(pin => 
+      //     <div className="pin-conainer">
+      //       <p>
+      //         {pin.title }
+      //       </p>
+      //       <img className="pin-images" src={pin.photoUrl} />
+      //     </div>
+      //     )} 
+      //   </div>
+        /* <form onSubmit={this.handleSubmit.bind(this)}>
+          <h1>Create a Pin!</h1>
+          <input type="file" onChange={this.handleFile.bind(this)} name="" id=""/>
+          <input type="text" onChange={this.handleFile.bind(this)} />
+          <input type="text"
+            id="post-body"
+            value={this.state.title}
+            onChange={this.handleInput.bind(this)} />
+          <input type="file"
+            onChange={this.handleFile.bind(this)} />
+          <button>Submit!</button>
+        </form> */
+      // </div>
     )
   }
 };
