@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import PinShow from './pin_show'
+import React from 'react';
+// import PinShow from './pin_show'
 import { fetchPins } from '../../actions/pin_actions'
 
 class Pins extends React.Component {
@@ -9,8 +10,13 @@ class Pins extends React.Component {
     const { pins } = this.props
   }
 
+  componentDidMount() {
+    this.props.fetchPins()
+  }
+
   render() {
-    const { props } = this.props
+    debugger
+    const { pins } = this.props
     return (
       <h1>{pins.title}</h1>
     )
@@ -18,6 +24,8 @@ class Pins extends React.Component {
 };
 
 const msp = (state) => {
+  debugger
+  console.log(state.entities);
   return {
     pins: state.entities.pins
   }

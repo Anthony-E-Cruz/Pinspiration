@@ -7,14 +7,14 @@ class Api::PinsController < ApplicationController
     if @pin.save
       render "api/pins/show"
     else
-      render json: ['please add a title'], status 401
+      render json: @pin.errors.full_messages, status: 422
     end 
   end 
 
-  def show
-    @pin = Pin.find(pin_params[:id])
-    render "api/pins/show"
-  end 
+  # def show
+  #   @pin = Pin.find(pin_params[:id])
+  #   render "api/pins/show"
+  # end 
 
   def index
     @pins = Pin.all

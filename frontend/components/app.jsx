@@ -23,11 +23,15 @@ const App = () => (
     </header>
     {/* <ModalContainer /> */}
     <Switch>  
-      <AuthRoute exact path="/" component={PinIndexContainer} />
+      <AuthRoute exact path="/" component={LogInFormContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <Route exact path="/:userId" component={ProfileContainer} />
+      <Route exact path="/users/:userId" component={ProfileContainer} />
+      {/* <Route exact path="/:userId" component={ProfileContainer} /> */}
+      {/* <Route exact path="/:userId" component={PinIndexContainer} /> */}
+      <Route exact path="/users/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/:userId/edit" component={ProfileEditContainer} />
+      <Route exact path="/pins" component={PinIndexContainer} />
       <Route exact path="/:pinId" component={PinIndexContainer} />
       <Route exact path="/:pinId/edit" component={ProfileEditContainer} />
       {/* <Route path="/" component */}

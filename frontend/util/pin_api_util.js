@@ -1,12 +1,12 @@
-export const fetchpins = data => (
-  $.ajax({
+export const fetchPins = () => {
+  debugger
+  return $.ajax({
     method: 'GET',
     url: 'api/pins',
-    data
   })
-);
+};
 
-export const fetchpin = id => (
+export const fetchPin = id => (
   $.ajax({
     method: 'GET',
     url: `api/pins/${id}`,

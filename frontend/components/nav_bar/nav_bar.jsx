@@ -8,7 +8,7 @@ const navBar = ({ currentUser, logout, openModal }) => {
         <Link to="/">
           <button className="signup-btn" onClick={logout}>Logout</button> 
         </Link>
-        <Link className="login-btn" to={`/${currentUser.id}`}>Profile</Link>
+        <Link className="login-btn" to={`/users/${currentUser.id}`}>Profile</Link>
         {/* <button>
           <img className="dropdown-logo" src={window.dropdownlogo} />
         </button> */}

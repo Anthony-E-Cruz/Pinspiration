@@ -8,10 +8,10 @@ class Profile extends React.Component {
     // const userId = ownProps.match.params.userId;
     const { userId } = this.props;
     const { user } = this.props;
-    console.log(user)
-    console.log(userId)
+    // console.log(user)
+    // console.log(userId)
     const currentUser = user[userId]
-    console.log(currentUser)
+    // console.log(currentUser)
     this.state = {
       // photoUrl: currentUser.photoUrl,
       first_name: currentUser.first_name || "first name", 
@@ -20,7 +20,7 @@ class Profile extends React.Component {
       about_you: currentUser.about_you, 
       location: currentUser.location
     };
-    console.log(this.state)
+    // console.log(this.state)
     // this.handleFile = this.handleFile.bind(this);
   }
 
