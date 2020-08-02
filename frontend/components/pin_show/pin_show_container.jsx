@@ -21,6 +21,7 @@ class Pins extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchPins()
   }
 
