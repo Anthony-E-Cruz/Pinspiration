@@ -14,7 +14,7 @@ class Profile extends React.Component {
     console.log(currentUser)
     this.state = {
       // photoUrl: currentUser.photoUrl,
-      first_name: currentUser.first_name, 
+      first_name: (currentUser.first_name || "first name"), 
       last_name: currentUser.last_name, 
       username: currentUser.username,
       about_you: currentUser.about_you, 
