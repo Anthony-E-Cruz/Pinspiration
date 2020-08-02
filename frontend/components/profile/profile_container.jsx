@@ -6,8 +6,6 @@ import profile from './profile'
 import { receiveCurrentUser } from '../../actions/session_actions';
 
 const msp = ( state, ownProps ) => {
-  
-  debugger
   // currentUser: state.session
   return{
     users: state.entities.users,
