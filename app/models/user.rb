@@ -7,12 +7,12 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token!
 
-  has_many :pins
-    foreign_key: :board_id
+  has_many :pins,
+    foreign_key: :user_id,
     class_name: :Pin
 
-  has_many :boards
-    foreign_key: :creator_id
+  has_many :boards,
+    foreign_key: :creator_id,
     class_name: :Pin
 
   attr_reader :password
