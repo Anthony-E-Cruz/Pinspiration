@@ -8,7 +8,8 @@ import ModalContainer from './modal/modal_container';
 import ProfileContainer from './profile/profile_container';
 import ProfileEditContainer from './profile/profile_edit_container';
 import PinIndexContainer from './pin_show/pin_show_container'
-
+import PinCreateContainer from './pin_show/pin_create_container'
+ 
 
 const App = () => (
   <div className="outter-div">
@@ -32,6 +33,7 @@ const App = () => (
       <Route exact path="/users/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/pins" component={PinIndexContainer} />
+      <Route exact path="/pins/new" component={PinCreateContainer} />
       <Route exact path="/:pinId" component={PinIndexContainer} />
       <Route exact path="/:pinId/edit" component={ProfileEditContainer} />
       {/* <Route path="/" component */}

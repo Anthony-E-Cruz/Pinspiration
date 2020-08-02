@@ -103,20 +103,23 @@ class Pins extends React.Component {
 
     console.log(allPins);
     return (
-      <div>
+      <div className="pin-show">
         {/* {pinDisplay()}
         {pinCreateForm()} */}
-        <ul>
+        <div className="pin-container">
           {allPins.map(pin => 
-            <h1>
+          <div className="pin-conainer">
+            <p>
               {pin.title }
-            </h1>
+            </p>
+            <img className="pin-images" src={pin.photoUrl} />
+          </div>
           )} 
-        </ul>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        </div>
+        {/* <form onSubmit={this.handleSubmit.bind(this)}>
           <h1>Create a Pin!</h1>
-          {/* <input type="file" onChange={this.handleFile.bind(this)} name="" id=""/> */}
-          {/* <input type="text" onChange={this.handleFile.bind(this)} /> */}
+          <input type="file" onChange={this.handleFile.bind(this)} name="" id=""/>
+          <input type="text" onChange={this.handleFile.bind(this)} />
           <input type="text"
             id="post-body"
             value={this.state.title}
@@ -124,7 +127,7 @@ class Pins extends React.Component {
           <input type="file"
             onChange={this.handleFile.bind(this)} />
           <button>Submit!</button>
-        </form>
+        </form> */}
       </div>
     )
   }
