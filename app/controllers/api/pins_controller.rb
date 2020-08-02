@@ -3,11 +3,13 @@ class Api::PinsController < ApplicationController
   def create
     @pin = Pin.new(pin_params)
     @pin.user_id = params[:user_id]
-    debugger
+    # debugger
 
     if @pin.save
+      # render json: {message: "you did it!"}
       render "api/pins/show"
     else
+      # debugger
       render json: @pin.errors.full_messages, status: 422
     end 
   end 

@@ -1,1 +1,1 @@
-json.extract! pin, :id, :title, :description 
+json.extract! pin, :id, :title, :description, :photo 
