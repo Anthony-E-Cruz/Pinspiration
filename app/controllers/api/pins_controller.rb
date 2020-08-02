@@ -2,7 +2,7 @@ class Api::PinsController < ApplicationController
   require 'byebug'
   def create
     @pin = Pin.new(pin_params)
-    debugger
+    # debugger
     # @pin.user_id = params[:user_id]
 
     if @pin.save

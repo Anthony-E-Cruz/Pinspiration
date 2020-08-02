@@ -65,7 +65,7 @@ class CreatePin extends React.Component {
           {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
             <div {...getRootProps()} className="heightUpload txt-light">
               <input {...getInputProps()} className="txt-light" />
-              {!isDragActive && "Drag and drop a image"}
+              {!isDragActive && "Drag and drop or click to upload"}
               {isDragActive && !isDragReject && "Drop Me!"}
               {isDragReject && "File type must be a image"}
             </div>
@@ -103,7 +103,7 @@ class CreatePin extends React.Component {
 
     // console.log(allPins);
     return (
-      <div>
+      <div className="create-pin-form">
         <form className="create-pin-form" onSubmit={this.handleSubmit.bind(this)}>
           <div className="create-pin-form">
             <h1>Create a Pin!</h1>
