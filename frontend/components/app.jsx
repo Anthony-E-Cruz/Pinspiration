@@ -14,10 +14,10 @@ const App = () => (
   <div className="outter-div">
     <header className="header">
       <Link to="/" className="header-link">
-      <div className="logo_and_title">
-        <img className="logo" src={window.logo} />
-        <h1 className="logo-title" >Pinspiration</h1>
-      </div>
+        <div className="logo_and_title">
+          <img className="logo" src={window.logo} />
+          <h1 className="logo-title" >Pinspiration</h1>
+        </div>
       </Link>
       <NavBar />
     </header>

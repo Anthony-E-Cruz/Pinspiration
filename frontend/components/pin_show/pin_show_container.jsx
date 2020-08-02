@@ -14,15 +14,37 @@ class Pins extends React.Component {
     this.props.fetchPins()
   }
 
+  handleFile(e) {
+    this.setState({photoUrl: e.currentTarget.files[0]})
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const formData = new formData();
+    formData.append('pin[title]', this.state.title);
+    formData.append('pin[photo]', this.state.photoFile);
+    $.ajax({
+      URL: 'api/pins',
+      method: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false
+    }).then((response) => console.log(response))
+  }
+
+
   render() {
     // debugger
     const { pins } = this.props;
     const allPins = Object.values(pins);
     console.log(allPins);
     return (
-      <ul>
-        <li>{allPins.map(pin => pin.title )}</li>  
-      </ul>
+      <div>
+        <input type="file" onChange={this.handleFile} name="" id=""/>
+        <ul>
+          <li>{allPins.map(pin => pin.title )}</li>  
+        </ul>
+      </div>
     )
   }
 };

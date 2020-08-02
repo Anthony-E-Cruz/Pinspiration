@@ -39,7 +39,6 @@ class Profile extends React.Component {
     const user = Object.assign({}, this.state);
     const { userId } = this.props;
     this.props.processForm(user, userId);
-    
   }
 
   render() {

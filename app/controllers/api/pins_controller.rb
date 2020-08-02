@@ -1,8 +1,9 @@
 class Api::PinsController < ApplicationController
-
+  require 'byebug'
   def create
     @pin = Pin.new(pin_params)
     @pin.user_id = params[:user_id]
+    debugger
 
     if @pin.save
       render "api/pins/show"
@@ -24,7 +25,7 @@ class Api::PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :description)
+    params.require(:pin).permit(:title, :description, :photo)
   end 
 
 end
