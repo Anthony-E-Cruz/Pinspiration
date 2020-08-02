@@ -7,6 +7,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import ModalContainer from './modal/modal_container';
 import ProfileContainer from './profile/profile_container';
 import ProfileEditContainer from './profile/profile_edit_container';
+import PinIndexContainer from './pin_show/pin_show_container'
 
 
 const App = () => (
@@ -22,11 +23,13 @@ const App = () => (
     </header>
     {/* <ModalContainer /> */}
     <Switch>  
-      <AuthRoute exact path="/" component={LogInFormContainer} />
+      <AuthRoute exact path="/" component={PinIndexContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <Route exact path="/:userId" component={ProfileContainer} />
       <Route exact path="/:userId/edit" component={ProfileEditContainer} />
+      <Route exact path="/:pinId" component={PinIndexContainer} />
+      <Route exact path="/:pinId/edit" component={ProfileEditContainer} />
       {/* <Route path="/" component */}
     </Switch>
   </div>
