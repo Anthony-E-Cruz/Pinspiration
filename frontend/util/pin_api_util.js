@@ -1,5 +1,5 @@
 export const fetchPins = () => {
-  debugger
+  // debugger
   return $.ajax({
     method: 'GET',
     url: 'api/pins',

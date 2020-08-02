@@ -15,17 +15,21 @@ class Pins extends React.Component {
   }
 
   render() {
-    debugger
-    const { pins } = this.props
+    // debugger
+    const { pins } = this.props;
+    const allPins = Object.values(pins);
+    console.log(allPins);
     return (
-      <h1>{pins.title}</h1>
+      <ul>
+        <li>{allPins.map(pin => pin.title )}</li>  
+      </ul>
     )
   }
 };
 
 const msp = (state) => {
-  debugger
-  console.log(state.entities);
+  // debugger
+  // console.log(state.entities.pins);
   return {
     pins: state.entities.pins
   }
