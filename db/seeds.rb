@@ -18,8 +18,13 @@
 #   location: "NYC",
 # )
 
-demoPin = Pin.create!(
-  title: "Demo Pin",
-  description: "testing demo pin data",
-  user_id: "1",
-)
+# demoPin = Pin.create!(
+#   title: "Demo Pin",
+#   description: "testing demo pin data",
+#   user_id: "1",
+# )
+
+# demoBoard = Board.create!(
+#   title: "Demo Board",
+#   creator_id: "1",
+# )

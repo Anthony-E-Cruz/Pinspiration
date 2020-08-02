@@ -12,20 +12,27 @@ class CreateBoard extends React.Component {
     console.log(currentUserId)
     this.state = {
       title: "",
-      description: "",
       user_id: currentUserId
     };
   }
 
   componentDidMount() {
-    
+    console.log(this.props)
+    this.props.fetchBoards();
   }
 
   render() {
-    return null
     const { boards } = this.props;
-    const allBoards = Object.values(pins);
+    const allBoards = Object.values(boards);
+    console.log(allBoards)
 
+    return (
+      <div>
+        {allBoards.map(board => (
+          board.title  
+        ))}
+      </div>
+    );
     // console.log(allPins);
     // return ( null
       // <div className="create-pin-form">

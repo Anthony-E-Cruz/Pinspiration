@@ -132,7 +132,6 @@ class CreatePin extends React.Component {
 };
 
 // const msp = (state) => {
-//   // debugger
 //   // console.log(state.entities.pins);
 //   return {
 //     pins: state.entities.pins,

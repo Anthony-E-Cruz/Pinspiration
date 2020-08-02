@@ -97,7 +97,6 @@ import CreatePin from'./pin_create'
 // };
 
 const msp = (state) => {
-  // debugger
   // console.log(state.entities.pins);
   return {
     pins: state.entities.pins,

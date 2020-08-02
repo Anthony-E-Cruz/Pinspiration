@@ -2,14 +2,12 @@ class Api::PinsController < ApplicationController
   require 'byebug'
   def create
     @pin = Pin.new(pin_params)
-    # debugger
     # @pin.user_id = params[:user_id]
 
     if @pin.save
       # render json: {message: "you did it!"}
       render "api/pins/show"
     else
-      # debugger
       render json: @pin.errors.full_messages, status: 422
     end 
   end 

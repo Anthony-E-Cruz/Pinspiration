@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   has_many :boards,
     foreign_key: :creator_id,
-    class_name: :Pin
+    class_name: :Board
 
   attr_reader :password
 

@@ -21,7 +21,6 @@ class Pins extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchPins()
   }
 
@@ -112,8 +111,6 @@ class Pins extends React.Component {
 
 
   render() {
-    // debugger
-    // console.log(this.props.pins);
     const { pins } = this.props;
     const allPins = Object.values(pins);
 
@@ -154,8 +151,6 @@ class Pins extends React.Component {
 };
 
 const msp = (state) => {
-  // debugger
-  // console.log(state.entities.pins);
   return {
     pins: state.entities.pins,
     currentUserId: state.session.id
