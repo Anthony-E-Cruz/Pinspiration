@@ -3,24 +3,24 @@ import * as boardsAPIUtil from '../util/board_api_util';
 export const RECEIVE_BOARDS = 'RECEIVE_BOARDS';
 export const RECEIVE_BOARD = 'RECEIVE_BOARD';
 
-export const receiveboards = boards => ({
+export const receiveBoards = boards => ({
   type: RECEIVE_BOARDS,
   boards,
 });
 
-export const receiveboard = board => ({
+export const receiveBoard = board => ({
   type: RECEIVE_BOARD,
   board,
 });
 
-export const fetchboards = () => dispatch => (
-  boardsAPIUtil.fetchboards().then(boards => (
-    dispatch(receiveboards(boards))
+export const fetchBoards = () => dispatch => (
+  boardsAPIUtil.fetchBoards().then(boards => (
+    dispatch(receiveBoards(boards))
   ))
 );
 
-export const createboard = board => dispatch => (
-  boardsAPIUtil.createboard(board).then(board => (
-    dispatch(receiveboard(board))
+export const createBoard = board => dispatch => (
+  boardsAPIUtil.createBoard(board).then(board => (
+    dispatch(receiveBoard(board))
   ))
 );

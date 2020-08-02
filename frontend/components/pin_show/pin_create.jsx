@@ -15,7 +15,6 @@ class CreatePin extends React.Component {
       title: "",
       description: "",
       photoFile: null,
-      // photoUrl: null,
       photo: null,
       user_id: currentUserId
       // board_id: ""

@@ -29,7 +29,7 @@ class Profile extends React.Component {
         <div className="profile-sub-header">
           <Link className="login-btn" to={`/${userId}/edit`}>Edit</Link>
           <Link className="login-btn" to={`/pins/new`}>Create Pin</Link>
-          <button className="boards-button">Boards</button>
+          <Link className="login-btn" to={`/boards/new`}>Boards</Link>
         </div> 
         <PinShowContainer />
       </div>
