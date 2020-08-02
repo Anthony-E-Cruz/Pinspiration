@@ -2,8 +2,8 @@ class Api::PinsController < ApplicationController
   require 'byebug'
   def create
     @pin = Pin.new(pin_params)
-    @pin.user_id = params[:user_id]
-    # debugger
+    debugger
+    # @pin.user_id = params[:user_id]
 
     if @pin.save
       # render json: {message: "you did it!"}
@@ -27,7 +27,7 @@ class Api::PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :description, :photo)
+    params.require(:pin).permit(:title, :description, :photo, :user_id)
   end 
 
 end

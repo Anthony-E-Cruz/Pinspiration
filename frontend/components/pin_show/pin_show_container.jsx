@@ -8,11 +8,15 @@ class Pins extends React.Component {
     super(props)
     // const currentUser: ownProps.match.params.username;
     const { pins } = this.props
+    const {currentUserId} = this.props
+    console.log(currentUserId)
     this.state = {
       title: "",
       description: "",
       photoFile: null,
-      photo: null
+      photo: null,
+      user_id: currentUserId
+      // board_id: ""
     };
   }
 
@@ -42,6 +46,7 @@ class Pins extends React.Component {
     console.log(this.state)
     formData.append('pin[title]', this.state.title);
     formData.append('pin[photo]', this.state.photoFile);
+    formData.append('pin[user_id]', this.state.user_id);
     $.ajax({
       url: 'api/pins',
       method: 'POST',
@@ -54,22 +59,64 @@ class Pins extends React.Component {
     // );
   }
 
+  // pinDisplay() {
+  //   const { pins } = this.props;
+  //   const allPins = Object.values(pins);
+  //   return(
+  //     <div>
+  //       <ul>
+  //         {allPins.map(pin =>
+  //           <h1>
+  //             {pin.title}
+  //           </h1>
+  //         )}
+  //       </ul>
+  //     </div>
+  //   )
+  // }
+
+  // pinCreateForm() {
+  //   const { pins } = this.props;
+  //   const allPins = Object.values(pins);
+  //   return(
+  //   <form onSubmit={this.handleSubmit.bind(this)}>
+  //     <h1>Create a Pin!</h1>
+  //     {/* <input type="file" onChange={this.handleFile.bind(this)} name="" id=""/>
+  //         <input type="text" onChange={this.handleFile.bind(this)} /> */}
+  //     <input type="text"
+  //       id="post-body"
+  //       value={this.state.title}
+  //       onChange={this.handleInput.bind(this)} />
+  //     <input type="file"
+  //       onChange={this.handleFile.bind(this)} />
+  //     <button>Submit!</button>
+  //   </form>
+  //   )
+  // }
+
 
   render() {
     // debugger
     // console.log(this.props.pins);
     const { pins } = this.props;
     const allPins = Object.values(pins);
-    // console.log(allPins);
+
+    console.log(allPins);
     return (
       <div>
+        {/* {pinDisplay()}
+        {pinCreateForm()} */}
         <ul>
-          <li>{allPins.map(pin => pin.title )}</li>  
+          {allPins.map(pin => 
+            <h1>
+              {pin.title }
+            </h1>
+          )} 
         </ul>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <h1>Body of Pin</h1>
-          {/* <input type="file" onChange={this.handleFile.bind(this)} name="" id=""/>
-          <input type="text" onChange={this.handleFile.bind(this)} /> */}
+          <h1>Create a Pin!</h1>
+          {/* <input type="file" onChange={this.handleFile.bind(this)} name="" id=""/> */}
+          {/* <input type="text" onChange={this.handleFile.bind(this)} /> */}
           <input type="text"
             id="post-body"
             value={this.state.title}
@@ -87,7 +134,8 @@ const msp = (state) => {
   // debugger
   // console.log(state.entities.pins);
   return {
-    pins: state.entities.pins
+    pins: state.entities.pins,
+    currentUserId: state.session.id
   }
 }
 
