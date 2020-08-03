@@ -76,10 +76,10 @@ class CreatePin extends React.Component {
           {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
             <div {...getRootProps()} className="heightUpload txt-light">
               <input {...getInputProps()} className="txt-light" />
-              {/* {!isDragActive && "Drag and drop or click to upload"} */}
+              {!isDragActive && "Drag and drop or click to upload"}
               {!isDragActive && ""}
-              {isDragActive && !isDragReject && "Drop Me!"}
-              {isDragReject && "File type must be a image"}
+              {isDragActive && !isDragReject && "Drop To Preview!"}
+              {isDragReject && "Invalid File"}
             </div>
           )}
         </DropZone>
@@ -113,6 +113,26 @@ class CreatePin extends React.Component {
     }
   }
 
+  boardsDropdown() {
+    const { currentUserId } = this.props;
+    const { currentUser } = this.props;
+    const boardObjects = currentUser[currentUserId].boards;
+    const boards1 = Object.values(boardObjects);
+    const boards = (boards1.map((el) => el.title));
+    return (
+      <div>
+        {
+          boards1.map(el => {
+            <div>
+              <li key={el.id}>{el.title}</li>
+              <li key={el.id}>{el.id}</li>
+            </div>
+          })
+        }
+      </div>
+    );
+  }
+
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
@@ -120,14 +140,15 @@ class CreatePin extends React.Component {
     const { currentUser } = this.props;
     const boardObjects = currentUser[currentUserId].boards;
     const boards1 = Object.values(boardObjects);
+    // console.log(boards1.map((el) => el.title));
     return (
       <div>
         {/* <h1>{boards1.map(el => (el.title))}</h1> */}
-        <div className="photo-preview">{this.photoPreview()}</div>
+        {/* <div className="photo-preview">{this.photoPreview()}</div> */}
         <div className="create-pin-form">
           {this.dropZone()}
           <form
-            className="create-pin-form"
+            className="pin-form-container"
             onSubmit={this.handleSubmit.bind(this)}
           >
             <div className="pin-form">
@@ -141,7 +162,7 @@ class CreatePin extends React.Component {
                   // onChange={this.handleInput.bind(this)}
                   onChange={this.update("title")}
                 />
-              </label >
+              </label>
               <label className="pin-details">
                 Description
                 <input
@@ -164,7 +185,12 @@ class CreatePin extends React.Component {
               </label>
               <button>Submit!</button>
             </div>
+            <div className="photo-preview">
+              {/* <p>Preview Image</p> */}
+              <div>{this.photoPreview()}</div>
+            </div>
           </form>
+          {this.boardsDropdown()}
         </div>
       </div>
     );

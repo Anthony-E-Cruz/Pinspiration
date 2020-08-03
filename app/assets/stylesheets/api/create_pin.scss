@@ -21,20 +21,27 @@
 }
 
 .photo-preview {
-  position: absolute;
-  left: 50px;
+  margin-left: 10px;
+  width: 250px;
 }
+
+// .pin-form-container {
+//   top: 100px;
+// }
 
 .boxy {
   margin: 20px;
   width: 345px;
   height: 455px;
   // background-image: url("https://i.imgur.com/TUOQo0E.png");
-  background-image: url("https://i.imgur.com/lMbmv9k.png");
+  background-image: url("https://i.imgur.com/elPWvzM.png");
 }
 
 .heightUpload {
-  padding-top: 40px;
-  height: 420px;
-  border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    height: 420px;
+    border-radius: 3px;
 }
