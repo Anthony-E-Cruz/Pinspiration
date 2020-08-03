@@ -24,7 +24,7 @@ class ShowBoard extends React.Component {
     const allBoards = Object.values(boards);
 
     return (
-      <div>
+      <div className="boards" >
         {allBoards.map(board => (
           board.title
         ))}
