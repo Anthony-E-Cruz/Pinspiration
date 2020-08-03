@@ -25,8 +25,8 @@ class ShowBoard extends React.Component {
 
     return (
       <div className="boards">
-        {allBoards.map((board) => (
-          <div className="board-container">
+        {allBoards.map((board, idx) => (
+          <div key={idx} className="board-container">
             <div className="board"></div>
             <p className="board-title">{board.title}</p>
           </div>
