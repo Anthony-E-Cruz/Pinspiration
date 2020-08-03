@@ -10,7 +10,10 @@ class CreatePin extends React.Component {
     // const currentUser: ownProps.match.params.username;
     const { pins } = this.props
     const { currentUserId } = this.props
-    
+    const { currentUser } = this.props;
+    const boards = currentUser[currentUserId].boards;
+    console.log(boards);
+
     this.state = {
       title: "",
       description: "",
@@ -115,9 +118,14 @@ class CreatePin extends React.Component {
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-
+    const { currentUserId } = this.props;
+    const { currentUser } = this.props;
+    const boardObjects = currentUser[currentUserId].boards;
+    const boards1 = Object.values(boardObjects);
+    console.log(boards1);
     return (
       <div>
+        {/* <h1>{boards1.map(el => (el.title))}</h1> */}
         <div className="photo-preview">{this.photoPreview()}</div>
         <div className="create-pin-form">
           {this.dropZone()}

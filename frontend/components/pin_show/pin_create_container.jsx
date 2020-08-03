@@ -6,7 +6,8 @@ const msp = (state) => {
   // console.log(state.entities.pins);
   return {
     pins: state.entities.pins,
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    currentUser: state.entities.users
   }
 }
 
