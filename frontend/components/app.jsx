@@ -5,7 +5,8 @@ import { Link, Switch, Route } from 'react-router-dom';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import ModalContainer from './modal/modal_container';
-import ProfileContainer from './profile/profile_container';
+import ProfilePinsContainer from "./profile/profile_container";
+import ProfileBoardsContainer from "./profile/profile_board_container";
 import ProfileEditContainer from './profile/profile_edit_container';
 import PinIndexContainer from './pin_show/pin_show_container'
 import PinCreateContainer from './pin_show/pin_create_container'
@@ -31,7 +32,8 @@ const App = () => (
       <Route exact path="/home" component={PinIndexContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <Route exact path="/users/:userId" component={ProfileContainer} />
+      <Route exact path="/users/:userId/pins" component={ProfilePinsContainer} />
+      <Route exact path="/users/:userId/boards" component={ProfileBoardsContainer} />
       {/* <Route exact path="/:userId" component={ProfileContainer} /> */}
       {/* <Route exact path="/:userId" component={PinIndexContainer} /> */}
       <Route exact path="/users/:userId/edit" component={ProfileEditContainer} />

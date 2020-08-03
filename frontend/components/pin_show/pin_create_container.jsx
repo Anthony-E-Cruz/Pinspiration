@@ -12,6 +12,7 @@ const msp = (state) => {
 
 const mdp = dispatch => ({
   fetchPins: () => dispatch(fetchPins())
+  // fetchBoards: () => 
 })
 
 export default connect(msp, mdp)(CreatePin)

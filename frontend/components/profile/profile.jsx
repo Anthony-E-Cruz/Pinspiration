@@ -30,6 +30,12 @@ class Profile extends React.Component {
         <div className="profile-sub-header">
           <Link className="login-btn" to={`/${userId}/edit`}>Edit Profile</Link>
           <Link className="login-btn" to={`/pins/new`}>Create Pin</Link>
+          <Link className="login-btn" to={`/users/${userId}/boards`}>
+              Boards
+            </Link>
+            <Link className="login-btn" to={`/users/${userId}/pins`}>
+              Pins
+            </Link>
           <Link className="login-btn" to={`/boards/index`}>View Boards</Link>
           <Link className="login-btn" to={`/boards/new`}>Create a Board</Link>
         </div>

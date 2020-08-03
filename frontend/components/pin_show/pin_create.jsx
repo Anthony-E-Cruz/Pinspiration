@@ -18,6 +18,7 @@ class CreatePin extends React.Component {
       photo: null,
       user_id: currentUserId,
       photoUrl: null,
+      board_id: ""
       // board_id: ""
     };
     
@@ -26,6 +27,7 @@ class CreatePin extends React.Component {
 
   componentDidMount() {
     this.props.fetchPins()
+
   }
 
   handleInput(e) {
@@ -90,6 +92,7 @@ class CreatePin extends React.Component {
     formData.append('pin[title]', this.state.title);
     formData.append('pin[user_id]', this.state.user_id);
     formData.append('pin[description]', this.state.description);
+    formData.append("pin[board_id]", this.state.board_id);
     if (this.state.photoFile) {
       formData.append('pin[photo]', this.state.photoFile);
     };
@@ -142,6 +145,16 @@ class CreatePin extends React.Component {
                   value={this.state.description}
                   // onChange={this.handleInput.bind(this)}
                   onChange={this.update("description")}
+                />
+              </label>
+              <label className="pin-details">
+                Board
+                <input
+                  type="text"
+                  id="post-body"
+                  value={this.state.board_id}
+                  // onChange={this.handleInput.bind(this)}
+                  onChange={this.update("board_id")}
                 />
               </label>
               <button>Submit!</button>
