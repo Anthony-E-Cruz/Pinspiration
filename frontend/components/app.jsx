@@ -8,8 +8,9 @@ import ModalContainer from './modal/modal_container';
 import ProfilePinsContainer from "./profile/profile_container";
 import ProfileBoardsContainer from "./profile/profile_board_container";
 import ProfileEditContainer from './profile/profile_edit_container';
-import PinIndexContainer from './pin_show/pin_show_container'
+import PinIndexContainer from './pin_show/pin_index_container'
 import PinCreateContainer from './pin_show/pin_create_container'
+import PinShowContainer from './pin_show/pin_show_container'
 import BoardShowContainer from './board/board_show_container'
 import BoardCreateContainer from './board/board_create_container'
  
@@ -39,6 +40,7 @@ const App = () => (
       <Route exact path="/users/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/pins" component={PinIndexContainer} />
+      <Route exact path="/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/pins/new" component={PinCreateContainer} />
       <Route exact path="/boards/index" component={BoardShowContainer} />
       {/* <Route exact path="/boards/:boardId" component={BoardShowContainer} /> */}

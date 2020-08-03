@@ -120,7 +120,7 @@ class CreatePin extends React.Component {
     const boards1 = Object.values(boardObjects);
     const boards = (boards1.map((el) => el.title));
     return (
-      <div>
+      <div>-
         {
           boards1.map(el => {
             <div>

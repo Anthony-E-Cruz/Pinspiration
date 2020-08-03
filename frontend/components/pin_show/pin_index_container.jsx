@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import React from "react";
 // import PinShow from './pin_show'
+import { Link } from "react-router-dom";
 import { fetchPins } from "../../actions/pin_actions";
 
 class Pins extends React.Component {
@@ -56,13 +57,17 @@ class Pins extends React.Component {
   pinDisplay() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
+    allPins.map(pin => console.log)
+    console.log(allPins);
     return (
       <div className="pin-show">
         <div className="pin-container">
           {allPins.map((pin, idx) => (
             <div key={idx} className="pins">
-              <img className="pin-images" src={pin.photoUrl} />
-              {/* <p>{pin.title}</p> */}
+              <Link to={`./pins/${idx}`}>
+                <img className="pin-images" src={pin.photoUrl} />
+                <p>{pin.title}</p>
+              </Link>
             </div>
           ))}
         </div>
@@ -101,7 +106,6 @@ class Pins extends React.Component {
 
     return (
       <div>
-        <h1>THIS IS PIN SHOWWWWW</h1>
         {this.pinDisplay()}
         {/* {this.pinCreateForm()}  */}
       </div>
@@ -117,7 +121,7 @@ const msp = (state) => {
 };
 
 const mdp = (dispatch) => ({
-  fetchPins: (dta) => dispatch(fetchPins()),
+  fetchPins: () => dispatch(fetchPins()),
 });
 
 export default connect(msp, mdp)(Pins);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PinIndexContainer from '../pin_show/pin_show_container'
+import PinIndexContainer from '../pin_show/pin_index_container'
 
 class Profile extends React.Component {
   constructor(props) {
