@@ -7,24 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# demoUser = User.create!(
-#   email: "demouser@gmail.com",
-#   password: "hunter12",
-#   username: "Demo User",
-#   age: "27",
-#   first_name: "Demo",
-#   last_name: "User",
-#   about_you: "Demo login user",
-#   location: "NYC",
-# )
+demoUser = User.create!(
+  email: "demouser@gmail.com",
+  password: "hunter12",
+  username: "Demo User",
+  age: "27",
+  first_name: "Demo",
+  last_name: "User",
+  about_you: "Demo login user",
+  location: "NYC",
+)
 
-# demoPin = Pin.create!(
-#   title: "Demo Pin",
-#   description: "testing demo pin data",
-#   user_id: "1",
-# )
+demoPin = Pin.create!(
+  title: "Demo Pin",
+  description: "testing demo pin data",
+  user_id: "1",
+)
 
-# demoBoard = Board.create!(
-#   title: "Demo Board",
-#   creator_id: "1",
-# )
+demoBoard = Board.create!(
+  title: "Demo Board",
+  creator_id: "1",
+)
