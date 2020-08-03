@@ -1,6 +1,5 @@
 class Api::BoardsController < ApplicationController
 
-  require 'byebug'
   def create
     @board = Board.new(board_params)
     # @pin.user_id = params[:user_id]

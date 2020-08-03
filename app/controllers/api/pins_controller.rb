@@ -1,5 +1,5 @@
 class Api::PinsController < ApplicationController
-  require 'byebug'
+
   def create
     @pin = Pin.new(pin_params)
     # @pin.user_id = params[:user_id]

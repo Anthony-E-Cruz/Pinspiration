@@ -18,7 +18,7 @@ class Api::UsersController < ApplicationController
       render json: ['Your password is too short! You need 6+ characters.'], status: 401
     end 
   end
-  # require 'byebug'
+
   def update
     @user = User.find(params[:id])
     testing_user = @user.update!(user_params)
