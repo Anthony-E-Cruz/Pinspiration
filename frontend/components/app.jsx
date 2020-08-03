@@ -38,7 +38,7 @@ const App = () => (
       <Route exact path="/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/pins" component={PinIndexContainer} />
       <Route exact path="/pins/new" component={PinCreateContainer} />
-      {/* <Route exact path="/boards" component={BoardIndexContainer} /> */}
+      <Route exact path="/boards/index" component={BoardShowContainer} />
       {/* <Route exact path="/boards/:boardId" component={BoardShowContainer} /> */}
       <Route exact path="/boards/new" component={BoardCreateContainer} />
       <Route exact path="/:pinId" component={PinIndexContainer} />

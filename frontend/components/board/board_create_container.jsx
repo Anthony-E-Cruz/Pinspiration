@@ -1,40 +1,52 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import DropZone from 'react-dropzone';
-import { fetchBoards } from '../../actions/board_actions'
+import { fetchBoards, createBoard } from '../../actions/board_actions'
 
 class CreateBoard extends React.Component {
   constructor(props) {
     super(props)
-    // const currentUser: ownProps.match.params.username;
     const { boards } = this.props
     const { currentUserId } = this.props
     this.state = {
       title: "",
-      user_id: currentUserId
+      creator_id: `${currentUserId}`
     };
   }
 
-  // componentDidMount() {
-  //   this.props.fetchBoards();
-  // }
+  handleSubmit(e) {
+    e.preventDefault();
+    const board = Object.assign({}, this.state);
+    console.log(board);
+    const { currentUserId } = this.props;
+    this.props.processForm(board);
+  }
+
+  handleInput(e) {
+    this.setState({ title: e.currentTarget.value });
+  }
 
   render() {
-    const { boards } = this.props;
-    const allBoards = Object.values(boards);
-
     return (
-      <div>
-        {allBoards.map(board => (
-          board.title  
-        ))}
+      <div className="create-pin-form">
+        <form className="create-pin-form" onSubmit={this.handleSubmit.bind(this)}>
+          <div className="create-pin-form">
+            <h1>Create a Pin!</h1>
+            <label>Title
+              <input type="text"
+                id="post-body"
+                value={this.state.title}
+                onChange={this.handleInput.bind(this)} />
+            </label>
+            <button>Submit!</button>
+          </div>
+        </form>
       </div>
     );
   }
 };
 
 const msp = (state) => {
-  console.log(state.entities);
   return {
     boards: state.entities.boards,
     currentUserId: state.session.id
@@ -42,7 +54,7 @@ const msp = (state) => {
 }
 
 const mdp = dispatch => ({
-  fetchBoards: () => dispatch(fetchBoards())
+  processForm: (board) => dispatch(createBoard(board))
 })
 
 export default connect(msp, mdp)(CreateBoard);

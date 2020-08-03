@@ -13,10 +13,11 @@ export const fetchBoard = id => (
   })
 );
 
-export const createBoard = boardForm => (
-  $.ajax({
+export const createBoard = (boardForm) => {
+  debugger
+  return $.ajax({
     method: 'POST',
     url: 'api/boards',
-    data: boardForm,
-  })
-);
+    data: {board: boardForm},
+  }) 
+};
