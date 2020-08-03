@@ -16,7 +16,8 @@ class CreatePin extends React.Component {
       description: "",
       photoFile: null,
       photo: null,
-      user_id: currentUserId
+      user_id: currentUserId,
+      photoUrl: null,
       // board_id: ""
     };
     
@@ -52,7 +53,7 @@ class CreatePin extends React.Component {
     const file = acceptedFiles[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({ photoFile: file });
+      this.setState({ photoFile: file, photoUrl: fileReader.result });
     };
     if (file) {
       fileReader.readAsDataURL(file);
@@ -100,37 +101,52 @@ class CreatePin extends React.Component {
     })
   }
 
+  photoPreview() {
+    const url = this.state.photoUrl;
+    if (this.state.photoUrl) {
+      return <img className="photo-preview" src={url} />;
+    }
+  }
+
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
 
     return (
       <div className="create-pin-form">
-        <form className="create-pin-form" onSubmit={this.handleSubmit.bind(this)}>
+        <form
+          className="create-pin-form"
+          onSubmit={this.handleSubmit.bind(this)}
+        >
           <div className="create-pin-form">
             <h1>Create a Pin!</h1>
-            <label>Title
-              <input type="text"
+            <label>
+              Title
+              <input
+                type="text"
                 id="post-body"
                 value={this.state.title}
-                // onChange={this.handleInput.bind(this)} 
-                onChange={this.update('title')}
-                />
+                // onChange={this.handleInput.bind(this)}
+                onChange={this.update("title")}
+              />
             </label>
-            <label>Description
-              <input type="text"
+            <label>
+              Description
+              <input
+                type="text"
                 id="post-body"
                 value={this.state.description}
-                // onChange={this.handleInput.bind(this)} 
-                onChange={this.update('description')}
-                />
+                // onChange={this.handleInput.bind(this)}
+                onChange={this.update("description")}
+              />
             </label>
             <button>Submit!</button>
           </div>
         </form>
         {this.dropZone()}
+        <div className="photo-preview">{this.photoPreview()}</div>
       </div>
-    )
+    );
   }
 };
 
