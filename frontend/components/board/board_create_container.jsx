@@ -31,7 +31,7 @@ class CreateBoard extends React.Component {
       <div className="create-pin-form">
         <form className="create-pin-form" onSubmit={this.handleSubmit.bind(this)}>
           <div className="create-pin-form">
-            <h1>Create a Pin!</h1>
+            <h1>Create a Board!</h1>
             <label>Title
               <input type="text"
                 id="post-body"

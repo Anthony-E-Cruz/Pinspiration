@@ -2,14 +2,12 @@ class Api::BoardsController < ApplicationController
 
   require 'byebug'
   def create
-    debugger
     @board = Board.new(board_params)
     # @pin.user_id = params[:user_id]
     if @board.save
       # render json: {message: "you did it!"}
       render "api/boards/show"
     else
-      debugger
       render json: @board.errors.full_messages, status: 422
     end 
   end 
