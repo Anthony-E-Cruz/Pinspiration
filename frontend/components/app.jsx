@@ -11,7 +11,8 @@ import ProfileEditContainer from './profile/profile_edit_container';
 import PinIndexContainer from './pin_show/pin_index_container'
 import PinCreateContainer from './pin_show/pin_create_container'
 import PinShowContainer from './pin_show/pin_show_container'
-import BoardShowContainer from './board/board_show_container'
+// import BoardShowContainer from './board/board_show_container'
+import BoardIndexContainer from './board/board_index_container'
 import BoardCreateContainer from './board/board_create_container'
  
 
@@ -39,10 +40,10 @@ const App = () => (
       {/* <Route exact path="/:userId" component={PinIndexContainer} /> */}
       <Route exact path="/users/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/:userId/edit" component={ProfileEditContainer} />
+      <Route exact path="/users/:userId/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/pins" component={PinIndexContainer} />
-      <Route exact path="/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/pins/new" component={PinCreateContainer} />
-      <Route exact path="/boards/index" component={BoardShowContainer} />
+      <Route exact path="/boards/index" component={BoardIndexContainer} />
       {/* <Route exact path="/boards/:boardId" component={BoardShowContainer} /> */}
       <Route exact path="/boards/new" component={BoardCreateContainer} />
       <Route exact path="/:pinId" component={PinIndexContainer} />

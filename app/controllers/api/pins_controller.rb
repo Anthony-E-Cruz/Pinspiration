@@ -12,14 +12,13 @@ class Api::PinsController < ApplicationController
     end 
   end 
 
-  # def show
-  #   @pin = Pin.find(pin_params[:id])
-  #   render "api/pins/show"
-  # end 
+  def show
+    @pin = Pin.find(pin_params[:id])
+    render "api/pins/show"
+  end 
 
   def index
     @pins = Pin.all
-    # debugger
     render "api/pins/index"
   end 
 

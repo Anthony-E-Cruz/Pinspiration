@@ -66,8 +66,8 @@ class Pins extends React.Component {
             <div key={idx} className="pins">
               <Link to={`./pins/${idx}`}>
                 <img className="pin-images" src={pin.photoUrl} />
-                <p>{pin.title}</p>
-                <p>{pin.id}</p>
+                {/* <p>{pin.title}</p>
+                <p>{pin.id}</p> */}
               </Link>
             </div>
           ))}
@@ -104,7 +104,7 @@ class Pins extends React.Component {
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-
+    console.log(pins);
     return (
       <div>
         {this.pinDisplay()}

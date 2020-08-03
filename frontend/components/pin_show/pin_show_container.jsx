@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import React from "react";
 // import PinShow from './pin_show'
-import { fetchPins } from "../../actions/pin_actions";
+import { receivepin } from "../../actions/pin_actions";
 
 class Pins extends React.Component {
   constructor(props) {
@@ -19,106 +19,60 @@ class Pins extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchPins();
-  }
+  // componentDidMount() { 
+  //   this.props.receivepin(0);
+  // }
 
-  handleInput(e) {
-    this.setState({ title: e.currentTarget.value });
-  }
 
-  handleFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoUrl: fileReader.result });
-    };
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
-  }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("pin[title]", this.state.title);
-    formData.append("pin[photo]", this.state.photoFile);
-    formData.append("pin[user_id]", this.state.user_id);
-    $.ajax({
-      url: "api/pins",
-      method: "POST",
-      data: formData,
-      contentType: false,
-      processData: false,
-    });
-  }
-
-  pinDisplay() {
-    const { pins } = this.props;
-    const allPins = Object.values(pins);
-    return (
-      <div className="pin-show">
-        <div className="pin-container">
-          {allPins.map((pin, idx) => (
-            <div key={idx} className="pins">
-              {/* <img className="pin-images" src={pin.photoUrl} /> */}
-              {/* <p>{pin.title}</p>
-              <p>{pin.id}</p> */}
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  pinCreateForm() {
-    const { pins } = this.props;
-    const allPins = Object.values(pins);
-    return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <h1>Create a Pin!</h1>
-        <input
-          type="file"
-          onChange={this.handleFile.bind(this)}
-          name=""
-          id=""
-        />
-        <input type="text" onChange={this.handleFile.bind(this)} />
-        <input
-          type="text"
-          id="post-body"
-          value={this.state.title}
-          onChange={this.handleInput.bind(this)}
-        />
-        <input type="file" onChange={this.handleFile.bind(this)} />
-        <button>Submit!</button>
-      </form>
-    );
-  }
+  // pinDisplay() {
+  //   const { pins } = this.props;
+  //   const allPins = Object.values(pins);
+  //   return (
+  //     <div className="pin-show">
+  //       <div className="pin-container">
+  //         {allPins.map((pin, idx) => (
+  //           <div key={idx} className="pins">
+  //             {/* <img className="pin-images" src={pin.photoUrl} /> */}
+  //             {/* <p>{pin.title}</p>
+  //             <p>{pin.id}</p> */}
+  //           </div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-
+    const {currentPinId} = this.props;
+    const currentPin = pins[currentPinId];
+    console.log(currentPinId);
+    console.log(pins);
     return (
       <div>
         <h1>THIS IS PIN SHOWWWWW</h1>
-        {this.pinDisplay()}
+        {/* <img className="pin-images" src={currentPin.photoUrl} /> */}
+        {/* <h1>{currentPin.title}</h1> */}
+        {/* {this.pinDisplay()} */}
         {/* {this.pinCreateForm()}  */}
       </div>
     );
   }
 }
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
+  // debugger
   return {
+    currentPinId: ownProps.match.params.pinId,
     pins: state.entities.pins,
     currentUserId: state.session.id,
   };
 };
 
 const mdp = (dispatch) => ({
-  fetchPins: (dta) => dispatch(fetchPins()),
+  receivepin: (id) => dispatch(receivepin(id)),
 });
 
 export default connect(msp, mdp)(Pins);

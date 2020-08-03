@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BoardIndexContainer from "../board/board_show_container";
+import BoardIndexContainer from "../board/board_index_container";
 
 class Profile extends React.Component {
   constructor(props) {
