@@ -72,7 +72,8 @@ class CreatePin extends React.Component {
           {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
             <div {...getRootProps()} className="heightUpload txt-light">
               <input {...getInputProps()} className="txt-light" />
-              {!isDragActive && "Drag and drop or click to upload"}
+              {/* {!isDragActive && "Drag and drop or click to upload"} */}
+              {!isDragActive && ""}
               {isDragActive && !isDragReject && "Drop Me!"}
               {isDragReject && "File type must be a image"}
             </div>
@@ -113,38 +114,40 @@ class CreatePin extends React.Component {
     const allPins = Object.values(pins);
 
     return (
-      <div className="create-pin-form">
-        <form
-          className="create-pin-form"
-          onSubmit={this.handleSubmit.bind(this)}
-        >
-          <div className="create-pin-form">
-            <h1>Create a Pin!</h1>
-            <label>
-              Title
-              <input
-                type="text"
-                id="post-body"
-                value={this.state.title}
-                // onChange={this.handleInput.bind(this)}
-                onChange={this.update("title")}
-              />
-            </label>
-            <label>
-              Description
-              <input
-                type="text"
-                id="post-body"
-                value={this.state.description}
-                // onChange={this.handleInput.bind(this)}
-                onChange={this.update("description")}
-              />
-            </label>
-            <button>Submit!</button>
-          </div>
-        </form>
-        {this.dropZone()}
+      <div>
         <div className="photo-preview">{this.photoPreview()}</div>
+        <div className="create-pin-form">
+          {this.dropZone()}
+          <form
+            className="create-pin-form"
+            onSubmit={this.handleSubmit.bind(this)}
+          >
+            <div className="pin-form">
+              <h1>Create a Pin!</h1>
+              <label className="pin-details">
+                Title
+                <input
+                  type="text"
+                  id="post-body"
+                  value={this.state.title}
+                  // onChange={this.handleInput.bind(this)}
+                  onChange={this.update("title")}
+                />
+              </label >
+              <label className="pin-details">
+                Description
+                <input
+                  type="text"
+                  id="post-body"
+                  value={this.state.description}
+                  // onChange={this.handleInput.bind(this)}
+                  onChange={this.update("description")}
+                />
+              </label>
+              <button>Submit!</button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

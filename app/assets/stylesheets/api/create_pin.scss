@@ -1,13 +1,32 @@
 
 .create-pin-form {
   display: flex;
-  // justify-content: center;
-  flex-direction: column;
+  justify-content: center;
+  // flex-direction: column;
   align-items: center;
 }
 
+.pin-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+
+.pin-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.photo-preview {
+  position: absolute;
+  left: 50px;
+}
+
 .boxy {
-  margin-left: 20px;
+  margin: 20px;
   width: 345px;
   height: 455px;
   // background-image: url("https://i.imgur.com/TUOQo0E.png");

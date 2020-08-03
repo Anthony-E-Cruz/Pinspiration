@@ -1,3 +1,29 @@
 // Place all the styles related to the api/boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.boards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.board {
+  width: 250px;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.board-container {
+  margin: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  width: 250px;
+  height: 230px;
+}
+
+.board-title {
+  margin: 5px;
+  margin-left: 20px;
+  font-size: 20px;
+}
