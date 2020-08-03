@@ -19,6 +19,7 @@ class Api::PinsController < ApplicationController
 
   def index
     @pins = Pin.all
+    debugger
     render "api/pins/index"
   end 
 
