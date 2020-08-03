@@ -67,6 +67,7 @@ class Pins extends React.Component {
               <Link to={`./pins/${idx}`}>
                 <img className="pin-images" src={pin.photoUrl} />
                 <p>{pin.title}</p>
+                <p>{pin.id}</p>
               </Link>
             </div>
           ))}
