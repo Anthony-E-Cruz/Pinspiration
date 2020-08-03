@@ -9,7 +9,6 @@ class Profile extends React.Component {
     const {userId} = this.props;
     const {users} = this.props
     const currentUser = users[userId]
-    console.log(currentUser)
   }
   
   // componentDidMount() {

@@ -9,7 +9,6 @@ class Pins extends React.Component {
     // const currentUser: ownProps.match.params.username;
     const { pins } = this.props;
     const { currentUserId } = this.props;
-    console.log(currentUserId);
     this.state = {
       title: "",
       description: "",
@@ -42,7 +41,6 @@ class Pins extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    console.log(this.state);
     formData.append("pin[title]", this.state.title);
     formData.append("pin[photo]", this.state.photoFile);
     formData.append("pin[user_id]", this.state.user_id);
@@ -53,9 +51,6 @@ class Pins extends React.Component {
       contentType: false,
       processData: false,
     });
-    // .then((response) => console.log(response.message),
-    // (response) => console.log(response.responseJSON),
-    // );
   }
 
   pinDisplay() {
@@ -104,7 +99,6 @@ class Pins extends React.Component {
     const { pins } = this.props;
     const allPins = Object.values(pins);
 
-    console.log(allPins);
     return (
       <div>
         {this.pinDisplay()}

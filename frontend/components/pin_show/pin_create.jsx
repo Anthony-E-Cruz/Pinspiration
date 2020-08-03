@@ -12,7 +12,6 @@ class CreatePin extends React.Component {
     const { currentUserId } = this.props
     const { currentUser } = this.props;
     const boards = currentUser[currentUserId].boards;
-    console.log(boards);
 
     this.state = {
       title: "",
@@ -91,7 +90,6 @@ class CreatePin extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    console.log(this.state)
     formData.append('pin[title]', this.state.title);
     formData.append('pin[user_id]', this.state.user_id);
     formData.append('pin[description]', this.state.description);
@@ -122,7 +120,6 @@ class CreatePin extends React.Component {
     const { currentUser } = this.props;
     const boardObjects = currentUser[currentUserId].boards;
     const boards1 = Object.values(boardObjects);
-    console.log(boards1);
     return (
       <div>
         {/* <h1>{boards1.map(el => (el.title))}</h1> */}

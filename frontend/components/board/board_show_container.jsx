@@ -37,7 +37,6 @@ class ShowBoard extends React.Component {
 };
 
 const msp = (state) => {
-  console.log(state.entities);
   return {
     boards: state.entities.boards,
     currentUserId: state.session.id

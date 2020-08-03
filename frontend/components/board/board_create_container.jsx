@@ -17,7 +17,6 @@ class CreateBoard extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const board = Object.assign({}, this.state);
-    console.log(board);
     const { currentUserId } = this.props;
     this.props.processForm(board);
   }
