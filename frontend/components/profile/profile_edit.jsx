@@ -46,8 +46,8 @@ class Profile extends React.Component {
       //   <h1>Edit Page</h1>
       //   <h1>{currentUser.email}</h1>
       // </div>
-      <div> 
-        <img src={currentUser.photoUrl} alt=""/>
+      <div>
+        <img src={currentUser.photoUrl} alt="" />
         {/* <img src={currentUser.photoUrl}/> */}
         {/* <input type="file" onChange={this.handleFile} name="" id=""/> */}
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -59,43 +59,57 @@ class Profile extends React.Component {
             </div>
           </div>
           <div className="edit-profile-form">
-            <label>First name
-              <input type="text" 
+            <label>
+              First name
+              <input
+                type="text"
                 placeholder={currentUser.first_name}
-                onChange={this.update('first_name')}
+                onChange={this.update("first_name")}
               />
             </label>
-            <label>Last name
-              <input type="text" 
+            <label>
+              Last name
+              <input
+                type="text"
                 placeholder={currentUser.last_name}
-                onChange={this.update('last_name')} 
+                onChange={this.update("last_name")}
               />
             </label>
-            <label>Username
-              <input type="text" 
-                placeholder={currentUser.username} 
-                onChange={this.update('username')}
+            <label>
+              Username
+              <input
+                type="text"
+                placeholder={currentUser.username}
+                onChange={this.update("username")}
               />
             </label>
-            <label>About you 
-              <input type="textarea" 
-              placeholder={currentUser.about_you} 
+            <label>
+              About you
+              <input
+                type="textarea"
+                placeholder={currentUser.about_you}
                 // placeholder="Write a little bit about yourself here"
-                onChange={this.update('about_you')}
+                onChange={this.update("about_you")}
               />
             </label>
-            <label>Location 
-              <input type="text" 
+            <label>
+              Location
+              <input
+                type="text"
                 placeholder={currentUser.location}
                 // placeholder="New York City, San Francisco, .ect"
-                onChange={this.update('location')}
+                onChange={this.update("location")}
               />
             </label>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <input
+              className="session-submit"
+              type="submit"
+              value={this.props.formType}
+            />
           </div>
         </form>
-      </div> 
-    )
+      </div>
+    );
   }
 };
 

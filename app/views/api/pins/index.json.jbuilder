@@ -1,8 +1,8 @@
 @pins.each do |pin|
   json.set! pin.id do
-    debugger
+    # debugger
     json.partial! 'pin', pin: pin
-    debugger
+    # debugger
     json.photoUrl url_for(pin.photo)
   end 
 end 
