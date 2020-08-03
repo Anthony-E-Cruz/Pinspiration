@@ -1,69 +1,69 @@
 import { connect } from "react-redux";
 import React from "react";
-// import PinShow from './pin_show'
-import { receivepin } from "../../actions/pin_actions";
+import { fetchPins, fetchPin } from "../../actions/pin_actions";
 
-class Pins extends React.Component {
+class Pin extends React.Component {
   constructor(props) {
     super(props);
     // const currentUser: ownProps.match.params.username;
     const { pins } = this.props;
     const { currentUserId } = this.props;
-    this.state = {
-      title: "",
-      description: "",
-      photoFile: null,
-      photo: null,
-      user_id: currentUserId,
-      // board_id: ""
-    };
+    const allPins = Object.values(pins);
+    const { currentPinId } = this.props;
+    const currentPin = pins[currentPinId];
+    
   }
 
-  // componentDidMount() { 
-  //   this.props.receivepin(0);
-  // }
+  componentDidMount() { 
+    this.props.fetchPin(47);
+  }
 
+  img() {
+    const { pins } = this.props;
+    const allPins = Object.values(pins);
+    const { currentPinId } = this.props;
+    const currentPin = pins[47];
 
-
-  // pinDisplay() {
-  //   const { pins } = this.props;
-  //   const allPins = Object.values(pins);
-  //   return (
-  //     <div className="pin-show">
-  //       <div className="pin-container">
-  //         {allPins.map((pin, idx) => (
-  //           <div key={idx} className="pins">
-  //             {/* <img className="pin-images" src={pin.photoUrl} /> */}
-  //             {/* <p>{pin.title}</p>
-  //             <p>{pin.id}</p> */}
-  //           </div>
-  //         ))}
-  //       </div>
-  //     </div>
-  //   );
-  // }
+    console.log(pins[47]);
+    if (currentPin) {
+      return (
+        <div className="single-pin-show-inner-container">
+          <div>
+            <img className="pin-show-images" src={currentPin.photoUrl} />
+          </div>
+          <div className="pin-show-text-container">
+            <div className="pin-show-header">PIN SHOW HEADER</div>
+            <p className="pin-show-title">{currentPin.title}</p>
+            <p className="pin-show-description">
+              {currentPin.description} DESCRIPTION
+            </p>
+            <p>{currentPin.user_id} USER</p>
+            <p>{currentPin.board_id} BOARD</p>
+          </div>
+        </div>
+      );} else { 
+      return "20"
+    };
+  };
 
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
     const {currentPinId} = this.props;
-    const currentPin = pins[currentPinId];
-    console.log(currentPinId);
-    console.log(pins);
-    return (
-      <div>
-        <h1>THIS IS PIN SHOWWWWW</h1>
-        {/* <img className="pin-images" src={currentPin.photoUrl} /> */}
-        {/* <h1>{currentPin.title}</h1> */}
-        {/* {this.pinDisplay()} */}
-        {/* {this.pinCreateForm()}  */}
+    const currentPin = pins[47];
+
+    console.log(pins[47]);
+
+    return ( 
+      <div className="single-pin-show-container">
+        <div>{this.img()}</div>
       </div>
     );
   }
-}
+} 
 
 const msp = (state, ownProps) => {
-  // debugger
+  // const currentPinId = ownProps.match.params.pinId;
   return {
     currentPinId: ownProps.match.params.pinId,
     pins: state.entities.pins,
@@ -72,7 +72,8 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch) => ({
-  receivepin: (id) => dispatch(receivepin(id)),
+  fetchPins: () => dispatch(fetchPins()),
+  fetchPin: id => dispatch(fetchPin(id)),
 });
 
-export default connect(msp, mdp)(Pins);
+export default connect(msp, mdp)(Pin);

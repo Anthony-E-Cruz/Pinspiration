@@ -5,11 +5,10 @@ export const fetchPins = () => {
   })
 };
 
-export const fetchPin = id => (
+export const fetchPin = (id) => (
   $.ajax({
     method: 'GET',
     url: `api/pins/${id}`,
-    data
   })
 );
 

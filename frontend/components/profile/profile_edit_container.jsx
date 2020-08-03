@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { update } from '../../actions/session_actions';
+import {forceUpdate} from 'react'
 // import navBar from './nav_bar';
 // import { openModal } from '../../actions/modal_actions';
 import Editprofile from './profile_edit'

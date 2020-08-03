@@ -57,7 +57,7 @@ class Pins extends React.Component {
   pinDisplay() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-    allPins.map(pin => console.log)
+    // allPins.map(pin =>÷ console.log)
     console.log(allPins);
     return (
       <div className="pin-show">
@@ -79,6 +79,7 @@ class Pins extends React.Component {
   pinCreateForm() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
+    console.log(pins)
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
         <h1>Create a Pin!</h1>

@@ -10,7 +10,7 @@ export const receivePins = pins => {
   }
 };
 
-export const receivepin = pin => ({
+export const receivePin = pin => ({
   type: RECEIVE_PIN,
   pin,
 });
@@ -19,6 +19,10 @@ export const fetchPins = () => dispatch => {
   PinsAPIUtil.fetchPins().then(pins => (
     dispatch(receivePins(pins))
   ))
+};
+
+export const fetchPin = (id) => dispatch => {
+  PinsAPIUtil.fetchPin(id).then((pin) => dispatch(receivePin(pin)));
 };
 
 export const createPin = pin => dispatch => (
