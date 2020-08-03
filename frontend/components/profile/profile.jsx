@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PinShowContainer from '../pin_show/pin_show_container'
+import PinIndexContainer from '../pin_show/pin_show_container'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -21,6 +21,7 @@ class Profile extends React.Component {
       const { users } = this.props;
       const currentUser = users[userId];
     return (
+      <div>
       <div className="profile">
         <div className="profile-header">
           <img className="profile-img" src={window.profile_img} />
@@ -29,9 +30,11 @@ class Profile extends React.Component {
         <div className="profile-sub-header">
           <Link className="login-btn" to={`/${userId}/edit`}>Edit</Link>
           <Link className="login-btn" to={`/pins/new`}>Create Pin</Link>
-          <Link className="login-btn" to={`/boards/new`}>Boards</Link>
-        </div> 
-        <PinShowContainer />
+          <Link className="login-btn" to={`/boards/index`}>Boards</Link>
+          <Link className="login-btn" to={`/boards/new`}>Create a Board</Link>
+        </div>
+      </div>
+        <PinIndexContainer />
       </div>
     )
   }

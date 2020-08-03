@@ -10,7 +10,7 @@ class CreatePin extends React.Component {
     // const currentUser: ownProps.match.params.username;
     const { pins } = this.props
     const { currentUserId } = this.props
-    console.log(currentUserId)
+    
     this.state = {
       title: "",
       description: "",
@@ -19,6 +19,7 @@ class CreatePin extends React.Component {
       user_id: currentUserId
       // board_id: ""
     };
+    
     this.onDrop = this.onDrop.bind(this);
   }
 
@@ -27,7 +28,13 @@ class CreatePin extends React.Component {
   }
 
   handleInput(e) {
-    this.setState({ title: e.currentTarget.value });
+    this.setState({ [field]: e.currentTarget.value });
+  }
+
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
   }
 
   // handleFile(e) {
@@ -91,16 +98,12 @@ class CreatePin extends React.Component {
       contentType: false,
       processData: false
     })
-    // .then((response) => console.log(response.message),
-    // (response) => console.log(response.responseJSON),
-    // );
   }
 
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
 
-    // console.log(allPins);
     return (
       <div className="create-pin-form">
         <form className="create-pin-form" onSubmit={this.handleSubmit.bind(this)}>
@@ -110,18 +113,18 @@ class CreatePin extends React.Component {
               <input type="text"
                 id="post-body"
                 value={this.state.title}
-                onChange={this.handleInput.bind(this)} />
+                // onChange={this.handleInput.bind(this)} 
+                onChange={this.update('title')}
+                />
             </label>
             <label>Description
               <input type="text"
                 id="post-body"
                 value={this.state.description}
-                onChange={this.handleInput.bind(this)} />
+                // onChange={this.handleInput.bind(this)} 
+                onChange={this.update('description')}
+                />
             </label>
-            {/* <label>Upload Image
-              <input type="file"
-                onChange={this.handleFile.bind(this)} />
-            </label> */}
             <button>Submit!</button>
           </div>
         </form>
@@ -130,17 +133,5 @@ class CreatePin extends React.Component {
     )
   }
 };
-
-// const msp = (state) => {
-//   // console.log(state.entities.pins);
-//   return {
-//     pins: state.entities.pins,
-//     currentUserId: state.session.id
-//   }
-// }
-
-// const mdp = dispatch => ({
-//   fetchPins: () => dispatch(fetchPins())
-// })
 
 export default CreatePin;

@@ -26,8 +26,8 @@ const App = () => (
     </header>
     {/* <ModalContainer /> */}
     <Switch>  
-      {/* <Route exact path="/" component={PinIndexContainer} /> */}
-      <AuthRoute exact path="/" component={LogInFormContainer} />
+      <Route exact path="/" component={PinIndexContainer} />
+      {/* <AuthRoute exact path="/" component={LogInFormContainer} /> */}
       <Route exact path="/home" component={PinIndexContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
