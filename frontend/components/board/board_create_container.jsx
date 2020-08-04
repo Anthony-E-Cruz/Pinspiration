@@ -8,6 +8,8 @@ class CreateBoard extends React.Component {
     super(props)
     const { boards } = this.props
     const { currentUserId } = this.props
+    const {userBoards} = this.props
+    // console.log(userBoards)
     this.state = {
       title: "",
       creator_id: `${currentUserId}`
@@ -26,6 +28,9 @@ class CreateBoard extends React.Component {
   }
 
   render() {
+    const {userBoards} = this.props 
+    if (userBoards) {
+      console.log(userBoards[0].title)
     return (
       <div className="create-pin-form">
         <form className="create-pin-form" onSubmit={this.handleSubmit.bind(this)}>
@@ -40,14 +45,23 @@ class CreateBoard extends React.Component {
             <button>Submit!</button>
           </div>
         </form>
+        <div>
+          <ul>{userBoards.map(board => {
+              <li>{board.title}</li>
+          })}</ul>
+        </div>
       </div>
-    );
+    )} else {
+      return null
+    }
+    ;
   }
 };
 
 const msp = (state) => {
   return {
     boards: state.entities.boards,
+    userBoards: state.entities.users.boards,
     currentUserId: state.session.id
   }
 }
