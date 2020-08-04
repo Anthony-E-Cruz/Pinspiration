@@ -32,7 +32,7 @@ class Profile extends React.Component {
             <Link className="login-btn" to={`/${userId}/edit`}>
               Edit Profile
             </Link>
-            <Link className="login-btn" to={`/pins/new`}>
+            <Link className="login-btn" to={`users/pins/new`}>
               Create Pin
             </Link>
             <Link className="login-btn" to={`/users/${userId}/boards`}>

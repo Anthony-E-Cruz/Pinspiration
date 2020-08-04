@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import DropZone from 'react-dropzone';
 import { fetchBoards } from '../../actions/board_actions'
+import { Link } from "react-router-dom";
 
 class ShowBoard extends React.Component {
   constructor(props) {
@@ -26,10 +27,12 @@ class ShowBoard extends React.Component {
     return (
       <div className="boards">
         {allBoards.map((board, idx) => (
-          <div key={idx} className="board-container">
-            <div className="board"></div>
-            <p className="board-title">{board.title}</p>
-          </div>
+          <Link key={idx} to={`/boards/${board.id}`}>
+            <div key={idx} className="board-container">
+                <div className="board"></div>
+                <p className="board-title">{board.title}</p>
+            </div>
+          </Link>
         ))}
       </div>
     );

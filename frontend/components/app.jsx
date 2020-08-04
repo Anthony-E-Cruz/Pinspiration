@@ -12,10 +12,9 @@ import PinIndexContainer from './pin_show/pin_index_container'
 import PinProfileShowContainer from "./pin_show/pin_profile_show_container";
 import PinCreateContainer from './pin_show/pin_create_container'
 import PinShowContainer from './pin_show/pin_show_container'
-// import BoardShowContainer from './board/board_show_container'
+import BoardShowContainer from './board/board_show_container'
 import BoardIndexContainer from './board/board_index_container'
 import BoardCreateContainer from './board/board_create_container'
- 
 
 const App = () => (
   <div className="outter-div">
@@ -45,9 +44,9 @@ const App = () => (
       <Route exact path="/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/pins/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/pins" component={PinIndexContainer} />
-      <Route exact path="/pins/new" component={PinCreateContainer} />
+      <Route exact path="/user/pins/new" compgonent={PinCreateContainer} />
       <Route exact path="/boards/index" component={BoardIndexContainer} />
-      {/* <Route exact path="/boards/:boardId" component={BoardShowContainer} /> */}
+      <Route exact path="/boards/:boardId" component={BoardShowContainer} />
       <Route exact path="/boards/new" component={BoardCreateContainer} />
       <Route exact path="/:pinId" component={PinIndexContainer} />
       {/* <Route exact path="/:pinId/edit" component={ProfileEditContainer} /> */}

@@ -1,0 +1,17 @@
+.board-show-title {
+  font-size: 50px;
+}
+
+.board-show-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-show-page-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

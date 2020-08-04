@@ -20,9 +20,9 @@ class Pins extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchPins();
-  }
+  // componentDidMount() {
+  //   this.props.fetchPins();
+  // }
 
   handleInput(e) {
     this.setState({ title: e.currentTarget.value });
@@ -58,8 +58,9 @@ class Pins extends React.Component {
 
   pinDisplay() {
     const { pins } = this.props;
-    const allPins = Object.values(pins);
-    if (allPins) {
+    const { currentUserId } = this.props;
+    if (pins) {
+      const allPins = Object.values(pins);
       // console.log(allPins);
       return (
         <div className="pin-show">
@@ -76,12 +77,21 @@ class Pins extends React.Component {
           </div>
         </div>
       );
+    } else {
+      return (
+        <div className="no-pins-container">
+          <p>You haven't saved any Pins yet</p>
+          <Link to="/">
+            <button className="find-pins-btn">Find ideas</button>
+          </Link>
+        </div>
+      );
     }
   }
 
   render() {
-    const { pins } = this.props;
-    const allPins = Object.values(pins);
+    // const { pins } = this.props;
+    // const allPins = Object.values(pins);
     // console.log(pins);
     return (
       <div>

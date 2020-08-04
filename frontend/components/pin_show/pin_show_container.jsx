@@ -3,6 +3,7 @@ import React from "react";
 import { fetchPins, fetchPin } from "../../actions/pin_actions";
 import PinIndexContainer from './pin_index_container'
 
+
 class Pin extends React.Component {
   constructor(props) {
     super(props);

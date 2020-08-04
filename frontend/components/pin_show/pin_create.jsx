@@ -31,10 +31,10 @@ class CreatePin extends React.Component {
     this.onDrop = this.onDrop.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchPins()
+  // componentDidMount() {
+  //   this.props.fetchPins()
 
-  }
+  // }
 
   handleInput(e) {
     this.setState({ [field]: e.currentTarget.value });
