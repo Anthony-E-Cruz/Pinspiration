@@ -12,7 +12,7 @@ class CreatePin extends React.Component {
     const { currentUserId } = this.props
     const { currentUser } = this.props;
     const boards = currentUser[currentUserId].boards;
-
+    
     this.state = {
       title: "",
       description: "",
@@ -20,7 +20,11 @@ class CreatePin extends React.Component {
       photo: null,
       user_id: currentUserId,
       photoUrl: null,
-      board_id: ""
+      board_id: "",
+      display: "boxy",
+      dropMessage: "Drag and drop or click to upload",
+      dropPreviewMessage: "Drop To Preview!",
+      dropErrorMessage: "Invalid File"
       // board_id: ""
     };
     
@@ -62,11 +66,16 @@ class CreatePin extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
+    this.removeBackground()
+  }
+
+  removeBackground() {
+    this.state.display = "boxy2"
   }
 
   dropZone() {
     return (
-      <div className="boxy">
+      <div className={this.state.display}>
         <DropZone
           onDrop={this.onDrop}
           accept="image/*"
@@ -76,10 +85,11 @@ class CreatePin extends React.Component {
           {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
             <div {...getRootProps()} className="heightUpload txt-light">
               <input {...getInputProps()} className="txt-light" />
-              {!isDragActive && "Drag and drop or click to upload"}
+              {!isDragActive && this.state.dropMessage}
               {!isDragActive && ""}
-              {isDragActive && !isDragReject && "Drop To Preview!"}
-              {isDragReject && "Invalid File"}
+              {isDragActive && !isDragReject && this.state.dropPreviewMessage}
+              {isDragReject && this.state.dropErrorMessage}
+              {/* dropMessage dropPreviewMessage dropErrorMessage */}
             </div>
           )}
         </DropZone>
@@ -145,6 +155,7 @@ class CreatePin extends React.Component {
       <div>
         {/* <h1>{boards1.map(el => (el.title))}</h1> */}
         {/* <div className="photo-preview">{this.photoPreview()}</div> */}
+        {this.photoPreview()}
         <div className="create-pin-form">
           {this.dropZone()}
           <form
@@ -187,7 +198,7 @@ class CreatePin extends React.Component {
             </div>
             <div className="photo-preview">
               {/* <p>Preview Image</p> */}
-              <div>{this.photoPreview()}</div>
+              {/* <div>{this.photoPreview()}</div> */}
             </div>
           </form>
           {this.boardsDropdown()}

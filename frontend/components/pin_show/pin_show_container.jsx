@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import React from "react";
 import { fetchPins, fetchPin } from "../../actions/pin_actions";
+import PinIndexContainer from './pin_index_container'
 
 class Pin extends React.Component {
   constructor(props) {
@@ -11,20 +12,19 @@ class Pin extends React.Component {
     const allPins = Object.values(pins);
     const { currentPinId } = this.props;
     const currentPin = pins[currentPinId];
-    
   }
 
   componentDidMount() { 
-    this.props.fetchPin(47);
+    const { currentPinId } = this.props;
+    this.props.fetchPin(currentPinId);
   }
 
   img() {
     const { pins } = this.props;
-    const allPins = Object.values(pins);
     const { currentPinId } = this.props;
-    const currentPin = pins[47];
+    const currentPin = pins[currentPinId];
 
-    console.log(pins[47]);
+    console.log(pins[currentPinId]);
     if (currentPin) {
       return (
         <div className="single-pin-show-inner-container">
@@ -54,9 +54,15 @@ class Pin extends React.Component {
 
     console.log(pins[47]);
 
-    return ( 
-      <div className="single-pin-show-container">
-        <div>{this.img()}</div>
+    return (
+      <div className="outerrr">
+        <div className="single-pin-show-container">
+          <div>{this.img()}</div>
+        </div>
+        <p className="single-pin-text">
+        More Like This
+        </p>
+        <PinIndexContainer />
       </div>
     );
   }

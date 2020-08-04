@@ -12,7 +12,7 @@ class Api::BoardsController < ApplicationController
   end 
 
   def show
-    @board = Board.find(board_params[:id])
+    @board = Board.find(params[:id])
     render "api/boards/show"
   end 
 

@@ -54,17 +54,19 @@ class Pins extends React.Component {
     });
   }
 
+  // renderPins
+
   pinDisplay() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-    // allPins.map(pin =>÷ console.log)
-    console.log(allPins);
+    if (allPins) {
+      console.log(allPins);
     return (
       <div className="pin-show">
         <div className="pin-container">
           {allPins.map((pin, idx) => (
             <div key={idx} className="pins">
-              <Link to={`./pins/${idx}`}>
+              <Link to={`./pins/${pin.id}`}>
                 <img className="pin-images" src={pin.photoUrl} />
                 {/* <p>{pin.title}</p>
                 <p>{pin.id}</p> */}
@@ -74,12 +76,13 @@ class Pins extends React.Component {
         </div>
       </div>
     );
+              }
   }
 
   pinCreateForm() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-    console.log(pins)
+    // console.log(pins)
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
         <h1>Create a Pin!</h1>
@@ -105,7 +108,7 @@ class Pins extends React.Component {
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-    console.log(pins);
+    // console.log(pins);
     return (
       <div>
         {this.pinDisplay()}

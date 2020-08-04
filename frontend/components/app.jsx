@@ -41,6 +41,8 @@ const App = () => (
       <Route exact path="/users/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/users/:userId/pins/:pinId" component={PinShowContainer} />
+      <Route exact path="/pins/:pinId" component={PinShowContainer} />
+      <Route exact path="/pins/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/pins" component={PinIndexContainer} />
       <Route exact path="/pins/new" component={PinCreateContainer} />
       <Route exact path="/boards/index" component={BoardIndexContainer} />
