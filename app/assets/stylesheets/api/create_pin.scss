@@ -23,8 +23,21 @@
 .photo-preview {
   margin-left: 10px;
   width: 250px;
+  position: fixed;
+  z-index: 2;
 }
 
+.dropzone {
+  position: relative;
+}
+
+.dropzone-zone{
+  // position: absolute;
+}
+
+.dropzone-preview{
+  position: absolute;
+}
 // .pin-form-container {
 //   top: 100px;
 // }
