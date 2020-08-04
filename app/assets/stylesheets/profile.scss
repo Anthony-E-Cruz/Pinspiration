@@ -1,50 +1,120 @@
 
-.profile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  height: 250px;
-}
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    height: 250px;
+  }
 
-.profile-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  .profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-.profile-img {
-  height: 100px;
-  width: 100px;
-}
+  .profile-img {
+    height: 100px;
+    width: 100px;
+  }
 
-.edit-profile-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-link-icons {
+    background-color: none;
+    margin: 10px;
+    height: 25px;
+    padding: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+    border-radius: 50%;
+  }
+
+  .profile-sub-header {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    align-items: center;
+  }
+
+  .current-page-bttn {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    text-decoration: none;
+    height: 50px;
+    min-width: 70.25px;
+    // margin: 5px;
+    color: white;
+    background-color: black;
+    font-size: 16px;
+    font-weight: 450;
+    border-radius: 30px;
+    padding: 15px;
+  }
+
+  .other-page-bttn {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    text-decoration: none;
+    color: black;
+    height: 40px;
+    min-width: 70.25px;
+    // margin: 5px;
+    font-size: 16px;
+    font-weight: 450;
+    border-radius: 30px;
+    padding: 15px;
+  }
+
+  .profile-link-icons {
+    color: black;
+    position: relative;
+  }
+
+  
+  // .current-page-bttn:hover:hover {
+    //   background-color: gray;
+    // }
+    
+    .other-page-bttn:hover {
+      background-color: rgb(235, 234, 234);
+    }
+          
+    .profile-link-icons:hover {
+      background-color: rgb(235, 234, 234);
+    }
+  
+  .dropdown-child {
+    right: 20px;
+    display: flex;
+    justify-content: left;;
+    position: absolute;
+    font-size: 25px;
+    background: white;
+    min-width: 150px;
+    z-index: 2;
+    border-radius: 10px;
+  }
+
+  .dropdown-links {
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+    border-radius: 10px;
+  }
+
+  .dropdown-links-text {
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+  }
+
+  .profile-link-icons:hover .dropdown-child{
+    display: block;
+  }
 
 
-// .profile-header > h1 {
-//   justify-content: center;
-//   align-items: center;
-//   width: 400px;
-// }
-
-// .profile-sub-header {
-//   display: block;
-// }
-
-// .profile-img{
-//   display: block;
-// }
-
-// .board-button {
-
-// }
-
-// .pins-button {
-
-// }
