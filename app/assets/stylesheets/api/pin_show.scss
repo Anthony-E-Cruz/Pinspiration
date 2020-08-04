@@ -1,11 +1,16 @@
 .single-pin-show-container {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  box-shadow: 10px;
+  
 }
 
 .single-pin-show-inner-container {
   display: flex;
+  width: 1000px;
+  box-shadow: 8px 7px 20px rgb(242, 242, 242);
+  // box-shadow: 10px 10px 8px #888888;
+  border-radius: 20px;
 }
 
 .pin-show-images {
@@ -29,6 +34,15 @@
 }
 
 .pin-show-description {
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 14px;
+  height: 70px;
+}
+
+.pin-show-userId {
+  height: 50px;
+}
+
+.pin-show-boardId {
+  height: 80px;
 }

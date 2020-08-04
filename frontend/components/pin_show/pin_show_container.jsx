@@ -37,8 +37,8 @@ class Pin extends React.Component {
             <p className="pin-show-description">
               {currentPin.description} DESCRIPTION
             </p>
-            <p>{currentPin.user_id} USER</p>
-            <p>{currentPin.board_id} BOARD</p>
+            <p className="pin-show-userId">{currentPin.user_id} USER</p>
+            <p className="pin-show-boardId">{currentPin.board_id} BOARD</p>
           </div>
         </div>
       );} else { 
