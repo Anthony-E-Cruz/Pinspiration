@@ -67,7 +67,7 @@ class Pins extends React.Component {
           <div className="pin-container">
             {allPins.map((pin, idx) => (
               <div key={idx} className="pins">
-                <Link to={`./pins/${pin.id}`}>
+                <Link to={`/pins/${pin.id}`}>
                   <img className="pin-images" src={pin.photoUrl} />
                   {/* <p>{pin.title}</p>
                 <p>{pin.id}</p> */}
