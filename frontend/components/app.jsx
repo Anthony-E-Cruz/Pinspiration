@@ -59,7 +59,7 @@ const App = () => (
         <Route exact path="/pins/:pinId" component={PinShowContainer} />
         <Route exact path="/pins/pins/:pinId" component={PinShowContainer} />
         <Route exact path="/pins" component={PinIndexContainer} />
-        <Route exact path="/pin/new" compgonent={PinCreateContainer} />
+        <Route exact path="/pin/new" component={PinCreateContainer} />
         <Route exact path="/boards/index" component={BoardIndexContainer} />
         <Route exact path="/boards/:boardId" component={BoardShowContainer} />
         <Route exact path="/boards/new" component={BoardCreateContainer} />

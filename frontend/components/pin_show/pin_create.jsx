@@ -6,13 +6,13 @@ import { fetchPins } from '../../actions/pin_actions'
 
 class CreatePin extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     // const currentUser: ownProps.match.params.username;
-    const { pins } = this.props
-    const { currentUserId } = this.props
+    const { pins } = this.props;
+    const { currentUserId } = this.props;
     const { currentUser } = this.props;
     const boards = currentUser[currentUserId].boards;
-    
+    debugger
     this.state = {
       title: "",
       description: "",
@@ -21,41 +21,41 @@ class CreatePin extends React.Component {
       user_id: currentUserId,
       photoUrl: null,
       board_id: "",
-      display: "boxy",
-      dropMessage: "Drag and drop or click to upload",
-      dropPreviewMessage: "Drop To Preview!",
-      dropErrorMessage: "Invalid File"
+      // display: "boxy",
+      // dropMessage: "Drag and drop or click to upload",
+      // dropPreviewMessage: "Drop To Preview!",
+      // dropErrorMessage: "Invalid File",
       // board_id: ""
     };
-    
+    console.log("testing");
     this.onDrop = this.onDrop.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchPins()
-
-  // }
+  componentDidMount() {
+    this.props.fetchPins()
+  }
 
   handleInput(e) {
     this.setState({ [field]: e.currentTarget.value });
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return (e) =>
+      this.setState({
+        [field]: e.currentTarget.value,
+      });
   }
 
-  // handleFile(e) {
-  //   const file = e.currentTarget.files[0];
-  //   const fileReader = new FileReader();
-  //   fileReader.onloadend = () => {
-  //     this.setState({ photoFile: file, photoUrl: fileReader.result });
-  //   };
-  //   if (file) {
-  //     fileReader.readAsDataURL(file);
-  //   }
-  // }
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ photoFile: file, photoUrl: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
 
   onDrop(acceptedFiles) {
     const file = acceptedFiles[0];
@@ -66,12 +66,12 @@ class CreatePin extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
-    this.removeBackground()
+    this.removeBackground();
   }
 
-  removeBackground() {
-    this.state.display = "boxy2"
-  }
+  // removeBackground() {
+  //   this.state.display = "boxy2";
+  // }
 
   dropZone() {
     return (
@@ -100,20 +100,20 @@ class CreatePin extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('pin[title]', this.state.title);
-    formData.append('pin[user_id]', this.state.user_id);
-    formData.append('pin[description]', this.state.description);
+    formData.append("pin[title]", this.state.title);
+    formData.append("pin[user_id]", this.state.user_id);
+    formData.append("pin[description]", this.state.description);
     formData.append("pin[board_id]", this.state.board_id);
     if (this.state.photoFile) {
-      formData.append('pin[photo]', this.state.photoFile);
-    };
+      formData.append("pin[photo]", this.state.photoFile);
+    }
     $.ajax({
-      url: 'api/pins',
-      method: 'POST',
+      url: "api/pins",
+      method: "POST",
       data: formData,
       contentType: false,
-      processData: false
-    })
+      processData: false,
+    });
   }
 
   photoPreview() {
@@ -128,17 +128,16 @@ class CreatePin extends React.Component {
     const { currentUser } = this.props;
     const boardObjects = currentUser[currentUserId].boards;
     const boards1 = Object.values(boardObjects);
-    const boards = (boards1.map((el) => el.title));
+    const boards = boards1.map((el) => el.title);
     return (
-      <div>-
-        {
-          boards1.map(el => {
-            <div>
-              <li key={el.id}>{el.title}</li>
-              <li key={el.id}>{el.id}</li>
-            </div>
-          })
-        }
+      <div>
+        -
+        {boards1.map((el) => {
+          <div>
+            <li key={el.id}>{el.title}</li>
+            <li key={el.id}>{el.id}</li>
+          </div>;
+        })}
       </div>
     );
   }
@@ -150,7 +149,8 @@ class CreatePin extends React.Component {
     const { currentUser } = this.props;
     const boardObjects = currentUser[currentUserId].boards;
     const boards1 = Object.values(boardObjects);
-    console.log(pins)
+    console.log(pins);
+    debugger
     // console.log(boards1.map((el) => el.title));
     return (
       <div>
