@@ -40,7 +40,7 @@ const App = () => (
       {/* <Route exact path="/:userId" component={PinIndexContainer} /> */}
       <Route exact path="/users/:userId/edit" component={ProfileEditContainer} />
       <Route exact path="/:userId/edit" component={ProfileEditContainer} />
-      <Route exact path="/users/:userId/pins/:pinId" component={PinShowContainer} />
+      <Route exact path="/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/pins/pins/:pinId" component={PinShowContainer} />
       <Route exact path="/pins" component={PinIndexContainer} />

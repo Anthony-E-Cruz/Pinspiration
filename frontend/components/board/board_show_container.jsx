@@ -45,7 +45,14 @@ class ShowBoard extends React.Component {
         </div>
       );
     } else {
-      return null;
+      return (
+        <div className="no-pins-container">
+          <p>There aren’t any Pins on this board yet</p>
+          <Link to="/">
+            <button className="find-pins-btn">New ideas</button>
+          </Link>
+        </div>
+      );
     }
   }
 
