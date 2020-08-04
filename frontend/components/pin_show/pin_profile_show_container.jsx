@@ -20,9 +20,9 @@ class Pins extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.props.fetchPins();
-  // }
+  componentDidMount() {
+    this.props.fetchPins();
+  }
 
   handleInput(e) {
     this.setState({ title: e.currentTarget.value });
@@ -59,15 +59,19 @@ class Pins extends React.Component {
   pinDisplay() {
     const { pins } = this.props;
     const { currentUserId } = this.props;
+    const { userPins } = this.props
+    // console.log(user)
     if (pins) {
       const allPins = Object.values(pins);
+      // console.log(pins[0]);
+      console.log(userPins[0].id);
       // console.log(allPins);
       return (
         <div className="pin-show">
           <div className="pin-container">
             {allPins.map((pin, idx) => (
               <div key={idx} className="pins">
-                <Link to={`/pins/${pin.id}`}>
+                <Link to={`/pins/${userPins[idx].id}`}>
                   <img className="pin-images" src={pin.photoUrl} />
                   {/* <p>{pin.title}</p>
                 <p>{pin.id}</p> */}
@@ -90,9 +94,9 @@ class Pins extends React.Component {
   }
 
   render() {
-    // const { pins } = this.props;
+    const { user } = this.props;
     // const allPins = Object.values(pins);
-    // console.log(pins);
+    // console.log(user);
     return (
       <div>
         {this.pinDisplay()}
@@ -105,8 +109,10 @@ class Pins extends React.Component {
 const msp = (state) => {
   const id = state.session.id;
   const pins = state.entities.users[id][id];
+  const userPins = state.entities.users[id].pins;
   // console.log(pins);
   return {
+    userPins: userPins,
     pins: pins,
     currentUserId: state.session.id,
   };

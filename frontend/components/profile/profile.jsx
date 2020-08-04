@@ -44,7 +44,7 @@ class Profile extends React.Component {
             <Link className="login-btn" to={`/boards/index`}>
               View Boards
             </Link>
-            <Link className="login-btn" to={`/boards/new`}>
+            <Link className="login-btn" to={`/board/new`}>
               Create a Board
             </Link>
           </div>
