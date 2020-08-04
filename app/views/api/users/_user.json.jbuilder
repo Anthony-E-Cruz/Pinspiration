@@ -10,3 +10,11 @@ json.set! user.id do
   end 
 end
 
+# json.set! user.id do 
+#   user.boards.each do |pin|
+#     json.set! board.id do
+#       json.photoUrl url_for(pin.photo)
+#     end 
+#   end 
+# end
+

@@ -25,7 +25,8 @@ class ShowBoard extends React.Component {
     const { boardId } = this.props;
     console.log(boards[boardId]);
     const currentBoard = boards[boardId];
-    if (currentBoard) {
+    // debugger
+    if (currentBoard && currentBoard.pins.length > 0) {
       const pins = Object.values(currentBoard[boardId]);
       return (
         <div className="board-show-page-container">
@@ -33,10 +34,10 @@ class ShowBoard extends React.Component {
           <div className="board-show-container">
             {pins.map((pin, idx) => (
               <div key={idx} className="pins">
-                <Link to={`./pins/${pin.id}`}>
+                <Link to={`/pins/${currentBoard.pins[idx].id}`}>
                   <img className="pin-images" src={pin.photoUrl} />
-                  {/* <p>{pin.title}</p>
-                <p>{pin.id}</p> */}
+                  <p>{}</p>
+                  <p>{currentBoard.pins[idx].title}</p>
                 </Link>
               </div>
             ))}
