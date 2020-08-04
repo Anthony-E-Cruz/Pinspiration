@@ -9,6 +9,7 @@ import ProfilePinsContainer from "./profile/profile_container";
 import ProfileBoardsContainer from "./profile/profile_board_container";
 import ProfileEditContainer from './profile/profile_edit_container';
 import PinIndexContainer from './pin_show/pin_index_container'
+import PinProfileShowContainer from "./pin_show/pin_profile_show_container";
 import PinCreateContainer from './pin_show/pin_create_container'
 import PinShowContainer from './pin_show/pin_show_container'
 // import BoardShowContainer from './board/board_show_container'
