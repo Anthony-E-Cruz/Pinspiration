@@ -66,12 +66,12 @@ class Profile extends React.Component {
               <FontAwesomeIcon className="profile-link-icons" icon={faPlus} />
               <div className="dropdown-child">
                 <ul>
-                  <li class="dropdown-links">Create</li>
-                  <li class="dropdown-links">
-                    <Link class="dropdown-links-text" to={`/board/new`}>Pin</Link>
+                  <li className="dropdown-links">Create</li>
+                  <li className="dropdown-links">
+                    <Link className="dropdown-links-text" to={`/pin/new`}>Pin</Link>
                   </li>
-                  <li class="dropdown-links">
-                    <Link class="dropdown-links-text" to={`/board/new`}>
+                  <li className="dropdown-links">
+                    <Link className="dropdown-links-text" to={`/board/new`}>
                       Board
                     </Link>
                   </li>
