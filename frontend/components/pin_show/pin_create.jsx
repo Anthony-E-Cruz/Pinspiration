@@ -150,6 +150,7 @@ class CreatePin extends React.Component {
     const { currentUser } = this.props;
     const boardObjects = currentUser[currentUserId].boards;
     const boards1 = Object.values(boardObjects);
+    console.log(pins)
     // console.log(boards1.map((el) => el.title));
     return (
       <div>

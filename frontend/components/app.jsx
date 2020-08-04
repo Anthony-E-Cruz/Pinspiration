@@ -18,40 +18,56 @@ import BoardCreateContainer from './board/board_create_container'
 
 const App = () => (
   <div className="outter-div">
-    <header className="header">
-      <Link to="/" className="header-link">
-        <div className="logo_and_title">
-          <img className="logo" src={window.logo} />
-          <h1 className="logo-title" >Pinspiration</h1>
-        </div>
-      </Link>
-      <NavBar />
-    </header>
+    <div className="header-container">
+      <header className="header">
+        <Link to="/" className="header-link">
+          <div className="logo_and_title">
+            <img className="logo" src={window.logo} />
+            <h1 className="logo-title">Pinspiration</h1>
+          </div>
+        </Link>
+        <NavBar />
+      </header>
+    </div>
     {/* <ModalContainer /> */}
-    <Switch>  
-      <Route exact path="/" component={PinIndexContainer} />
-      {/* <AuthRoute exact path="/" component={LogInFormContainer} /> */}
-      <Route exact path="/home" component={PinIndexContainer} />
-      <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <Route exact path="/users/:userId/pins" component={ProfilePinsContainer} />
-      <Route exact path="/users/:userId/boards" component={ProfileBoardsContainer} />
-      {/* <Route exact path="/:userId" component={ProfileContainer} /> */}
-      {/* <Route exact path="/:userId" component={PinIndexContainer} /> */}
-      <Route exact path="/users/:userId/edit" component={ProfileEditContainer} />
-      <Route exact path="/:userId/edit" component={ProfileEditContainer} />
-      <Route exact path="/pins/:pinId" component={PinShowContainer} />
-      <Route exact path="/pins/:pinId" component={PinShowContainer} />
-      <Route exact path="/pins/pins/:pinId" component={PinShowContainer} />
-      <Route exact path="/pins" component={PinIndexContainer} />
-      <Route exact path="/pin/new" compgonent={PinCreateContainer} />
-      <Route exact path="/boards/index" component={BoardIndexContainer} />
-      <Route exact path="/boards/:boardId" component={BoardShowContainer} />
-      <Route exact path="/boards/new" component={BoardCreateContainer} />
-      <Route exact path="/:pinId" component={PinIndexContainer} />
-      {/* <Route exact path="/:pinId/edit" component={ProfileEditContainer} /> */}
-      {/* <Route path="/" component */}
-    </Switch>
+    <div className="switch">
+      <Switch>
+        <Route exact path="/" component={PinIndexContainer} />
+        {/* <AuthRoute exact path="/" component={LogInFormContainer} /> */}
+        <Route exact path="/home" component={PinIndexContainer} />
+        <AuthRoute exact path="/login" component={LogInFormContainer} />
+        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+        <Route
+          exact
+          path="/users/:userId/pins"
+          component={ProfilePinsContainer}
+        />
+        <Route
+          exact
+          path="/users/:userId/boards"
+          component={ProfileBoardsContainer}
+        />
+        {/* <Route exact path="/:userId" component={ProfileContainer} /> */}
+        {/* <Route exact path="/:userId" component={PinIndexContainer} /> */}
+        <Route
+          exact
+          path="/users/:userId/edit"
+          component={ProfileEditContainer}
+        />
+        <Route exact path="/:userId/edit" component={ProfileEditContainer} />
+        <Route exact path="/pins/:pinId" component={PinShowContainer} />
+        <Route exact path="/pins/:pinId" component={PinShowContainer} />
+        <Route exact path="/pins/pins/:pinId" component={PinShowContainer} />
+        <Route exact path="/pins" component={PinIndexContainer} />
+        <Route exact path="/pin/new" compgonent={PinCreateContainer} />
+        <Route exact path="/boards/index" component={BoardIndexContainer} />
+        <Route exact path="/boards/:boardId" component={BoardShowContainer} />
+        <Route exact path="/boards/new" component={BoardCreateContainer} />
+        <Route exact path="/:pinId" component={PinIndexContainer} />
+        {/* <Route exact path="/:pinId/edit" component={ProfileEditContainer} /> */}
+        {/* <Route path="/" component */}
+      </Switch>
+    </div>
   </div>
 );
 
