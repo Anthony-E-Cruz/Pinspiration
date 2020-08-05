@@ -87,10 +87,18 @@
     .profile-link-icons:hover {
       background-color: rgb(235, 234, 234);
     }
-  
+
+  .dropdown-parent:hover > .dropdown-child {
+    display: flex
+  }
+
+  .dropdown-child:hover {
+    background-color: rgb(235, 234, 234);
+  }
+
   .dropdown-child {
     right: 20px;
-    display: flex;
+    display: none;
     justify-content: left;;
     position: absolute;
     font-size: 25px;

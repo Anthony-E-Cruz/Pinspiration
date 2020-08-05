@@ -63,19 +63,24 @@ class Profile extends React.Component {
               </Link> */}
             </div>
             <div>
-              <FontAwesomeIcon className="profile-link-icons" icon={faPlus} />
-              <div className="dropdown-child">
-                <ul>
-                  <li className="dropdown-links">Create</li>
-                  <li className="dropdown-links">
-                    <Link className="dropdown-links-text" to={`/pin/new`}>Pin</Link>
-                  </li>
-                  <li className="dropdown-links">
-                    <Link className="dropdown-links-text" to={`/board/new`}>
-                      Board
-                    </Link>
-                  </li>
-                </ul>
+              <div className="dropdown-parent">
+                <FontAwesomeIcon className="profile-link-icons" icon={faPlus} />
+
+                <div className="dropdown-child">
+                  <ul>
+                    <li className="dropdown-links">Create</li>
+                    <li className="dropdown-links">
+                      <Link className="dropdown-links-text" to={`/pin/new`}>
+                        Pin
+                      </Link>
+                    </li>
+                    <li className="dropdown-links">
+                      <Link className="dropdown-links-text" to={`/board/new`}>
+                        Board
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
             {/* <Link className="login-btn" to={`/boards/index`}>

@@ -60,6 +60,7 @@ class Profile extends React.Component {
               </Link> */}
             </div>
             <div>
+              <div className="dropdown-parent">
               <FontAwesomeIcon className="profile-link-icons" icon={faPlus} />
               <div className="dropdown-child">
                 <ul>
@@ -75,6 +76,7 @@ class Profile extends React.Component {
                     </Link>
                   </li>
                 </ul>
+              </div>
               </div>
             </div>
             {/* <Link className="" to={`/board/new`}></Link> */}
