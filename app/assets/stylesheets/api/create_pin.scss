@@ -13,15 +13,26 @@
   align-items: center;
 }
 
-.center-dropdown > button {
+.dropdown-board-items {
   text-decoration: none;
   background-color: white;
   color: black;
   font-weight: 500;
-  height: 30px;
-  width: 200px;
+  height: 40px;
+  width: 270px;
   border: none;
   font-size: 20px;
+  border-radius: 10px;
+}
+
+.dropdown-board-items:hover {
+  background: rgb(212, 210, 210)
+}
+
+.dropdown-board-items:focus{
+  background-color:rgb(169, 168, 168);
+  border: none;
+  outline:0;
 }
 
 .pin-form {

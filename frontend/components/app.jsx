@@ -19,15 +19,15 @@ import BoardCreateContainer from './board/board_create_container'
 const App = () => (
   <div className="outter-div">
     <div className="header-container">
-      <header className="header">
+      {/* <header className="header">
         <Link to="/" className="header-link">
           <div className="logo_and_title">
             <img className="logo" src={window.logo} />
             <h1 className="logo-title">Pinspiration</h1>
           </div>
-        </Link>
+        </Link> */}
         <NavBar />
-      </header>
+      {/* </header> */}
     </div>
     {/* <ModalContainer /> */}
     <div className="switch">

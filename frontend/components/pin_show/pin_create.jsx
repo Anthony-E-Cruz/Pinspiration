@@ -214,19 +214,20 @@ class CreatePin extends React.Component {
                 />
               </label>
               <label className="pin-details">
-                Board Id
+                {/* Board Id
                 <input
                   type="text"
                   id="post-body"
                   value={this.state.board_id}
                   // onChange={this.handleInput.bind(this)}
                   onChange={this.update("board_id")}
-                />
+                /> */}
                 <div className="center-dropdown">
                   {boards1.map((el, idx) => (
                     <button
-                    id={idx}
-                    type="button"
+                      className="dropdown-board-items"
+                      id={idx}
+                      type="button"
                       value={el.id}
                       onClick={this.update("board_id")}
                     >

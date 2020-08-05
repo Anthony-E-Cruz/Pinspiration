@@ -1,0 +1,49 @@
+  .home-bttn {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    text-decoration: none;
+    height: 48px;
+    min-width: 78px;
+    // margin: 5px;
+    color: black;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 450;
+    border-radius: 30px;
+    padding: 15px;
+    margin-left: 12px;
+    border: none
+  }
+
+  .home-bttn:hover {
+    background-color: rgb(232, 228, 228);
+  }
+
+  .home-bttn:focus{
+    outline: 0;
+  }
+
+  .logged-in-logo {
+    width: 25px;
+    height: 25px;
+    margin-left: 27px;
+  }
+
+  .header-profile-logo {
+    width: 26px;
+    height: 26px;
+    margin: 10px;
+    border-radius: 50%;
+  }
+
+  .header-profile-logo-link {
+    width: 46px;
+    height: 45px;
+  }
+
+  .header-profile-logo-link:hover {
+    border-radius: 50%;
+    margin-bottom: 0px;
+    background-color: rgb(232, 228, 228);
+  }
+
+

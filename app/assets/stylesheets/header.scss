@@ -14,6 +14,10 @@
     margin-top: 80px
   }
 
+  .header-link {
+    text-decoration: none;
+  }
+
   .header {
     // position: absolute;
     display: flex;
@@ -24,7 +28,14 @@
     width: 100%;
   }
 
+  .header-icons-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .logo_and_title {
+    text-decoration: none;
     display: flex;
     align-items: center;
   }
@@ -45,8 +56,25 @@
   }
 
   .dropdown-logo {
-    width: 34px;
     height: 34px;
     margin-left: 24px;
-    border: none;
+    margin-right: 15px;
+    margin-left: 0px;
+    padding: 7px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 90%;
   }
+
+  // .svg-inline--fa.fa-w-14 {
+  //   width: 12px;
+  // }
+
+  .dropdown-logo:hover {
+    
+    background-color: rgb(235, 234, 234);
+  }
+
+
+
+
