@@ -33,9 +33,11 @@ class ShowBoard extends React.Component {
           <div className="board-show-container">
             {pins.map((pin, idx) => (
               <div key={idx} className="pins">
-                <Link to={`/pins/${currentBoard.pins[idx].id}`}>
+                <Link
+                  className="pin-show-link "
+                  to={`/pins/${currentBoard.pins[idx].id}`}
+                >
                   <img className="pin-images" src={pin.photoUrl} />
-                  <p>{}</p>
                   <p>{currentBoard.pins[idx].title}</p>
                 </Link>
               </div>

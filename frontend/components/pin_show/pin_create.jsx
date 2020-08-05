@@ -137,7 +137,7 @@ class CreatePin extends React.Component {
     if (boards1) {
       return (
         <div>
-          <h1>TESSSTTTTINNNGGGGG</h1>
+          {/* <h1>TESSSTTTTINNNGGGGG</h1> */}
           {boards1.map((el) => {
             <div>
               {console.log(el.title)}

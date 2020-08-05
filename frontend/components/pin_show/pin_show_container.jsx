@@ -50,7 +50,7 @@ class Pin extends React.Component {
             <div className="pin-show-header"></div>
             <p className="pin-show-title">{currentPin.title}</p>
             <p className="pin-show-description">
-              {currentPin.description} DESCRIPTION
+              {currentPin.description} 
             </p>
             <div className="owner-pin-links">
               <Link className="pin-show-link" to={`/users/${owner.id}/pins`}>
