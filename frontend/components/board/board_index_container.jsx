@@ -3,6 +3,8 @@ import React from 'react';
 import DropZone from 'react-dropzone';
 import { fetchBoards } from '../../actions/board_actions'
 import { Link } from "react-router-dom";
+import { fetchPins } from "../../actions/pin_actions";
+
 
 class ShowBoard extends React.Component {
   constructor(props) {
@@ -18,19 +20,32 @@ class ShowBoard extends React.Component {
 
   componentDidMount() {
     this.props.fetchBoards();
+    this.props.fetchPins();
   }
 
   render() {
     const { boards } = this.props;
     const allBoards = Object.values(boards);
-
+    // const board
+    // console.log(allBoards);
+    // console.log(allBoards[0]);
+    // console.log(allBoards[0].pins);
+    // if ()
     return (
       <div className="boards">
         {allBoards.map((board, idx) => (
           <Link key={idx} to={`/boards/${board.id}`}>
             <div key={idx} className="board-container">
-                <div className="board"></div>
-                <p className="board-title">{board.title}</p>
+              <div className="board">
+                {/* {console.log(board.pins.length)} */}
+                {/* {if ((board.pins.length) > 0){
+                  
+                }} */}
+                {/* {console.log(pins)} */}
+                {/* { const pins = Object.assign(board[board.id]) } */}
+                {/* <img className="pin-images" src={board[board.id][0].photoUrl} /> */}
+              </div>
+              <p className="board-title">{board.title}</p>
             </div>
           </Link>
         ))}
@@ -47,7 +62,8 @@ const msp = (state) => {
 }
 
 const mdp = dispatch => ({
-  fetchBoards: () => dispatch(fetchBoards())
+  fetchBoards: () => dispatch(fetchBoards()),
+  fetchPins: () => dispatch(fetchPins())
 })
 
 export default connect(msp, mdp)(ShowBoard);

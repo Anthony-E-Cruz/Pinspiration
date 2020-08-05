@@ -39,7 +39,6 @@ class Pin extends React.Component {
 
       const ownerId = currentPin.user_id;
       const ownerUsername = currentPin.username
-      console.log(ownerUsername)
       // const { user } = this.props;
 
       return (
@@ -48,7 +47,7 @@ class Pin extends React.Component {
             <img className="pin-show-images" src={currentPin.photoUrl} />
           </div>
           <div className="pin-show-text-container">
-            <div className="pin-show-header">PIN SHOW HEADER</div>
+            <div className="pin-show-header"></div>
             <p className="pin-show-title">{currentPin.title}</p>
             <p className="pin-show-description">
               {currentPin.description} DESCRIPTION

@@ -21,10 +21,10 @@
 }
 
 .photo-preview {
-  margin-left: 10px;
-  width: 250px;
-  position: fixed;
-  z-index: 2;
+  // margin-left: 10px;
+  width: 275px;
+  // position: fixed;
+  // z-index: 2;
 }
 
 .dropzone {
@@ -36,7 +36,8 @@
 }
 
 .dropzone-preview{
-  position: absolute;
+  // position: absolute;
+  width: 250px;
 }
 // .pin-form-container {
 //   top: 100px;
@@ -65,4 +66,12 @@
     padding-top: 40px;
     height: 420px;
     border-radius: 3px;
+}
+
+.immage-not-saved {
+  display: none;
+}
+
+.immage-saved {
+  display: flex
 }

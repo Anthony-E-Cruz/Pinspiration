@@ -25,7 +25,6 @@ class ShowBoard extends React.Component {
     const { boardId } = this.props;
     // console.log(boards[boardId]);
     const currentBoard = boards[boardId];
-    // debugger
     if (currentBoard && currentBoard.pins.length > 0) {
       const pins = Object.values(currentBoard[boardId]);
       return (
