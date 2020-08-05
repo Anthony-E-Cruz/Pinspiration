@@ -29,16 +29,22 @@ class CreateBoard extends React.Component {
   render() {
     return (
       <div className="create-pin-form">
-        <form className="create-pin-form" onSubmit={this.handleSubmit.bind(this)}>
-          <div className="create-pin-form">
-            <h1>Create a Board!</h1>
-            <label>Title
-              <input type="text"
+        <form
+          className="create-pin-form"
+          onSubmit={this.handleSubmit.bind(this)}
+        >
+          <div className="create-board-form">
+            <h1 className="create-board-form-title">Create a Board!</h1>
+            <label>
+              Title
+              <input
+                type="text"
                 id="post-body"
                 value={this.state.title}
-                onChange={this.handleInput.bind(this)} />
+                onChange={this.handleInput.bind(this)}
+              />
             </label>
-            <button>Submit!</button>
+            <button className="create-board-button">Create!</button>
           </div>
         </form>
       </div>

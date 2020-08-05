@@ -207,7 +207,7 @@ class CreatePin extends React.Component {
                 />
               </label>
               <label className="pin-details">
-                Board
+                Board Id
                 <input
                   type="text"
                   id="post-body"
