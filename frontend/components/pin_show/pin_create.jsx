@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import DropZone from 'react-dropzone';
 // import PinShow from './pin_show'
+import { fetchUser } from '../../actions/user_actions'
 import { fetchPins } from '../../actions/pin_actions'
 
 class CreatePin extends React.Component {
@@ -31,7 +32,9 @@ class CreatePin extends React.Component {
   }
 
   componentDidMount() {
+    const { currentUserId } = this.props;
     this.props.fetchPins();
+    // this.props.fetchUser(currentUserId);
   }
 
   handleInput(e) {
@@ -128,16 +131,19 @@ class CreatePin extends React.Component {
     const boardObjects = currentUser[currentUserId].boards;
     const boards1 = Object.values(boardObjects);
     const boards = boards1.map((el) => el.title);
-    console.log(boards1);
-    console.log(boards1[0].title);
-    if (true) {
+    // console.log(boardObjects);
+    // console.log(boards1);
+    // console.log(boards1[0].title);
+    if (boards1) {
       return (
         <div>
+          <h1>TESSSTTTTINNNGGGGG</h1>
           {boards1.map((el) => {
             <div>
-              <li key={el.id}>{el.title}</li>
-              <li key={el.id}>{el.id}</li>
-            </div>
+              {console.log(el.title)}
+              <div key={el.id}>el.title</div>
+              <div key={el.id}>{el.id}</div>
+            </div>;
           })}
         </div>
       );

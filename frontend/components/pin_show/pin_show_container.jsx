@@ -3,6 +3,8 @@ import React from "react";
 import { fetchPins, fetchPin } from "../../actions/pin_actions";
 import PinIndexContainer from './pin_index_container'
 import * as Scroll from "react-scroll";
+import { Link } from "react-router-dom";
+
 
 class Pin extends React.Component {
   constructor(props) {
@@ -19,16 +21,27 @@ class Pin extends React.Component {
   componentDidMount() { 
     const { currentPinId } = this.props;
     this.props.fetchPin(currentPinId);
-    // Scroll.scrollToTop();
+    // this.props.fetch
+    // console.log(this.props.fetchPin(currentPinId))
+    $.ajax({
+      url: `api/users/${"2"}`,
+      method: "GET",
+    });
   }
 
   img() {
     const { pins } = this.props;
     const { currentPinId } = this.props;
     const currentPin = pins[currentPinId];
-
-    // console.log(pins[currentPinId]);
     if (currentPin) {
+      const owner = currentPin.user
+      const board = currentPin.board
+
+      const ownerId = currentPin.user_id;
+      const ownerUsername = currentPin.username
+      console.log(ownerUsername)
+      // const { user } = this.props;
+
       return (
         <div className="single-pin-show-inner-container">
           <div>
@@ -40,8 +53,15 @@ class Pin extends React.Component {
             <p className="pin-show-description">
               {currentPin.description} DESCRIPTION
             </p>
-            <p className="pin-show-userId">{currentPin.user_id} USER</p>
-            <p className="pin-show-boardId">{currentPin.board_id} BOARD</p>
+            <div className="owner-pin-links">
+              <Link className="pin-show-link" to={`/users/${owner.id}/pins`}>
+                <p className="pin-show-userId">{owner.username}</p>
+              </Link>
+              saved to
+              <Link className="pin-show-link" to={`/boards/${board.id}`}>
+                <p className="pin-show-boardId">{board.title}</p>
+              </Link>
+            </div>
           </div>
         </div>
       );} else { 
@@ -53,8 +73,10 @@ class Pin extends React.Component {
     const { pins } = this.props;
     const allPins = Object.values(pins);
     const {currentPinId} = this.props;
-    const currentPin = pins[47];
-
+    const currentPin = pins[currentPinId];
+    const {user} = this.props;
+    // const pinOwnerId = currentPin.user_id
+    
     // console.log(pins[47]);
 
     return (

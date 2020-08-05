@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchPins } from '../../actions/pin_actions'
+import { fetchUser } from "../../actions/user_actions";
 import CreatePin from'./pin_create'
 
 const msp = (state) => {
@@ -11,8 +12,8 @@ const msp = (state) => {
 }
 
 const mdp = dispatch => ({
-  fetchPins: () => dispatch(fetchPins())
-  // fetchBoards: () => 
+  fetchPins: () => dispatch(fetchPins()),
+  fetchUser: (id) => dispatch(fetchUser(id))
 })
 
 export default connect(msp, mdp)(CreatePin)
