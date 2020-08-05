@@ -28,81 +28,50 @@ class Pins extends React.Component {
     this.setState({ title: e.currentTarget.value });
   }
 
-  handleFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoUrl: fileReader.result });
-    };
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
+  scroll() {
+    
+      $("html, body").animate(
+        {
+          scrollTop: 0,
+        },
+        100
+      );
+    
   }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("pin[title]", this.state.title);
-    formData.append("pin[photo]", this.state.photoFile);
-    formData.append("pin[user_id]", this.state.user_id);
-    $.ajax({
-      url: "api/pins",
-      method: "POST",
-      data: formData,
-      contentType: false,
-      processData: false,
-    });
-  }
-
-  // renderPins
 
   pinDisplay() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
     if (allPins) {
       // console.log(allPins);
+    
+
     return (
       <div className="pin-show">
         <div className="pin-container">
           {allPins.map((pin, idx) => (
             <div key={idx} className="pins">
               <Link to={`/pins/${pin.id}`}>
-                <img className="pin-images" src={pin.photoUrl} />
-                {/* <p>{pin.title}</p>
+                {/* <a href="#"> */}
+                  <img onClick={this.scroll} className="pin-images" src={pin.photoUrl} />
+                  {/* <p>{pin.title}</p>
                 <p>{pin.id}</p> */}
+                
+                 {/* <p> {$("html, body").animate(
+                     {
+                       scrollTop: 0,
+                     },
+                     400
+                   )
+                } </p> */}
+                {/* </a> */}
               </Link>
             </div>
           ))}
         </div>
       </div>
     );
-              }
-  }
-
-  pinCreateForm() {
-    const { pins } = this.props;
-    const allPins = Object.values(pins);
-    // console.log(pins)
-    return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <h1>Create a Pin!</h1>
-        <input
-          type="file"
-          onChange={this.handleFile.bind(this)}
-          name=""
-          id=""
-        />
-        <input type="text" onChange={this.handleFile.bind(this)} />
-        <input
-          type="text"
-          id="post-body"
-          value={this.state.title}
-          onChange={this.handleInput.bind(this)}
-        />
-        <input type="file" onChange={this.handleFile.bind(this)} />
-        <button>Submit!</button>
-      </form>
-    );
+   }
   }
 
   render() {

@@ -18,6 +18,10 @@
     margin: 0px;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   .full-login {
     display: flex;
     justify-content: center;

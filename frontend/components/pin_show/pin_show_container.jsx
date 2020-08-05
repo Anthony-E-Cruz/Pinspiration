@@ -43,6 +43,7 @@ class Pin extends React.Component {
 
       return (
         <div className="single-pin-show-inner-container">
+          <a name="top-of-page"></a>
           <div>
             <img className="pin-show-images" src={currentPin.photoUrl} />
           </div>
