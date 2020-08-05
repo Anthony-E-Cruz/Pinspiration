@@ -23,7 +23,7 @@ class ShowBoard extends React.Component {
   boardRender() {
     const { boards } = this.props;
     const allBoards = Object.values(boards);
-    console.log(boards)
+    // console.log(boards)
     if (boards) {
     return (
       <div className="boards">

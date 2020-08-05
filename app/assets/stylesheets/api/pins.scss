@@ -4,16 +4,12 @@
 
 .pin-show {
   display: flex;
-  // flex-direction: row;
   justify-content: center;
-  // flex-direction: column;
-  // align-items: center;
   flex-wrap: wrap;
 }
 
 .pin-images {
   width: 200px;
-  // height: 200px;
   border-radius: 20px;
 }
 
@@ -21,17 +17,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  // width: 300px;
-  // height: 300px;
 }
 
 .pins {
   margin: 10px;
 }
 
-// .txt-light {
-//   margin-bottom: 50px;
-// }
+.pins:hover {
+  margin: 10px;
+  opacity: 80%;
+  border-radius: 20px;
+}
 
 .no-pins-container{
   margin: 30px;
@@ -42,7 +38,7 @@
   font-size: 18px;
 }
 
-.find-pins-btn {
+  .find-pins-btn {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     text-decoration: none;
     height: 40px;

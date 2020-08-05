@@ -60,7 +60,7 @@ class Pins extends React.Component {
     const { pins } = this.props;
     const allPins = Object.values(pins);
     if (allPins) {
-      console.log(allPins);
+      // console.log(allPins);
     return (
       <div className="pin-show">
         <div className="pin-container">

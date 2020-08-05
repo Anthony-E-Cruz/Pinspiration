@@ -1,5 +1,5 @@
 .single-pin-show-container {
-  margin-top: 20px;
+  margin-top: 100px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -8,9 +8,10 @@
 .single-pin-show-inner-container {
   display: flex;
   width: 1000px;
-  box-shadow: 8px 7px 20px rgb(242, 242, 242);
+  box-shadow: 8px 7px 20px #e3e0e0;
   // box-shadow: 10px 10px 8px #888888;
   border-radius: 20px;
+  margin-top: 20px;
 }
 
 .pin-show-images {
@@ -20,6 +21,7 @@
 
 .pin-show-header {
   height: 60px;
+  margin-top: 20px;
 }
 
 .pin-show-text-container{

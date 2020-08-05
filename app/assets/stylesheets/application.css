@@ -40,7 +40,8 @@
     display: block;
     justify-content: center;
     margin-top: 0;
-    margin-left: 58px
+    margin-left: 58px;
+    text-decoration: none;
   }
 
   .switch-form{

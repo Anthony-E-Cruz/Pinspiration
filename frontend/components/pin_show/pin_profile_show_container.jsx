@@ -64,7 +64,7 @@ class Pins extends React.Component {
     if (pins) {
       const allPins = Object.values(pins);
       // console.log(pins[0]);
-      console.log(userPins[0].id);
+      // console.log(userPins[0].id);
       // console.log(allPins);
       return (
         <div className="pin-show">

@@ -23,7 +23,7 @@ class ShowBoard extends React.Component {
   boardDisplay() {
     const { boards } = this.props;
     const { boardId } = this.props;
-    console.log(boards[boardId]);
+    // console.log(boards[boardId]);
     const currentBoard = boards[boardId];
     // debugger
     if (currentBoard && currentBoard.pins.length > 0) {
@@ -59,7 +59,7 @@ class ShowBoard extends React.Component {
   render() {
     const { boards } = this.props;
     const { boardId } = this.props;
-    console.log(boards[boardId]);
+    // console.log(boards[boardId]);
     return (
       <div className="boards">
         {this.boardDisplay()}

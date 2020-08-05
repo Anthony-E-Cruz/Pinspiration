@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React from "react";
 import { fetchPins, fetchPin } from "../../actions/pin_actions";
 import PinIndexContainer from './pin_index_container'
-
+import * as Scroll from "react-scroll";
 
 class Pin extends React.Component {
   constructor(props) {
@@ -13,11 +13,13 @@ class Pin extends React.Component {
     const allPins = Object.values(pins);
     const { currentPinId } = this.props;
     const currentPin = pins[currentPinId];
+
   }
 
   componentDidMount() { 
     const { currentPinId } = this.props;
     this.props.fetchPin(currentPinId);
+    // Scroll.scrollToTop();
   }
 
   img() {
@@ -25,7 +27,7 @@ class Pin extends React.Component {
     const { currentPinId } = this.props;
     const currentPin = pins[currentPinId];
 
-    console.log(pins[currentPinId]);
+    // console.log(pins[currentPinId]);
     if (currentPin) {
       return (
         <div className="single-pin-show-inner-container">
@@ -53,7 +55,7 @@ class Pin extends React.Component {
     const {currentPinId} = this.props;
     const currentPin = pins[47];
 
-    console.log(pins[47]);
+    // console.log(pins[47]);
 
     return (
       <div className="outerrr">
