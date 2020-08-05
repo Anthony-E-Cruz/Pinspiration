@@ -6,6 +6,24 @@
   align-items: center;
 }
 
+.center-dropdown{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-dropdown > button {
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  height: 30px;
+  width: 200px;
+  border: none;
+  font-size: 20px;
+}
+
 .pin-form {
   display: flex;
   flex-direction: column;

@@ -4,6 +4,8 @@ import DropZone from 'react-dropzone';
 // import PinShow from './pin_show'
 import { fetchUser } from '../../actions/user_actions'
 import { fetchPins } from '../../actions/pin_actions'
+import { Link } from "react-router-dom";
+
 
 class CreatePin extends React.Component {
   constructor(props) {
@@ -27,9 +29,11 @@ class CreatePin extends React.Component {
       dropPreviewMessage: "Drop To Preview!",
       dropErrorMessage: "Invalid File",
       status: "immage-not-saved",
+      // dropdown: this.boardsDropdown(),
       // board_id: ""
     };
     this.onDrop = this.onDrop.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   componentDidMount() {
@@ -119,7 +123,7 @@ class CreatePin extends React.Component {
       success: (this.state.status = "immage-saved"),
       // success: (this.setState()),
     });
-
+    // this.setState();
   }
 
   photoPreview() {
@@ -129,29 +133,32 @@ class CreatePin extends React.Component {
     }
   }
 
-  boardsDropdown() {
-    const { currentUserId } = this.props;
-    const { currentUser } = this.props;
-    const boardObjects = currentUser[currentUserId].boards;
-    const boards1 = Object.values(boardObjects);
-    if (boards1) {
-      return (
-        <div>
-          {/* <h1>TESSSTTTTINNNGGGGG</h1> */}
-          {boards1.map((el) => {
-            <div>
-              {console.log(el.title)}
-              <h1>{el.title}</h1>
-              <div key={el.id}>{el.title}</div>
-              <div key={el.id}>{el.id}</div>
-            </div>;
-          })}
-        </div>
-      );
-    } else {
-      return null;
-    }
-  }
+  onClick() {
+    this.setState({
+      board_id: "Test",
+    });
+  };
+
+  // boardsDropdown() {
+  //   const { currentUserId } = this.props;
+  //   const { currentUser } = this.props;
+  //   const boardObjects = currentUser[currentUserId].boards;
+  //   const boards1 = Object.values(boardObjects);
+  //   if (boards1) {
+  //     return (
+  //       <div className="center-dropdown">
+  //         {boards1.map((el, idx) => (
+  //           <button >
+  //             <div key={idx}>{el.title}</div>
+  //             {/* <div key={el.id}>{el.id}</div> */}
+  //           </button>
+  //         ))}
+  //       </div>
+  //     );
+  //   } else {
+  //     return null;
+  //   }
+  // }
 
   render() {
     const { pins } = this.props;
@@ -169,7 +176,7 @@ class CreatePin extends React.Component {
         <div className="create-pin-form">
           {this.photoPreview()}
           <div>
-          <h1 className={this.state.status}>Immage Successfully Saved!</h1>
+            <h1 className={this.state.status}>Immage Successfully Saved!</h1>
             <div className="dropzone">
               <div
                 className="dropzone-zone"
@@ -215,6 +222,18 @@ class CreatePin extends React.Component {
                   // onChange={this.handleInput.bind(this)}
                   onChange={this.update("board_id")}
                 />
+                <div className="center-dropdown">
+                  {boards1.map((el, idx) => (
+                    <button
+                    id={idx}
+                    type="button"
+                      value={el.id}
+                      onClick={this.update("board_id")}
+                    >
+                      <div key={idx}>{el.title}</div>
+                    </button>
+                  ))}
+                </div>
               </label>
               <button>Submit!</button>
             </div>
@@ -224,7 +243,7 @@ class CreatePin extends React.Component {
             </div>
           </form>
         </div>
-        {this.boardsDropdown()}
+        {/* {this.boardsDropdown()} */}
       </div>
     );
   }
