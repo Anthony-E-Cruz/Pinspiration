@@ -48,7 +48,7 @@ class Pins extends React.Component {
 
     return (
       <div className="pin-show">
-        <div className="pin-container">
+        {/* <div className="pin-container"> */}
           {allPins.map((pin, idx) => (
             <div key={idx} className="pins">
               <Link to={`/pins/${pin.id}`}>
@@ -68,7 +68,7 @@ class Pins extends React.Component {
               </Link>
             </div>
           ))}
-        </div>
+        {/* </div> */}
       </div>
     );
    }

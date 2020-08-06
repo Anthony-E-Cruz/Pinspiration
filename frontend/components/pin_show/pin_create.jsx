@@ -114,15 +114,17 @@ class CreatePin extends React.Component {
     if (this.state.photoFile) {
       formData.append("pin[photo]", this.state.photoFile);
     }
+    const { currentUserId } = this.props;
     $.ajax({
       url: "api/pins",
       method: "POST",
       data: formData,
       contentType: false,
       processData: false,
-      success: (this.state.status = "immage-saved"),
+      // success: (this.state.status = "immage-saved"),
       // success: (this.setState()),
-    });
+    // }).then(this.state.status = "immage-saved");
+    }).then(document.location.href = `#/users/${currentUserId}/pins`);
     // this.setState();
   }
 
