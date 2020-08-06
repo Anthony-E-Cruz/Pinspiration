@@ -106,16 +106,27 @@ class Pins extends React.Component {
   }
 }
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
   const id = state.session.id;
   const pins = state.entities.users[id][id];
   const userPins = state.entities.users[id].pins;
+  console.log(ownProps)
   // console.log(pins);
+  debugger
   return {
     userPins: userPins,
     pins: pins,
     currentUserId: state.session.id,
   };
+  // const id = ownProps.match.params.userId;
+  // const pins = state.entities.users[id][id];
+  // const userPins = state.entities.users[id].pins;
+  // // console.log(pins);
+  // return {
+  //   userPins: userPins,
+  //   pins: pins,
+  //   currentUserId: id,
+  // };
 };
 
 const mdp = (dispatch) => ({

@@ -17,14 +17,16 @@ class Profile extends React.Component {
     const currentUser = users[userId]
   }
   
-  // componentDidMount() {
-    //   this.props.receiveCurrentUser();
-    // }
+  componentDidMount() { 
+    const { userId } = this.props;
+    this.props.fetchUser(userId);
+  }
     
     render() {
       const { userId } = this.props;
       const { users } = this.props;
       const currentUser = users[userId];
+      if (currentUser) {
     return (
       <div>
         <div className="profile">
@@ -84,7 +86,9 @@ class Profile extends React.Component {
         </div>
         <PinProfileShowContainer />
       </div>
-    );
+    );} else {
+      return 20
+    }
   }
 }
 

@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions';
 // import { openModal } from '../../actions/modal_actions';
 import profile from './profile'
 import { receiveCurrentUser } from '../../actions/session_actions';
+import { fetchUser } from "../../actions/user_actions";
 
 const msp = ( state, ownProps ) => {
     // currentUser: state.session
@@ -13,11 +14,12 @@ const msp = ( state, ownProps ) => {
   }
 };
 
-// const mdp = dispatch => ({
-//   receiveCurrentUser: (currentUser) => dispatch(receiveCurrentUser(currentUser))
-//   // logout: () => dispatch(logout()),
-//   // openModal: modal => dispatch(openModal(modal))
-//   // openModal: () => dispatch(openModal())
-// })
+const mdp = dispatch => ({
+  fetchUser: (id) => dispatch(fetchUser(id))
+  // receiveCurrentUser: (currentUser) => dispatch(receiveCurrentUser(currentUser))
+  // logout: () => dispatch(logout()),
+  // openModal: modal => dispatch(openModal(modal))
+  // openModal: () => dispatch(openModal())
+})
 
-export default connect(msp)(profile);
+export default connect(msp, mdp)(profile);

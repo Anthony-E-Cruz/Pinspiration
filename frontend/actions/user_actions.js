@@ -15,10 +15,10 @@ export const receiveuser = (user) => ({
   user,
 });
 
-export const fetchusers = () => (dispatch) => {
+export const fetchUsers = () => (dispatch) => {
   UsersAPIUtil.fetchusers().then((users) => dispatch(receiveusers(users)));
 };
 
-export const fetchuser = (id) => (dispatch) => {
-  UsersAPIUtil.fetchuser(id).then((user) => dispatch(receiveuser(user)));
+export const fetchUser = (id) => (dispatch) => {
+  UsersAPIUtil.fetchUser(id).then((user) => dispatch(receiveuser(user)));
 };
