@@ -112,7 +112,6 @@ const msp = (state, ownProps) => {
   const userPins = state.entities.users[id].pins;
   console.log(ownProps)
   // console.log(pins);
-  debugger
   return {
     userPins: userPins,
     pins: pins,

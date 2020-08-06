@@ -27,7 +27,7 @@ class Profile extends React.Component {
         <div className="profile">
           <div className="profile-header">
             <img className="profile-img" src={window.profile_img} />
-            <h1>{currentUser.username}</h1>
+            <h1 className="username-header">{currentUser.username}</h1>
           </div>
           <div className="profile-sub-header">
             <Link to={`/${userId}/edit`}>

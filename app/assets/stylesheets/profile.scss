@@ -16,8 +16,8 @@
   }
 
   .profile-img {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
   }
 
   .edit-profile-form {
@@ -92,7 +92,7 @@
     display: flex
   }
 
-  .dropdown-child:hover {
+  .dropdown-links:hover {
     background-color: rgb(235, 234, 234);
   }
 
@@ -103,26 +103,49 @@
     position: absolute;
     font-size: 25px;
     background: white;
-    min-width: 150px;
+    width: 180px;
     z-index: 2;
     border-radius: 10px;
+    box-shadow: 8px 7px 20px #e3e0e0;
+    // display: flex;
+    justify-content: center;
+    height: 125px;
+  }
+
+  .dropdown-links-header {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 100px;
+    margin-left: 20px;
+    height: 25px;
+    // margin-top: 10px;
   }
 
   .dropdown-links {
     text-decoration: none;
     padding: 10px;
     color: black;
+    background-color: white;
     border-radius: 10px;
+    width: 140px;
   }
 
   .dropdown-links-text {
     text-decoration: none;
     padding: 10px;
     color: black;
+    font-size: 18px;
+    font-weight: bold;
   }
 
   .profile-link-icons:hover .dropdown-child{
     display: block;
+  }
+
+  .username-header{
+    font-weight: 640;
+    font-size: 35px;
   }
 
 
