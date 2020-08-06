@@ -15,11 +15,11 @@ const navBar = ({ currentUser, logout, openModal }) => {
           </div>
         </Link>
         <div className="header-icons-container">
-          <Link to="/">
+          {/* <Link to="/">
             <button className="signup-btn" onClick={logout}>
               Logout
             </button>
-          </Link>
+          </Link> */}
           <Link
             className="header-profile-logo-link"
             to={`/users/${currentUser.id}/pins`}
@@ -32,7 +32,14 @@ const navBar = ({ currentUser, logout, openModal }) => {
             {/* <i class="fas fa-chevron-down"></i> */}
           </Link>
           {/* <i class="fas fa-chevron-down"></i> */}
-          <FontAwesomeIcon className="dropdown-logo" icon={faChevronDown} />
+          <div className="dropdown-parent-nav">
+            <FontAwesomeIcon className="dropdown-logo" icon={faChevronDown} />
+            <Link className="dropdown-child-nav logout" to="/">
+              <button className="logout-bttn-nav" onClick={logout}>
+                Logout
+              </button>
+            </Link>
+          </div>
           {/* </button> */}
           {/* <p className="login-btn">user</p>  */}
         </div>
