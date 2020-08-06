@@ -5,17 +5,32 @@ import { logout } from '../../actions/session_actions';
 import profile from './profile'
 import { receiveCurrentUser } from '../../actions/session_actions';
 import { fetchUser } from "../../actions/user_actions";
+import { fetchPins } from "../../actions/pin_actions";
 
 const msp = ( state, ownProps ) => {
     // currentUser: state.session
-  return{
+  const id = ownProps.match.params.userId;
+  // if (state.entities.users[id][id]) {
+  // const pins = (state.entities.users[id][id] || [] );
+  // } else {
+  // const pins = []
+  // }
+  // const userPins = state.entities.users[id].pins;
+  // console.log(ownProps)
+  // console.log(pins);
+  debugger
+  return {
+    // userPins: userPins,
+    // pins: pins,
+    currentUserId: state.session.id,
     users: state.entities.users,
     userId: ownProps.match.params.userId
   }
 };
 
 const mdp = dispatch => ({
-  fetchUser: (id) => dispatch(fetchUser(id))
+  fetchUser: (id) => dispatch(fetchUser(id)),
+  fetchPins: () => dispatch(fetchPins()),
   // receiveCurrentUser: (currentUser) => dispatch(receiveCurrentUser(currentUser))
   // logout: () => dispatch(logout()),
   // openModal: modal => dispatch(openModal(modal))
