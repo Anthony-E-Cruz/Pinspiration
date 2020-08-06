@@ -1,0 +1,34 @@
+.board-icon-large{
+  width: 215px;
+  height: 215px;
+  margin-right: 3px;
+  background-color: gray;
+}
+
+.board-icon-small-top{
+  width: 110px;
+  height: 107px;
+  background-color: gray;
+
+}
+
+.board-icon-small-bottom{
+  width: 110px;
+  height: 107px;
+  background-color: gray;
+}
+
+.board-collage-container {
+  display: flex;
+  height: 215px;
+  width: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.board-icon-small-bottom-placeholder{
+  width: 110px;
+  height: 107px;
+  background-color: gray;
+  margin-top: 3px;
+}
