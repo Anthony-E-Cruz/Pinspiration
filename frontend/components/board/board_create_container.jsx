@@ -19,7 +19,8 @@ class CreateBoard extends React.Component {
     e.preventDefault();
     const board = Object.assign({}, this.state);
     const { currentUserId } = this.props;
-    this.props.processForm(board);
+    this.props.processForm(board)
+      .then(document.location.href = `#/users/${currentUserId}/pins`);
   }
 
   handleInput(e) {
