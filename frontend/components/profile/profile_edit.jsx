@@ -34,7 +34,8 @@ class Profile extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     const { userId } = this.props;
-    this.props.processForm(user, userId);
+    this.props.processForm(user, userId)
+      .then(document.location.href = `#/users/${userId}/pins`);
   }
 
   render() {

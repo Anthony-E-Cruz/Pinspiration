@@ -24,6 +24,12 @@ const navBar = ({ currentUser, logout, openModal }) => {
             className="header-profile-logo-link"
             to={`/users/${currentUser.id}/pins`}
           >
+            <img className="logged-in-logo" src={window.github} />
+          </Link>
+          <Link
+            className="header-profile-logo-link"
+            to={`/users/${currentUser.id}/pins`}
+          >
             <img className="header-profile-logo" src={window.profile_img} />
           </Link>
           {/* <button> */}

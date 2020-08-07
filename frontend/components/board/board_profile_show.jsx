@@ -113,7 +113,7 @@ class ShowBoard extends React.Component {
         console.log(parseInt(board.creator_id) === parseInt(userId))
         if(parseInt(board.creator_id) === parseInt(userId)) {
           return (
-        <Link key={idx} to={`/boards/${board.id}`}>
+        <Link className="board-title-link" key={idx} to={`/boards/${board.id}`}>
           <div key={idx} className="board-container">
             <div className="board">
               {this.renderCollage(board)}
