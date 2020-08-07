@@ -20,10 +20,28 @@
     width: 200px;
   }
 
+  .edit-form-container{
+    display: flex;
+    justify-content: center;
+  }
+
+  .edit-form-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    box-shadow: 8px 7px 20px #e3e0e0;
+    width: 500px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+  }
+
   .edit-profile-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
 
   .profile-link-icons {

@@ -47,11 +47,11 @@ class Profile extends React.Component {
       //   <h1>Edit Page</h1>
       //   <h1>{currentUser.email}</h1>
       // </div>
-      <div>
+      <div className="edit-form-container">
         <img src={currentUser.photoUrl} alt="" />
         {/* <img src={currentUser.photoUrl}/> */}
         {/* <input type="file" onChange={this.handleFile} name="" id=""/> */}
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+        <form onSubmit={this.handleSubmit} className="edit-form-box">
           <div className="profile">
             <div className="profile-header">
               <img className="profile-img" src={window.profile_img} />

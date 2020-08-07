@@ -225,7 +225,9 @@ class CreatePin extends React.Component {
                   onChange={this.update("board_id")}
                 /> */}
                 <div className="center-dropdown">
+                  <p className="board-select">Select board</p>
                   {boards1.map((el, idx) => (
+                    <ul className="dropdown-items">
                     <button
                       className="dropdown-board-items"
                       id={idx}
@@ -235,10 +237,11 @@ class CreatePin extends React.Component {
                     >
                       <div key={idx}>{el.title}</div>
                     </button>
+                    </ul>
                   ))}
                 </div>
               </label>
-              <button>Submit!</button>
+              <button className="submit-pin">Submit!</button>
             </div>
             <div className="photo-preview">
               {/* <p>Preview Image</p> */}
