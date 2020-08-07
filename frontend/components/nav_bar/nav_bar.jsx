@@ -20,12 +20,12 @@ const navBar = ({ currentUser, logout, openModal }) => {
               Logout
             </button>
           </Link> */}
-          <Link
-            className="header-profile-logo-link"
-            to={`/users/${currentUser.id}/pins`}
+          <a
+            className="github-link"
+            href="https://github.com/Anthony-E-Cruz/Pinspiration"
           >
-            <img className="logged-in-logo" src={window.github} />
-          </Link>
+            <img className="github-logo" src={window.github} />
+          </a>
           <Link
             className="header-profile-logo-link"
             to={`/users/${currentUser.id}/pins`}

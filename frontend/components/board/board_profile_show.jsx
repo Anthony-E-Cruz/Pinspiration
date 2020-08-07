@@ -179,7 +179,7 @@ class ShowBoard extends React.Component {
 
                 <div className="dropdown-child">
                   <ul>
-                    <li className="dropdown-links">Create</li>
+                      <li className="dropdown-links-header">Create</li>
                     <li className="dropdown-links">
                       <Link className="dropdown-links-text" to={`/pin/new`}>
                         Pin

@@ -28,6 +28,11 @@
     margin-left: 27px;
   }
 
+  .github-logo {
+    width: 25px;
+    height: 25px;
+  }
+
   .header-profile-logo {
     width: 26px;
     height: 26px;
@@ -38,9 +43,28 @@
   .header-profile-logo-link {
     width: 46px;
     height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .github-link {
+    width: 46px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
   }
 
   .header-profile-logo-link:hover {
+    border-radius: 50%;
+    margin-bottom: 0px;
+    background-color: rgb(232, 228, 228);
+  }
+
+  .github-logo:hover {
     border-radius: 50%;
     margin-bottom: 0px;
     background-color: rgb(232, 228, 228);
