@@ -6,7 +6,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import ModalContainer from './modal/modal_container';
 import ProfilePinsContainer from "./profile/profile_container";
-import ProfileBoardsContainer from "./profile/profile_board_container";
+import ProfileBoardsContainer from "./board/board_profile_show";
 import ProfileEditContainer from './profile/profile_edit_container';
 import PinIndexContainer from './pin_show/pin_index_container'
 import PinProfileShowContainer from "./pin_show/pin_profile_show_container";

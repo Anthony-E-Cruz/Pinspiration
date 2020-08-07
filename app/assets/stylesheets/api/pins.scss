@@ -4,12 +4,8 @@
 
 .pin-show {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  // overflow-y:auto;
-  height:auto;
-  // max-height: 800px; overflow: auto;
 }
 
 .pin-images {
@@ -19,27 +15,16 @@
 
 .pin-container {
   display: flex;
-  flex-direction: column;
-  // flex-wrap: wrap;
-  // justify-content: center;
-  // flex: 100 100 220px;
-  // list-style: none;
-  // justify-content: flex-start;
-  // align-items: flex-start;
+  flex-wrap: wrap;
+  flex-grow: 2;
+  justify-content: center;
+  flex: 100 100 220px;
+  list-style: none;
 }
 
 .pins {
   margin: 10px;
 }
-
-// .pins:nth-child(2) {
-//   background-color: pink;
-//   height: 250px;
-// }
-
-// .pins:nth-child(2n) {
-//   flex-basis: 100%;
-// }
 
 .pins:hover {
   margin: 10px;
