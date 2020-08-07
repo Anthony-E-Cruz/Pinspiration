@@ -131,6 +131,7 @@ class ShowBoard extends React.Component {
     const { userId } = this.props;
     const { users } = this.props;
     const currentUser = users[userId];
+    if (currentUser) {
     return (
       <div>
       <div>
@@ -218,7 +219,7 @@ class ShowBoard extends React.Component {
       </div>
       </div>
     );
-  }
+  }}
 };
 
 const msp = (state, ownProps) => {
