@@ -85,7 +85,7 @@ class Pin extends React.Component {
           <div>{this.img()}</div>
         </div>
         <p className="single-pin-text">
-        More Like This
+        Explore More Pins
         </p>
         <PinIndexContainer />
       </div>

@@ -38,6 +38,9 @@
   .login-form-container {
     display: flex;
     width: 400px;
+    padding-bottom: 20px;
+    box-shadow: 8px 7px 20px #e3e0e0;
+    border-radius: 20px;
   }
 
   .login-form-box{
@@ -57,7 +60,12 @@
   }
 
   .switch-form{
-    margin-left: 73px;
+    margin-left: 60px;
+    margin-top: 5px;
+  }
+
+  .switch-form-login{
+    margin-left: 45px;
     margin-top: 5px;
   }
   

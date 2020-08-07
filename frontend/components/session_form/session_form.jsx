@@ -88,7 +88,7 @@ class SessionForm extends React.Component {
         </form>
       <div className="demo-login-container"> 
         <button className="demo-login" onClick={this.props.demoUser}>Demo Login</button>
-        <p className="switch-form"> {this.props.otherForm} </p> 
+        <p className="switch-form-login"> {this.props.otherForm} </p> 
       </div>
       </div>
       </div>
