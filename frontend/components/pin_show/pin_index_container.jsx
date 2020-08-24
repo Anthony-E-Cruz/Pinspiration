@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import React from "react";
+import ReactDOM from "react-dom";
 // import PinShow from './pin_show'
 import { Link } from "react-router-dom";
 import { fetchPins } from "../../actions/pin_actions";
@@ -22,6 +23,7 @@ class Pins extends React.Component {
 
   componentDidMount() {
     this.props.fetchPins();
+    this.resizeAllGridItems()
   }
 
   handleInput(e) {
@@ -39,21 +41,64 @@ class Pins extends React.Component {
     
   }
 
+  resizeInstance(instance) {
+    item = instance.elements[0];
+    resizeGridItem(item);
+  }
+
+  resizeGridItem(item) {
+    debugger
+    grid = ReactDOM.findDOMNode(this).getElementsByClassName("grid")[0];
+    console.log(grid);
+    rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+    rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+    rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+    item.style.gridRowEnd = "span " + rowSpan;
+  }
+
+  resizeAllGridItems() {
+    let allItems = ReactDOM.findDOMNode(this).getElementsByClassName("item");
+    debugger
+      console.log(allItems);
+    for (let x = 0; x < allItems.length; x++) {
+      this.resizeGridItem(allItems[x]);
+    }
+  }
+
+  randomizePins(pins) {
+    let pinIndex = pins.length, 
+    pinHolder, randomPinIndex;
+
+    while (pinIndex > 0) {
+      randomPinIndex = Math.floor(Math.random() * pinIndex);
+      pinIndex -= 1;
+
+      pinHolder = pins[pinIndex];
+      pins[pinIndex] = pins[randomPinIndex];
+      pins[randomPinIndex] = pinHolder;
+    }
+
+    return pins;
+  }
+
   pinDisplay() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-    if (allPins) {
-      // console.log(allPins);
-    
+    const shuffledPins = this.randomizePins(allPins);
 
-    return (
+    if (allPins) {
+
+      return (
+      // <div className="pin-show">
       <div className="pin-show">
         {/* <div className="pin-container"> */}
-          {allPins.map((pin, idx) => (
+          {shuffledPins.map((pin, idx) => (
+            // <div key={idx} className="pins">
             <div key={idx} className="pins">
               <Link to={`/pins/${pin.id}`}>
                 {/* <a href="#"> */}
-                  <img onClick={this.scroll} className="pin-images" src={pin.photoUrl} />
+                {/* <img onClick={this.scroll} className="pin-images" src={pin.photoUrl} /> */}
+                <img onClick={this.scroll} className="pin-images" src={pin.photoUrl} />
                   {/* <p>{pin.title}</p>
                 <p>{pin.id}</p> */}
                 
