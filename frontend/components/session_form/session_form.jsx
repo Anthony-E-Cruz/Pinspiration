@@ -46,8 +46,6 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      // <div> 
-      //   <div onClick={this.props.closeModal} className="close-x">X</div>
       <div className="full-login">
       <div className="login-form-container">
         <div>
@@ -57,10 +55,7 @@ class SessionForm extends React.Component {
                 <p className="welcome">Welcome to Pinspiration</p>
             {this.props.findNew} 
           </div>
-          {/* <br /> */}
           <div className="login-form">
-            {/* <br /> */}
-            {/* <label>Email: */}
               <input type="text"
                 className="login-credentials"
                 placeholder="Email"
@@ -68,9 +63,6 @@ class SessionForm extends React.Component {
                 onChange={this.update('email')}
                 className="login-input"
                 />
-            {/* </label> */}
-            {/* <br /> */}
-            {/* <label>Password: */}
               <input type="password"
                 className="login-credentials"
                 placeholder={this.props.passwordText}
@@ -79,10 +71,8 @@ class SessionForm extends React.Component {
                 className="login-input"
                 />
             {this.renderErrors()}
-            {/* </label> */}
             <input className="session-submit" type="submit" value={this.props.formType} />
             <p className="or">OR</p>
-            {/* <Link className="login-btn" to={() => openModal('login')}>Log in</Link> */}
             <Link to={this.props.otherForm}>{this.props.switchPages}</Link>
           </div>
         </form>

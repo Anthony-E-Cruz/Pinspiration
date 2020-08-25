@@ -23,7 +23,7 @@ class Pins extends React.Component {
 
   componentDidMount() {
     this.props.fetchPins();
-    this.resizeAllGridItems()
+    // this.resizeAllGridItems()
   }
 
   handleInput(e) {
@@ -46,6 +46,19 @@ class Pins extends React.Component {
     resizeGridItem(item);
   }
 
+  resizeAllGridItems() {
+    let allItems = ReactDOM.findDOMNode(this).getElementsByClassName("pins");
+    // debugger
+    console.log(Object.values(allItems));
+    // var arr = Array.prototype.slice.call(htmlCollection)
+    console.log([].slice.call(allItems));
+    for (let x = 0; x < allItems.length; x++) {
+      debugger 
+      // console.log(allItems[x]);
+      this.resizeGridItem(allItems[x]);
+    }
+  }
+  
   resizeGridItem(item) {
     debugger
     grid = ReactDOM.findDOMNode(this).getElementsByClassName("grid")[0];
@@ -54,15 +67,6 @@ class Pins extends React.Component {
     rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
     rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
     item.style.gridRowEnd = "span " + rowSpan;
-  }
-
-  resizeAllGridItems() {
-    let allItems = ReactDOM.findDOMNode(this).getElementsByClassName("item");
-    debugger
-      console.log(allItems);
-    for (let x = 0; x < allItems.length; x++) {
-      this.resizeGridItem(allItems[x]);
-    }
   }
 
   randomizePins(pins) {
@@ -89,8 +93,8 @@ class Pins extends React.Component {
     if (allPins) {
 
       return (
-      // <div className="pin-show">
       <div className="pin-show">
+      {/* <div className="grid"> */}
         {/* <div className="pin-container"> */}
           {shuffledPins.map((pin, idx) => (
             // <div key={idx} className="pins">
