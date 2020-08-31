@@ -29,11 +29,13 @@ class CreatePin extends React.Component {
       dropPreviewMessage: "Drop To Preview!",
       dropErrorMessage: "Invalid File",
       status: "immage-not-saved",
+      backroundImage: "https://i.imgur.com/elPWvzM.png"
       // dropdown: this.boardsDropdown(),
       // board_id: ""
     };
     this.onDrop = this.onDrop.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.removePreview = this.removePreview.bind(this);
   }
 
   componentDidMount() {
@@ -81,6 +83,11 @@ class CreatePin extends React.Component {
   // }
 
   dropZone() {
+    let backgroundImage = this.state.photoUrl || this.state.backroundImage
+    let dropMessage = this.state.dropMessage
+    if (this.state.photoUrl) {
+      dropMessage = ""
+    }
     return (
       <div className={this.state.display}>
         <DropZone
@@ -92,16 +99,27 @@ class CreatePin extends React.Component {
           {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
             <div {...getRootProps()} className="heightUpload txt-light">
               <input {...getInputProps()} className="txt-light" />
-              {!isDragActive && this.state.dropMessage}
-              {!isDragActive && ""}
-              {isDragActive && !isDragReject && this.state.dropPreviewMessage}
-              {isDragReject && this.state.dropErrorMessage}
-              {/* dropMessage dropPreviewMessage dropErrorMessage */}
+              <div className="drop-message">
+                {!isDragActive && dropMessage}
+                {!isDragActive && ""}
+                {isDragActive && !isDragReject && this.state.dropPreviewMessage}
+                {isDragReject && this.state.dropErrorMessage}
+                {/* dropMessage dropPreviewMessage dropErrorMessage */}
+              </div>
+              <img className="background-image" src={backgroundImage}></img>
+              {/* {this.photoPreview()} */}
             </div>
           )}
         </DropZone>
+        <button className="remove-preview" onClick={this.removePreview}>
+          Remove Preview
+        </button>
       </div>
     );
+  }
+
+  removePreview() {
+    this.setState({ photoUrl: null })
   }
 
   handleSubmit(e) {
@@ -123,13 +141,14 @@ class CreatePin extends React.Component {
       processData: false,
       // success: (this.state.status = "immage-saved"),
       // success: (this.setState()),
-    // }).then(this.state.status = "immage-saved");
+      // }).then(this.state.status = "immage-saved");
     }).then(document.location.href = `#/users/${currentUserId}/pins`);
     // this.setState();
   }
 
   photoPreview() {
     const url = this.state.photoUrl;
+    this.setState({ backroundImage: url })
     if (this.state.photoUrl) {
       return <img className="photo-preview" src={url} />;
     }
@@ -141,26 +160,26 @@ class CreatePin extends React.Component {
     });
   };
 
-  // boardsDropdown() {
-  //   const { currentUserId } = this.props;
-  //   const { currentUser } = this.props;
-  //   const boardObjects = currentUser[currentUserId].boards;
-  //   const boards1 = Object.values(boardObjects);
-  //   if (boards1) {
-  //     return (
-  //       <div className="center-dropdown">
-  //         {boards1.map((el, idx) => (
-  //           <button >
-  //             <div key={idx}>{el.title}</div>
-  //             {/* <div key={el.id}>{el.id}</div> */}
-  //           </button>
-  //         ))}
-  //       </div>
-  //     );
-  //   } else {
-  //     return null;
-  //   }
-  // }
+  boardsDropdown() {
+    const { currentUserId } = this.props;
+    const { currentUser } = this.props;
+    const boardObjects = currentUser[currentUserId].boards;
+    const boards1 = Object.values(boardObjects);
+    if (boards1) {
+      return (
+        <div className="center-dropdown">
+          {boards1.map((el, idx) => (
+            <button >
+              <div key={idx}>{el.title}</div>
+              {/* <div key={el.id}>{el.id}</div> */}
+            </button>
+          ))}
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
 
   render() {
     const { pins } = this.props;
@@ -173,16 +192,14 @@ class CreatePin extends React.Component {
     // console.log(boards1.map((el) => el.title));
     return (
       <div>
-        {/* <h1>{boards1.map(el => (el.title))}</h1> */}
-        {/* <div className="photo-preview">{this.photoPreview()}</div> */}
         <div className="create-pin-form">
-          {this.photoPreview()}
+          {/* {this.photoPreview()} */}
           <div>
             <h1 className={this.state.status}>Immage Successfully Saved!</h1>
             <div className="dropzone">
               <div
                 className="dropzone-zone"
-                // style=background-image: url(this.photoPreview())
+              // style=background-image: url(this.photoPreview())
               >
                 {this.dropZone()}
               </div>
@@ -201,7 +218,6 @@ class CreatePin extends React.Component {
                   type="text"
                   id="post-body"
                   value={this.state.title}
-                  // onChange={this.handleInput.bind(this)}
                   onChange={this.update("title")}
                 />
               </label>
@@ -211,32 +227,23 @@ class CreatePin extends React.Component {
                   type="text"
                   id="post-body"
                   value={this.state.description}
-                  // onChange={this.handleInput.bind(this)}
                   onChange={this.update("description")}
                 />
               </label>
               <label className="pin-details">
-                {/* Board Id
-                <input
-                  type="text"
-                  id="post-body"
-                  value={this.state.board_id}
-                  // onChange={this.handleInput.bind(this)}
-                  onChange={this.update("board_id")}
-                /> */}
                 <div className="center-dropdown">
                   <p className="board-select">Select board</p>
                   {boards1.map((el, idx) => (
                     <ul className="dropdown-items">
-                    <button
-                      className="dropdown-board-items"
-                      id={idx}
-                      type="button"
-                      value={el.id}
-                      onClick={this.update("board_id")}
-                    >
-                      <div key={idx}>{el.title}</div>
-                    </button>
+                      <button
+                        className="dropdown-board-items"
+                        id={idx}
+                        type="button"
+                        value={el.id}
+                        onClick={this.update("board_id")}
+                      >
+                        <div key={idx}>{el.title}</div>
+                      </button>
                     </ul>
                   ))}
                 </div>

@@ -93,8 +93,12 @@
   position: relative;
 }
 
-.dropzone-zone{
-  // position: absolute;
+.dropzone:focus {
+  outline: none;
+}
+
+.dropzone-zone:focus{
+  outline: none;
 }
 
 .dropzone-preview{
@@ -105,12 +109,32 @@
 //   top: 100px;
 // }
 
+.heightUpload:focus {
+  outline: none
+}
+
+.heightUpload:hover {
+  cursor: pointer;
+}
+
+.background-image{
+  width: 345px
+}
+
+.drop-message {
+  position: absolute
+}
+
 .boxy {
   margin: 20px;
   width: 345px;
   height: 455px;
   // background-image: url("https://i.imgur.com/TUOQo0E.png");
-  background-image: url("https://i.imgur.com/elPWvzM.png");
+  // background-image: url("https://i.imgur.com/elPWvzM.png");
+}
+
+.boxy:focus {
+  outline: none;
 }
 
 .boxy2 {
