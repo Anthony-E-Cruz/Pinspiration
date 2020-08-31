@@ -5,6 +5,9 @@ import DropZone from 'react-dropzone';
 import { fetchUser } from '../../actions/user_actions'
 import { fetchPins } from '../../actions/pin_actions'
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
 
 
 class CreatePin extends React.Component {
@@ -85,8 +88,10 @@ class CreatePin extends React.Component {
   dropZone() {
     let backgroundImage = this.state.photoUrl || this.state.backroundImage
     let dropMessage = this.state.dropMessage
+    let removeIcon = "no-image"
     if (this.state.photoUrl) {
-      dropMessage = ""
+      dropMessage = "",
+        removeIcon = "remove-preview"
     }
     return (
       <div className={this.state.display}>
@@ -111,8 +116,8 @@ class CreatePin extends React.Component {
             </div>
           )}
         </DropZone>
-        <button className="remove-preview" onClick={this.removePreview}>
-          Remove Preview
+        <button className={removeIcon} onClick={this.removePreview}>
+          <FontAwesomeIcon className="trash-icon" size="1.5x" icon={faTrash} />
         </button>
       </div>
     );
