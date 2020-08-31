@@ -23,7 +23,7 @@ class Pins extends React.Component {
 
   componentDidMount() {
     this.props.fetchPins();
-    // this.resizeAllGridItems()
+    this.resizeAllGridItems()
   }
 
   handleInput(e) {
@@ -49,13 +49,14 @@ class Pins extends React.Component {
   resizeAllGridItems() {
     let allItems = ReactDOM.findDOMNode(this).getElementsByClassName("pins");
     // debugger
-    console.log(Object.values(allItems));
+    if (allItems)
+    console.log(allItems[0]);
     // var arr = Array.prototype.slice.call(htmlCollection)
-    console.log([].slice.call(allItems));
+    // console.log([].slice.call(allItems));
     for (let x = 0; x < allItems.length; x++) {
-      debugger 
+      // debugger 
       // console.log(allItems[x]);
-      this.resizeGridItem(allItems[x]);
+      this.resizeGridItem(allItems[x], this.resizeInstance);
     }
   }
   
@@ -85,6 +86,11 @@ class Pins extends React.Component {
     return pins;
   }
 
+  resizeInstance(instance) {
+    item = instance.elements[0];
+    resizeGridItem(item);
+  }
+
   pinDisplay() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
@@ -93,8 +99,8 @@ class Pins extends React.Component {
     if (allPins) {
 
       return (
-      <div className="pin-show">
-      {/* <div className="grid"> */}
+      // <div className="pin-show">
+      <div className="grid">
         {/* <div className="pin-container"> */}
           {shuffledPins.map((pin, idx) => (
             // <div key={idx} className="pins">
