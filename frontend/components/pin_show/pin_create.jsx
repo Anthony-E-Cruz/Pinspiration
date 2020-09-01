@@ -40,6 +40,7 @@ class CreatePin extends React.Component {
     this.onDrop = this.onDrop.bind(this);
     this.onClick = this.onClick.bind(this);
     this.removePreview = this.removePreview.bind(this);
+    this.update = this.update.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +54,10 @@ class CreatePin extends React.Component {
   }
 
   update(field) {
+    const dropdown = document.getElementsByClassName("dropdown-items");
+    if (dropdown[0]) {
+      dropdown[0].style.display = "none"
+    } 
     return (e) =>
       this.setState({
         [field]: e.currentTarget.value,
@@ -218,6 +223,16 @@ class CreatePin extends React.Component {
     }
   }
 
+  selectBoard(id) {
+    const dropdown = document.getElementsByClassName("dropdown-items");
+    if (dropdown[0].style.display === "flex") {
+      dropdown[0].style.display = "none"
+    } else {
+      dropdown[0].style.display = "flex";
+    }
+
+  }
+
   // openDropdown() {
   //   const dropdown = document.getElementsByClassName("dropdown-items");
   //   if (dropdown[0].style.display === "flex") {
@@ -266,8 +281,24 @@ class CreatePin extends React.Component {
                   <button className="save-button" onClick={this.openDropdown}>Save</button>
                 </div>
                 <div className="dropdown">
-                  {this.boardsDropdown()}
+                  <ul className="dropdown-items">
+                    {boards1.map((el, idx) => (
+                      <button
+                        className="dropdown-board-items"
+                        id={idx}
+                        type="button"
+                        value={el.id}
+                        onClick={this.update("board_id")}
+                      // onClick={this.openDropdown}
+                      // onClick={console.log(el.id)}
+                      // onClick={this.setState({ board_id: el.id })}
+                      >
+                        <div key={idx}>{el.title}</div>
+                      </button>
+                    ))}
+                  </ul>
                 </div>
+                {console.log(this.state)}
                 <div className="pin-form">
                   <h1>Create a Pin!</h1>
                   <label className="pin-details">
