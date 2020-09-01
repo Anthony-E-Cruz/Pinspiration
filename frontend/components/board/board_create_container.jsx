@@ -29,9 +29,9 @@ class CreateBoard extends React.Component {
 
   render() {
     return (
-      <div className="create-pin-form">
+      <div className="create-board-form-container">
         <form
-          className="create-pin-form"
+          className="create-board-form-container"
           onSubmit={this.handleSubmit.bind(this)}
         >
           <div className="create-board-form">
