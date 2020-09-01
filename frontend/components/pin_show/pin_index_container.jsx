@@ -23,7 +23,7 @@ class Pins extends React.Component {
 
   componentDidMount() {
     this.props.fetchPins();
-    this.resizeAllGridItems()
+    setTimeout(this.resizeAllGridItems(), 3000);
   }
 
   handleInput(e) {
@@ -47,15 +47,21 @@ class Pins extends React.Component {
   resizeAllGridItems() {
     // let allItems = ReactDOM.findDOMNode(this)
     //   .getElementsByClassName("pins")
-    let allItems = ReactDOM.findDOMNode(this)
-      .getElementsByClassName("pins")
-
+    let allItems = document.getElementsByClassName("pins");
+    debugger
+    for(let html of allItems) {
+      debugger
+      console.log(html)
+    }
+    console.log(allItems)
+    // if (!allItems.length) {
+    //   this.resizeAllGridItems()
+    // }
     // .forEach(function (item) {
     //   console.log(item);
     // });
-    if (allItems.item(0))
-      console.log(allItems.item(0))
-    console.log(allItems[0]);
+    // if (allItems.item(0))
+    // console.log(allItems[0]);
     for (let x = 0; x < allItems.length; x++) {
       // debugger 
       console.log(allItems[x]);
