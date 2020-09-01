@@ -7,6 +7,7 @@ import { fetchPins } from '../../actions/pin_actions'
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -117,7 +118,7 @@ class CreatePin extends React.Component {
           )}
         </DropZone>
         <button className={removeIcon} onClick={this.removePreview}>
-          <FontAwesomeIcon className="trash-icon" size="1.5x" icon={faTrash} />
+          <FontAwesomeIcon className="trash-icon" size="lg" icon={faTrash} />
         </button>
       </div>
     );
@@ -166,25 +167,65 @@ class CreatePin extends React.Component {
   };
 
   boardsDropdown() {
+    // const { currentUserId } = this.props;
+    // const { currentUser } = this.props;
+    // const boardObjects = currentUser[currentUserId].boards;
+    // const boards1 = Object.values(boardObjects);
+    const { pins } = this.props;
+    const allPins = Object.values(pins);
     const { currentUserId } = this.props;
     const { currentUser } = this.props;
     const boardObjects = currentUser[currentUserId].boards;
     const boards1 = Object.values(boardObjects);
     if (boards1) {
       return (
-        <div className="center-dropdown">
+        //   <div className="center-dropdown">
+        //     {boards1.map((el, idx) => (
+        //       <button >
+        //         <div key={idx}>{el.title}</div>
+        //         {/* <div key={el.id}>{el.id}</div> */}
+        //       </button>
+        //     ))}
+        //   </div>
+        // );
+        <ul className="dropdown-items">
           {boards1.map((el, idx) => (
-            <button >
+            <button
+              className="dropdown-board-items"
+              id={idx}
+              type="button"
+              value={el.id}
+              onClick={this.update("board_id")}
+              onClick={this.openDropdown}
+            // onClick={this.setState({ board_id: el.id })}
+            >
               <div key={idx}>{el.title}</div>
-              {/* <div key={el.id}>{el.id}</div> */}
             </button>
           ))}
-        </div>
-      );
+        </ul>
+      )
     } else {
       return null;
     }
   }
+
+  openDropdown() {
+    const dropdown = document.getElementsByClassName("dropdown-items");
+    if (dropdown[0].style.display === "flex") {
+      dropdown[0].style.display = "none"
+    } else {
+      dropdown[0].style.display = "flex";
+    }
+  }
+
+  // openDropdown() {
+  //   const dropdown = document.getElementsByClassName("dropdown-items");
+  //   if (dropdown[0].style.display === "flex") {
+  //     dropdown[0].style.display = "none"
+  //   } else {
+  //     dropdown[0].style.display = "flex";
+  //   }
+  // }
 
   render() {
     const { pins } = this.props;
@@ -198,47 +239,59 @@ class CreatePin extends React.Component {
     return (
       <div>
         <div className="create-pin-form">
-          {/* {this.photoPreview()} */}
-          <div>
-            <h1 className={this.state.status}>Immage Successfully Saved!</h1>
-            <div className="dropzone">
-              <div
-                className="dropzone-zone"
-              // style=background-image: url(this.photoPreview())
-              >
-                {this.dropZone()}
+          <div className="create-pin-form-inner">
+            {/* {this.photoPreview()} */}
+            <div>
+              <h1 className={this.state.status}>Immage Successfully Saved!</h1>
+              <div className="dropzone">
+                <div
+                  className="dropzone-zone"
+                // style=background-image: url(this.photoPreview())
+                >
+                  {this.dropZone()}
+                </div>
+                {/* <div className="dropzone-preview">{this.photoPreview()}</div> */}
               </div>
-              {/* <div className="dropzone-preview">{this.photoPreview()}</div> */}
             </div>
-          </div>
-          <form
-            className="pin-form-container"
-            onSubmit={this.handleSubmit.bind(this)}
-          >
-            <div className="pin-form">
-              <h1>Create a Pin!</h1>
-              <label className="pin-details">
-                Title
+            <div className="pin-form-button-container">
+              <form
+                className="pin-form-container"
+                onSubmit={this.handleSubmit.bind(this)}
+              >
+                <div className="dropdown-and-save">
+                  <button type="button" className="dropdown-button" onClick={this.openDropdown}>
+                    Select Board
+                  <FontAwesomeIcon className="board-dropdown-icon" size="1x" icon={faChevronDown} />
+                  </button>
+                  <button className="save-button" onClick={this.openDropdown}>Save</button>
+                </div>
+                <div className="dropdown">
+                  {this.boardsDropdown()}
+                </div>
+                <div className="pin-form">
+                  <h1>Create a Pin!</h1>
+                  <label className="pin-details">
+                    Title
                 <input
-                  type="text"
-                  id="post-body"
-                  value={this.state.title}
-                  onChange={this.update("title")}
-                />
-              </label>
-              <label className="pin-details">
-                Description
+                      type="text"
+                      id="post-body"
+                      value={this.state.title}
+                      onChange={this.update("title")}
+                    />
+                  </label>
+                  <label className="pin-details">
+                    Description
                 <input
-                  type="text"
-                  id="post-body"
-                  value={this.state.description}
-                  onChange={this.update("description")}
-                />
-              </label>
-              <label className="pin-details">
-                <div className="center-dropdown">
-                  <p className="board-select">Select board</p>
-                  {boards1.map((el, idx) => (
+                      type="text"
+                      id="post-body"
+                      value={this.state.description}
+                      onChange={this.update("description")}
+                    />
+                  </label>
+                  <label className="pin-details">
+                    <div className="center-dropdown">
+                      {/* <p className="board-select">Select board</p> */}
+                      {/* {boards1.map((el, idx) => (
                     <ul className="dropdown-items">
                       <button
                         className="dropdown-board-items"
@@ -250,16 +303,18 @@ class CreatePin extends React.Component {
                         <div key={idx}>{el.title}</div>
                       </button>
                     </ul>
-                  ))}
+                  ))} */}
+                    </div>
+                  </label>
+                  {/* <button className="submit-pin">Submit!</button> */}
                 </div>
-              </label>
-              <button className="submit-pin">Submit!</button>
+                <div className="photo-preview">
+                  {/* <p>Preview Image</p> */}
+                  {/* <div>{this.photoPreview()}</div> */}
+                </div>
+              </form>
             </div>
-            <div className="photo-preview">
-              {/* <p>Preview Image</p> */}
-              {/* <div>{this.photoPreview()}</div> */}
-            </div>
-          </form>
+          </div>
         </div>
         {/* {this.boardsDropdown()} */}
       </div>
