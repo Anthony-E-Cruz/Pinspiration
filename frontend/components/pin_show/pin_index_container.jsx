@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 // import PinShow from './pin_show'
 import { Link } from "react-router-dom";
 import { fetchPins } from "../../actions/pin_actions";
+// import imagesLoaded from 'images-loaded';
 
 class Pins extends React.Component {
   constructor(props) {
@@ -17,7 +18,6 @@ class Pins extends React.Component {
       photoFile: null,
       photo: null,
       user_id: currentUserId,
-      // board_id: ""
     };
   }
 
@@ -31,14 +31,12 @@ class Pins extends React.Component {
   }
 
   scroll() {
-    
-      $("html, body").animate(
-        {
-          scrollTop: 0,
-        },
-        100
-      );
-    
+    $("html, body").animate(
+      {
+        scrollTop: 0,
+      },
+      100
+    );
   }
 
   resizeInstance(instance) {
@@ -47,23 +45,28 @@ class Pins extends React.Component {
   }
 
   resizeAllGridItems() {
-    let allItems = ReactDOM.findDOMNode(this).getElementsByClassName("pins");
-    // debugger
-    if (allItems)
+    // let allItems = ReactDOM.findDOMNode(this)
+    //   .getElementsByClassName("pins")
+    let allItems = ReactDOM.findDOMNode(this)
+      .getElementsByClassName("pins")
+
+    // .forEach(function (item) {
+    //   console.log(item);
+    // });
+    if (allItems.item(0))
+      console.log(allItems.item(0))
     console.log(allItems[0]);
-    // var arr = Array.prototype.slice.call(htmlCollection)
-    // console.log([].slice.call(allItems));
     for (let x = 0; x < allItems.length; x++) {
       // debugger 
-      // console.log(allItems[x]);
-      this.resizeGridItem(allItems[x], this.resizeInstance);
+      console.log(allItems[x]);
+      imagesLoaded(allItems[x], this.resizeInstance);
     }
   }
-  
+
   resizeGridItem(item) {
     debugger
     grid = ReactDOM.findDOMNode(this).getElementsByClassName("grid")[0];
-    console.log(grid);
+    // console.log(grid);
     rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
     rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
     rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
@@ -71,8 +74,8 @@ class Pins extends React.Component {
   }
 
   randomizePins(pins) {
-    let pinIndex = pins.length, 
-    pinHolder, randomPinIndex;
+    let pinIndex = pins.length,
+      pinHolder, randomPinIndex;
 
     while (pinIndex > 0) {
       randomPinIndex = Math.floor(Math.random() * pinIndex);
@@ -95,13 +98,11 @@ class Pins extends React.Component {
     const { pins } = this.props;
     const allPins = Object.values(pins);
     const shuffledPins = this.randomizePins(allPins);
-
     if (allPins) {
-
       return (
-      // <div className="pin-show">
-      <div className="grid">
-        {/* <div className="pin-container"> */}
+        // <div className="pin-show">
+        <div className="grid">
+          {/* <div className="pin-container"> */}
           {shuffledPins.map((pin, idx) => (
             // <div key={idx} className="pins">
             <div key={idx} className="pins">
@@ -109,10 +110,10 @@ class Pins extends React.Component {
                 {/* <a href="#"> */}
                 {/* <img onClick={this.scroll} className="pin-images" src={pin.photoUrl} /> */}
                 <img onClick={this.scroll} className="pin-images" src={pin.photoUrl} />
-                  {/* <p>{pin.title}</p>
+                {/* <p>{pin.title}</p>
                 <p>{pin.id}</p> */}
-                
-                 {/* <p> {$("html, body").animate(
+
+                {/* <p> {$("html, body").animate(
                      {
                        scrollTop: 0,
                      },
@@ -123,16 +124,17 @@ class Pins extends React.Component {
               </Link>
             </div>
           ))}
-        {/* </div> */}
-      </div>
-    );
-   }
+          {/* </div> */}
+        </div>
+      );
+    }
   }
 
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
     // console.log(pins);
+    // console.log(pins)
     return (
       <div>
         {this.pinDisplay()}
