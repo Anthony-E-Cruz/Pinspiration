@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .pin-show {
-  display: flex;
+  // display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 }
 
 .pin-images {
@@ -20,6 +20,8 @@
   justify-content: center;
   flex: 100 100 220px;
   list-style: none;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .pins {
