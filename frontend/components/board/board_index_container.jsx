@@ -98,16 +98,6 @@ class ShowBoard extends React.Component {
             <div key={idx} className="board-container">
               <div className="board">
                 {this.renderCollage(board)}
-                {/* {const id = board.id} */}
-                {/* {console
-                  .log(Object.values(board[board.id]))
-                  .map((el) => el.photoUrl)} */}
-                {/* {if ((board.pins.length) > 0){
-                  
-                }} */}
-                {/* {console.log(pins)} */}
-                {/* { const pins = Object.assign(board[board.id]) } */}
-                {/* <img className="pin-images" src={board[board.id][0].photoUrl} /> */}
               </div>
               <p className="board-title">{board.title}</p>
             </div>

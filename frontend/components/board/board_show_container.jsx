@@ -60,11 +60,9 @@ class ShowBoard extends React.Component {
   render() {
     const { boards } = this.props;
     const { boardId } = this.props;
-    // console.log(boards[boardId]);
     return (
       <div className="boards">
         {this.boardDisplay()}
-        {/* <h1>{boards[boardId].title}</h1> */}
       </div>
     );
   }
