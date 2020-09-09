@@ -95,12 +95,9 @@ class Pins extends React.Component {
 
   render() {
     const { user } = this.props;
-    // const allPins = Object.values(pins);
-    // console.log(user);
     return (
       <div>
         {this.pinDisplay()}
-        {/* {this.pinCreateForm()}  */}
       </div>
     );
   }

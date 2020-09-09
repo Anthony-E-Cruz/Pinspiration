@@ -3,6 +3,7 @@ import React from "react";
 // import PinShow from './pin_show'
 import { Link } from "react-router-dom";
 import { fetchPins } from "../../actions/pin_actions";
+// import { debug } from "webpack";
 
 class Pins extends React.Component {
   constructor(props) {
@@ -11,17 +12,25 @@ class Pins extends React.Component {
     const { pins } = this.props;
     const { currentUserId } = this.props;
     this.state = {
-      title: "",
-      description: "",
-      photoFile: null,
-      photo: null,
       user_id: currentUserId,
-      // board_id: ""
+      columns: 0,
+      pins: [],
+      randomized: false
     };
+    this.getColumns = this.getColumns.bind(this)
+    this.setPins = this.setPins.bind(this)
+    this.randomizePins = this.randomizePins.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchPins();
+    this.getColumns();
+    this.randomizePins();
+    window.addEventListener('resize', this.getColumns);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.getColumns);
   }
 
   handleInput(e) {
@@ -29,46 +38,87 @@ class Pins extends React.Component {
   }
 
   scroll() {
-    
       $("html, body").animate(
         {
           scrollTop: 0,
         },
         100
       );
-    
+  }
+
+  getColumns() {
+    let columns = Math.floor((window.innerWidth - 100)/ 200)
+    this.setState({ columns: columns })
+  }
+
+  randomizePins() {
+    const { pins } = this.props;
+    const allPins = Object.values(pins);
+    if(!this.state.randomized && allPins.length > 0){
+      let pinIndex = allPins.length,
+      pinHolder, randomPinIndex;
+      while (pinIndex > 0) {
+        randomPinIndex = Math.floor(Math.random() * pinIndex);
+        pinIndex -= 1;
+        
+        pinHolder = allPins[pinIndex];
+        allPins[pinIndex] = allPins[randomPinIndex];
+        allPins[randomPinIndex] = pinHolder;
+      }
+      this.setState({pins: allPins, randomized: true})
+    } 
+  }
+
+  setPins() {
+    const { pins } = this.state;
+    const allPins = Object.values(pins);
+    const { columns } = this.state
+    if (columns !== 0 ) {
+      this.randomizePins()
+      let itemsPerColumn = Math.floor(allPins.length / columns)
+      let count = itemsPerColumn
+    let tempArray = [];
+    let index = 0
+    for (let j = 0; j < columns; j++) {
+      let subArray = [];
+      for (let i = index; i < count; i ++) {
+        subArray.push(allPins[i])
+        index ++
+      }
+      count += itemsPerColumn
+      tempArray.push(subArray)
+    };
+    return tempArray
+    } else {
+      return 20
+    }
+  }
+
+  mapPins(pins) {
+    return(
+      <div ref={this.pinsContainer} className="pin-show">
+      {pins.map((pin, idx) => (
+        <div key={idx} className="pins">
+          <Link to={`/pins/${pin.id}`}>
+            <img onClick={this.scroll} className="pin-images" src={pin.photoUrl} />
+          </Link>
+        </div>
+      ))}
+        </div>
+    )
   }
 
   pinDisplay() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-    if (allPins) {
-      // console.log(allPins);
-    
-
+    const { columns } = this.state
+    const allPins1 = (this.setPins())
+    if (allPins1 !== 20) {
     return (
-      <div className="pin-show">
-        {/* <div className="pin-container"> */}
-          {allPins.map((pin, idx) => (
-            <div key={idx} className="pins">
-              <Link to={`/pins/${pin.id}`}>
-                {/* <a href="#"> */}
-                  <img onClick={this.scroll} className="pin-images" src={pin.photoUrl} />
-                  {/* <p>{pin.title}</p>
-                <p>{pin.id}</p> */}
-                
-                 {/* <p> {$("html, body").animate(
-                     {
-                       scrollTop: 0,
-                     },
-                     400
-                   )
-                } </p> */}
-                {/* </a> */}
-              </Link>
-            </div>
-          ))}
-        {/* </div> */}
+      <div className="pin-container">
+        {allPins1.map((pins) => (
+          this.mapPins(pins)
+        ))}
       </div>
     );
    }
@@ -77,11 +127,9 @@ class Pins extends React.Component {
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-    // console.log(pins);
     return (
       <div>
         {this.pinDisplay()}
-        {/* {this.pinCreateForm()}  */}
       </div>
     );
   }
