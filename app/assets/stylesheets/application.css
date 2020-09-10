@@ -30,6 +30,17 @@
     scroll-behavior: smooth;
   }
 
+  input {
+    text-indent: 12px;
+    font-size: 15px;
+  }
+
+  input:focus {
+    border: solid rgb(72, 184, 228);
+    border-block: 10px;
+  }
+
+
   .full-login {
     display: flex;
     justify-content: center;
