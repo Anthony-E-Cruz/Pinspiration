@@ -25,7 +25,9 @@ export const update = (user, id) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/users/${id}`,
-    data: { user }
+    data: { user },
+    // contentType: false,
+    // processData: false
   })
 };
 

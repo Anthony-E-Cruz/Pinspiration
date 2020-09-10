@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DropZone from 'react-dropzone';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -15,9 +16,11 @@ class Profile extends React.Component {
       last_name: currentUser.last_name, 
       username: currentUser.username,
       about_you: currentUser.about_you, 
-      location: currentUser.location
+      location: currentUser.location,
+      photoUrl: null,
+      photoFile: null,
     };
-    // this.handleFile = this.handleFile.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   update(field) {
@@ -32,16 +35,40 @@ class Profile extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('user[first_name]', this.state.first_name);
+    formData.append('user[last_name]', this.state.last_name);
+    formData.append('user[username]', this.state.username);
+    formData.append('user[about_you]', this.state.about_you);
+    formData.append('user[location]', this.state.location);
+    if (this.state.photoFile) {
+      formData.append('user[photo]', this.state.photoFile);
+    }
     const user = Object.assign({}, this.state);
     const { userId } = this.props;
-    this.props.processForm(user, userId)
-      .then(document.location.href = `#/users/${userId}/pins`);
+    console.log(user)
+    this.props.processForm(formData, userId)
+      // .then(document.location.href = `#/users/${userId}/pins`);
+  }
+
+  handleFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ photoFile: file, photoUrl: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+    // console.log(this.state)
   }
 
   render() {
     const currentUserId = this.props.match.params.userId;
     const {user} = this.props;
     const currentUser = user[currentUserId] ;
+    const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
+    // console.log(this.state)
     return (
       // <div>
       //   <h1>Edit Page</h1>
@@ -49,6 +76,8 @@ class Profile extends React.Component {
       // </div>
       <div className="edit-form-container">
         <img src={currentUser.photoUrl} alt="" />
+        {console.log(currentUser.photoUrl)}
+        {/* {console.log(this.state)} */}
         {/* <img src={currentUser.photoUrl}/> */}
         {/* <input type="file" onChange={this.handleFile} name="" id=""/> */}
         <form onSubmit={this.handleSubmit} className="edit-form-box">
@@ -102,11 +131,20 @@ class Profile extends React.Component {
                 onChange={this.update("location")}
               />
             </label>
+            <label>
+              Image
+              <input
+                type="file"
+                // placeholder="New York City, San Francisco, .ect"
+                onChange={this.handleFile.bind(this)}
+              />
+            </label>
             <input
               className="session-submit"
               type="submit"
               value={this.props.formType}
             />
+            {preview}
           </div>
         </form>
       </div>

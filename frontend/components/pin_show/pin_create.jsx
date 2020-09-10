@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import DropZone from 'react-dropzone';
+// import DropZone from 'react-dropzone';
 // import PinShow from './pin_show'
 import { fetchUser } from '../../actions/user_actions'
 import { fetchPins } from '../../actions/pin_actions'
