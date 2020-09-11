@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 // import navBar from './nav_bar';
 // import { openModal } from '../../actions/modal_actions';
-import profile from './profile'
+// import profile from './profile'
+import profile from './profile_pins'
 import { receiveCurrentUser } from '../../actions/session_actions';
 import { fetchUser } from "../../actions/user_actions";
 import { fetchPins } from "../../actions/pin_actions";
@@ -21,6 +22,7 @@ const msp = ( state, ownProps ) => {
   return {
     // userPins: userPins,
     // pins: pins,
+    pins: state.entities.pins,
     currentUserId: state.session.id,
     users: state.entities.users,
     userId: ownProps.match.params.userId

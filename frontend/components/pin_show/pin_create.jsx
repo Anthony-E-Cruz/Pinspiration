@@ -153,6 +153,8 @@ class CreatePin extends React.Component {
       // success: (this.state.status = "immage-saved"),
       // success: (this.setState()),
       // }).then(this.state.status = "immage-saved");
+    // }).then(<Redirect to={`#/users/${currentUserId}/pins`}></Redirect>);
+
     }).then(document.location.href = `#/users/${currentUserId}/pins`);
     // this.setState();
   }

@@ -1,38 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import PinIndexContainer from '../pin_show/pin_index_container'
-import PinProfileShowContainer from "../pin_show/pin_profile_show_container";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
+import React from "react";
+// import PinShow from './pin_show'
+import { Link } from "react-router-dom";
+import { fetchPins } from "../../actions/pin_actions";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { debug } from "webpack";
 
-class Profile extends React.Component {
+class Pins extends React.Component {
   constructor(props) {
     super(props);
     // const currentUser: ownProps.match.params.username;
-    const { userId } = this.props;
-    const { users } = this.props;
-    const currentUser = users[userId];
+    const { pins } = this.props;
+    const { currentUserId } = this.props;
     this.state = {
-      // user_id: currentUserId,
+      user_id: currentUserId,
       columns: 0,
       pins: [],
       randomized: false
-    }
+    };
     this.getColumns = this.getColumns.bind(this)
     this.setPins = this.setPins.bind(this)
     this.randomizePins = this.randomizePins.bind(this)
   }
 
   componentDidMount() {
-    const { userId } = this.props;
-    this.props.fetchUser(userId);
-    // this.getColumns();
-    // this.randomizePins();
-    window.addEventListener('resize', this.getColumns);
     this.props.fetchPins();
+    this.getColumns();
+    this.randomizePins();
+    window.addEventListener('resize', this.getColumns);
   }
 
   componentWillUnmount() {
@@ -53,12 +50,41 @@ class Profile extends React.Component {
     this.setState({ columns: columns })
   }
 
+  // randomizePins() {
+  //   const { pins } = this.props;
+  //   const allPins = Object.values(pins);
+  //   const { userId } = this.props;
+  //   const userPins = allPins.filter(pin => parseInt(pin.user.id) === parseInt(userId));
+  //   // console.log(allPins.map(pin => {
+  //   //   if (parseInt(pin.user.id) === parseInt(userId)) {
+  //   //     return true
+  //   //   } else {
+  //   //     return null
+  //   //   }}));
+  //   // console.log(allPins.filter(pin => parseInt(pin.user.id) === userId))
+  //   console.log(userPins)
+  //   if (!this.state.randomized && userPins.length > 0) {
+  //     let pinIndex = allPins.length,
+  //       pinHolder, randomPinIndex;
+  //     while (pinIndex > 0) {
+  //       randomPinIndex = Math.floor(Math.random() * pinIndex);
+  //       pinIndex -= 1;
+
+  //       pinHolder = allPins[pinIndex];
+  //       allPins[pinIndex] = allPins[randomPinIndex];
+  //       allPins[randomPinIndex] = pinHolder;
+  //     }
+  //     this.setState({ pins: allPins, randomized: true })
+  //   }
+  //   console.log(this.state)
+  // }
+
   randomizePins() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
     const { userId } = this.props;
-    const userPins = allPins.filter(pin => pin.user.id === userId);
-    console.log(pins)
+    const userPins = allPins.filter(pin => parseInt(pin.user.id) === parseInt(userId));
+    // console.log(pins)
     if (!this.state.randomized && userPins.length > 0) {
       let pinIndex = userPins.length,
         pinHolder, randomPinIndex;
@@ -79,6 +105,7 @@ class Profile extends React.Component {
     const { pins } = this.state;
     const allPins = Object.values(pins);
     const { columns } = this.state
+    console.log(allPins.length)
     if (columns !== 0) {
       this.randomizePins()
       let itemsPerColumn = Math.floor(allPins.length / columns)
@@ -100,47 +127,45 @@ class Profile extends React.Component {
     }
   }
 
-  pinDisplay() {
-    // const { pins } = this.props;
-    const { currentUserId } = this.props;
-    const allPins1 = this.state;
-    const { userId } = this.props;
-    const { users } = this.props;
-    const pins = (users[userId].pins);
-    const pinUrls = users[userId][userId]
-    if (pins) {
-      console.log(allPins1)
-      const allPins = Object.values(pinUrls);
-      // console.log(pins[0]);
-      // console.log(userPins[0].id);
-      // console.log(allPins);
-      // console.log(currentUserId);
-      return (
-        <div className="pin-show">
-          <div className="pin-container">
-            {allPins.map((pin, idx) => (
-              <div key={idx} className="pins">
-                <Link to={`/pins/${pins[idx].id}`}>
-                  <img className="pin-images" src={pin.photoUrl} />
-                  {/* <p>{pin.title}</p>
-                <p>{pin.id}</p> */}
-                </Link>
-              </div>
-            ))}
+  mapPins(pins) {
+    return (
+      <div ref={this.pinsContainer} className="pin-show">
+        {pins.map((pin, idx) => (
+          <div key={idx} className="pins">
+            <Link to={`/pins/${pin.id}`}>
+              <img onClick={this.scroll} className="pin-images" src={pin.photoUrl} />
+            </Link>
           </div>
-        </div>
-      );
-    } else {
+        ))}
+      </div>
+    )
+  }
+
+  pinDisplay() {
+    // const { pins } = this.state;
+    // const allPins = Object.values(pins);
+    // const { columns } = this.state
+    const allPins1 = (this.setPins())
+    if (allPins1 !== 20) {
       return (
-        <div className="no-pins-container">
-          <p>You haven't saved any Pins yet</p>
-          <Link to="/">
-            <button className="find-pins-btn">Find ideas</button>
-          </Link>
+        <div className="pin-container">
+          {allPins1.map((pins) => (
+            this.mapPins(pins)
+          ))}
         </div>
       );
     }
   }
+
+  // render() {
+  //   const { pins } = this.props;
+  //   const allPins = Object.values(pins);
+  //   return (
+  //     <div>
+  //       {this.pinDisplay()}
+  //     </div>
+  //   );
+  // }
 
   render() {
     const { userId } = this.props;
@@ -223,4 +248,15 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+const msp = (state) => {
+  return {
+    pins: state.entities.pins,
+    currentUserId: state.session.id,
+  };
+};
+
+const mdp = (dispatch) => ({
+  fetchPins: () => dispatch(fetchPins()),
+});
+
+export default connect(msp, mdp)(Pins);

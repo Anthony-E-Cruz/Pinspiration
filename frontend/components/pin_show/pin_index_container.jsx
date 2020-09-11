@@ -33,10 +33,6 @@ class Pins extends React.Component {
     window.removeEventListener('resize', this.getColumns);
   }
 
-  handleInput(e) {
-    this.setState({ title: e.currentTarget.value });
-  }
-
   scroll() {
       $("html, body").animate(
         {
