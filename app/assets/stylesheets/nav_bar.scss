@@ -18,6 +18,17 @@
     background-color: rgb(232, 228, 228);
   }
 
+  .site-links {
+    color: gray;
+    margin: 10px
+  }
+
+  .site-links-anchor:hover {
+    background-color: rgb(232, 228, 228);
+    border-radius: 50%;
+    // margin: 10px
+  }
+
   .home-bttn:focus{
     outline: 0;
   }
@@ -41,8 +52,8 @@
   }
 
   .header-profile-logo-link {
-    width: 46px;
-    height: 45px;
+    // width: 46px;
+    // height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +71,7 @@
 
   .header-profile-logo-link:hover {
     border-radius: 50%;
-    margin-bottom: 0px;
+    // margin-bottom: 0px;
     background-color: rgb(232, 228, 228);
   }
 

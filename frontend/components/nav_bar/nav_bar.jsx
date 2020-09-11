@@ -2,7 +2,21 @@ import React from 'react';
 // import { fasfaChvronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGithub,
+  faLinkedin,
+  faAngellist,
+  faTwitter
+} from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
+// library.add(
+//   faUserGraduate,
+//   faImages,
+//   faGithubAlt,
+//   faGoogle,
+//   faFacebook,
+//   faTwitter
+// );
 
 const navBar = ({ currentUser, logout, openModal }) => {
   if (currentUser) {
@@ -21,10 +35,28 @@ const navBar = ({ currentUser, logout, openModal }) => {
             </button>
           </Link> */}
           <a
-            className="github-link"
+            target="_blank"
+            className="site-links-anchor"
             href="https://github.com/Anthony-E-Cruz/Pinspiration"
           >
-            <img className="github-logo" src={window.github} />
+            {/* <img className="github-logo" src={window.github} /> */}
+            <FontAwesomeIcon icon={faGithub} className="site-links" size="lg" />            
+          </a>
+          <a
+            target="_blank"
+            className="site-links-anchor"
+            href="https://www.linkedin.com/in/anthonyecruz/"
+          >
+            {/* <img className="github-logo" src={window.github} /> */}
+            <FontAwesomeIcon className="site-links" icon={faLinkedin} size="lg" />            
+          </a>
+          <a
+            target="_blank"
+            className="site-links-anchor"
+            href="https://angel.co/u/anthony-cruz-13"
+          >
+            {/* <img className="github-logo" src={window.github} /> */}
+            <FontAwesomeIcon icon={faAngellist} className="site-links" size="lg" />            
           </a>
           <Link
             className="header-profile-logo-link"
