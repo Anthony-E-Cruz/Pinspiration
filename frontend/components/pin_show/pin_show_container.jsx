@@ -22,7 +22,6 @@ class Pin extends React.Component {
     const { currentPinId } = this.props;
     this.props.fetchPin(currentPinId);
     // this.props.fetch
-    // console.log(this.props.fetchPin(currentPinId))
     $.ajax({
       url: `api/users/${"2"}`,
       method: "GET",
@@ -76,9 +75,6 @@ class Pin extends React.Component {
     const currentPin = pins[currentPinId];
     const {user} = this.props;
     // const pinOwnerId = currentPin.user_id
-    
-    // console.log(pins[47]);
-
     return (
       <div className="outerrr">
         <div className="single-pin-show-container">

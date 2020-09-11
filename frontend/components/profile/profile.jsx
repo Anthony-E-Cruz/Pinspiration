@@ -58,7 +58,6 @@ class Profile extends React.Component {
     const allPins = Object.values(pins);
     const { userId } = this.props;
     const userPins = allPins.filter(pin => pin.user.id === userId);
-    console.log(pins)
     if (!this.state.randomized && userPins.length > 0) {
       let pinIndex = userPins.length,
         pinHolder, randomPinIndex;
@@ -72,7 +71,6 @@ class Profile extends React.Component {
       }
       this.setState({ pins: userPins, randomized: true })
     }
-    console.log(this.state)
   }
 
   setPins() {
@@ -109,12 +107,7 @@ class Profile extends React.Component {
     const pins = (users[userId].pins);
     const pinUrls = users[userId][userId]
     if (pins) {
-      console.log(allPins1)
       const allPins = Object.values(pinUrls);
-      // console.log(pins[0]);
-      // console.log(userPins[0].id);
-      // console.log(allPins);
-      // console.log(currentUserId);
       return (
         <div className="pin-show">
           <div className="pin-container">

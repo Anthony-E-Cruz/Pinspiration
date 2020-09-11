@@ -24,13 +24,11 @@ class ShowBoard extends React.Component {
   }
 
   renderCollage(board) {
-      // console.log(board)
     if (board[board.id]) {
       let pins = board[board.id]
       let pinUrls = Object.values(pins);
       
       if (pinUrls.length > 2) {
-        console.log(Object.values(pinUrls[0]));
         let url = Object.values(pinUrls[0]);
         let url2 = Object.values(pinUrls[1]);
         let url3 = Object.values(pinUrls[2]);
@@ -44,7 +42,6 @@ class ShowBoard extends React.Component {
           </div>
         );
       } else if (pinUrls.length > 1) {
-        console.log(Object.values(pinUrls[0]));
         let url = Object.values(pinUrls[0]);
         let url2 = Object.values(pinUrls[1]);
         // let url3 = Object.values(pinUrls[2]);
@@ -59,7 +56,6 @@ class ShowBoard extends React.Component {
           </div>
         );
       } else if (pinUrls.length > 0) {
-        console.log(Object.values(pinUrls[0]));
         let url = Object.values(pinUrls[0]);
         // let url2 = Object.values(pinUrls[1]);
         // let url3 = Object.values(pinUrls[2]);

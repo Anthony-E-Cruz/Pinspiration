@@ -29,23 +29,15 @@ class ShowBoard extends React.Component {
   }
 
   renderCollage(board) {
-    // console.log(board)
-    // console.log(board.creator_id)
-    // console.log(userId)
     const { userId } = this.props;
     const { users } = this.props; 
-    // console.log(parseInt(board.creator_id))
-    // console.log(parseInt(userId) )
-    // console.log(parseInt(board.creator_id) === parseInt(userId))
     if (board[board.id]) {
       let pins = board[board.id]
       let pinUrls = Object.values(pins);
       const { userId } = this.props;
       const { users } = this.props; 
-      // console.log(users[userId])
 
       if (pinUrls.length > 2 && (parseInt(board.creator_id) === parseInt(userId))) {
-        // console.log(Object.values(pinUrls[0]));
         let url = Object.values(pinUrls[0]);
         let url2 = Object.values(pinUrls[1]);
         let url3 = Object.values(pinUrls[2]);
@@ -59,7 +51,6 @@ class ShowBoard extends React.Component {
           </div>
         );
       } else if (pinUrls.length > 1 && (parseInt(board.creator_id) === parseInt(userId))) {
-        // console.log(Object.values(pinUrls[0]));
         let url = Object.values(pinUrls[0]);
         let url2 = Object.values(pinUrls[1]);
         // let url3 = Object.values(pinUrls[2]);
@@ -74,7 +65,6 @@ class ShowBoard extends React.Component {
           </div>
         );
       } else if (pinUrls.length > 0 && (parseInt(board.creator_id) === parseInt(userId))) {
-        // console.log(Object.values(pinUrls[0]));
         let url = Object.values(pinUrls[0]);
         // let url2 = Object.values(pinUrls[1]);
         // let url3 = Object.values(pinUrls[2]);
@@ -108,9 +98,6 @@ class ShowBoard extends React.Component {
     const { users } = this.props; 
     return (
       allBoards.map((board, idx) => {
-        console.log(parseInt(board.creator_id))
-        console.log(parseInt(userId))
-        console.log(parseInt(board.creator_id) === parseInt(userId))
         if(parseInt(board.creator_id) === parseInt(userId)) {
           return (
         <Link className="board-title-link" key={idx} to={`/boards/${board.id}`}>
@@ -206,7 +193,6 @@ class ShowBoard extends React.Component {
       <div className="boards">
         {this.renderBoard(allBoards)}
         {/* {allBoards.map((board, idx) => (
-          // console.log(board),
           <Link key={idx} to={`/boards/${board.id}`}>
             <div key={idx} className="board-container">
               <div className="board">

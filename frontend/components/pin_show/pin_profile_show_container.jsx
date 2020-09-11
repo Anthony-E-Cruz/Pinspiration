@@ -60,12 +60,8 @@ class Pins extends React.Component {
     const { pins } = this.props;
     const { currentUserId } = this.props;
     const { userPins } = this.props
-    // console.log(user)
     if (pins) {
       const allPins = Object.values(pins);
-      // console.log(pins[0]);
-      // console.log(userPins[0].id);
-      // console.log(allPins);
       return (
         <div className="pin-show">
           <div className="pin-container">
@@ -107,8 +103,6 @@ const msp = (state, ownProps) => {
   const id = state.session.id;
   const pins = state.entities.users[id][id];
   const userPins = state.entities.users[id].pins;
-  console.log(ownProps)
-  // console.log(pins);
   return {
     userPins: userPins,
     pins: pins,
@@ -117,7 +111,6 @@ const msp = (state, ownProps) => {
   // const id = ownProps.match.params.userId;
   // const pins = state.entities.users[id][id];
   // const userPins = state.entities.users[id].pins;
-  // // console.log(pins);
   // return {
   //   userPins: userPins,
   //   pins: pins,

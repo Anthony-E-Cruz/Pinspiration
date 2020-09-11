@@ -55,14 +55,6 @@ class Pins extends React.Component {
   //   const allPins = Object.values(pins);
   //   const { userId } = this.props;
   //   const userPins = allPins.filter(pin => parseInt(pin.user.id) === parseInt(userId));
-  //   // console.log(allPins.map(pin => {
-  //   //   if (parseInt(pin.user.id) === parseInt(userId)) {
-  //   //     return true
-  //   //   } else {
-  //   //     return null
-  //   //   }}));
-  //   // console.log(allPins.filter(pin => parseInt(pin.user.id) === userId))
-  //   console.log(userPins)
   //   if (!this.state.randomized && userPins.length > 0) {
   //     let pinIndex = allPins.length,
   //       pinHolder, randomPinIndex;
@@ -76,7 +68,6 @@ class Pins extends React.Component {
   //     }
   //     this.setState({ pins: allPins, randomized: true })
   //   }
-  //   console.log(this.state)
   // }
 
   randomizePins() {
@@ -84,7 +75,6 @@ class Pins extends React.Component {
     const allPins = Object.values(pins);
     const { userId } = this.props;
     const userPins = allPins.filter(pin => parseInt(pin.user.id) === parseInt(userId));
-    // console.log(pins)
     if (!this.state.randomized && userPins.length > 0) {
       let pinIndex = userPins.length,
         pinHolder, randomPinIndex;
@@ -98,14 +88,12 @@ class Pins extends React.Component {
       }
       this.setState({ pins: userPins, randomized: true })
     }
-    console.log(this.state)
   }
 
   setPins() {
     const { pins } = this.state;
     const allPins = Object.values(pins);
     const { columns } = this.state
-    console.log(allPins.length)
     if (columns !== 0) {
       this.randomizePins()
       let itemsPerColumn = Math.floor(allPins.length / columns)

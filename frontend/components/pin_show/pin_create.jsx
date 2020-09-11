@@ -252,7 +252,6 @@ class CreatePin extends React.Component {
     const boardObjects = currentUser[currentUserId].boards;
     const boards1 = Object.values(boardObjects);
 
-    // console.log(boards1.map((el) => el.title));
     return (
       <div>
         <div className="create-pin-form">
@@ -291,16 +290,12 @@ class CreatePin extends React.Component {
                         type="button"
                         value={el.id}
                         onClick={this.update("board_id")}
-                      // onClick={this.openDropdown}
-                      // onClick={console.log(el.id)}
-                      // onClick={this.setState({ board_id: el.id })}
                       >
                         <div key={idx}>{el.title}</div>
                       </button>
                     ))}
                   </ul>
                 </div>
-                {console.log(this.state)}
                 <div className="pin-form">
                   <h1>Create a Pin!</h1>
                   <label className="pin-details">

@@ -17,8 +17,6 @@ const msp = ( state, ownProps ) => {
   // const pins = []
   // }
   // const userPins = state.entities.users[id].pins;
-  // console.log(ownProps)
-  // console.log(pins);
   return {
     // userPins: userPins,
     // pins: pins,
