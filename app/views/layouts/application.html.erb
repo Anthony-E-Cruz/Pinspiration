@@ -2,7 +2,7 @@
 <html>
   <head>
     <script type="text/javascript">
-      window.logo = "<%= image_url('logo.jpg') %>";
+      window.logo = "<%= image_url('logo.png') %>";
       window.github = "<%= image_url('github.jpg') %>";
       window.profile_img = "<%= image_url('profile_image_logo.png') %>";
       window.dropdown_logo = "<%= image_url('dropdown_logo.jpg') %>";
@@ -16,6 +16,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= favicon_link_tag asset_path('logo.png') %>
   </head>
 
   <body>
