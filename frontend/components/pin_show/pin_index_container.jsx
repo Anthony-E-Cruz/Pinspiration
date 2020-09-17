@@ -43,8 +43,10 @@ class Pins extends React.Component {
   }
 
   getColumns() {
-    let columns = Math.floor((window.innerWidth - 100)/ 200)
+    console.log(window.innerWidth)
+    let columns = Math.floor((window.innerWidth - 155)/ 200)
     this.setState({ columns: columns })
+    console.log(columns)
   }
 
   randomizePins() {
