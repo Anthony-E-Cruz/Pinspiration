@@ -83,8 +83,6 @@
   .login-btn {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     text-decoration: none;
-    height: 40px;
-    min-width: 70.25px;
     margin: 8px;
     color: white;
     background-color: rgb(230, 0, 35);
@@ -99,8 +97,6 @@
   .signup-btn {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     text-decoration: none;
-    height: 40px;
-    width: 70.25px;
     margin: 8px;
     color: black;
     font-weight: 645;
@@ -111,10 +107,6 @@
     padding: 11px;
     padding-right: 12px;
     padding-left: 12px;
-  }
-
-  .btns {
-    padding-right: 20px;
   }
 
   .welcome {
