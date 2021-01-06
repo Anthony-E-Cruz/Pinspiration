@@ -1,5 +1,4 @@
 import React from 'react';
-// import { fasfaChvronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -17,21 +16,15 @@ const navBar = ({ currentUser, logout, openModal }) => {
         <Link to="/" className="header-link">
           <div className="logo_and_title">
             <img className="logged-in-logo" src={window.logo} />
-            <button className="home-bttn">Home</button>
+            <button className="home-bttn signed-in">Home</button>
           </div>
         </Link>
         <div className="header-icons-container">
-          {/* <Link to="/">
-            <button className="signup-btn" onClick={logout}>
-              Logout
-            </button>
-          </Link> */}
           <a
             target="_blank"
             className="site-links-anchor"
             href="https://github.com/Anthony-E-Cruz/Pinspiration"
           >
-            {/* <img className="github-logo" src={window.github} /> */}
             <FontAwesomeIcon icon={faGithub} className="site-links" size="lg" />            
           </a>
           <a
@@ -39,7 +32,6 @@ const navBar = ({ currentUser, logout, openModal }) => {
             className="site-links-anchor"
             href="https://www.linkedin.com/in/anthonyecruz/"
           >
-            {/* <img className="github-logo" src={window.github} /> */}
             <FontAwesomeIcon className="site-links" icon={faLinkedin} size="lg" />            
           </a>
           <a
@@ -47,7 +39,6 @@ const navBar = ({ currentUser, logout, openModal }) => {
             className="site-links-anchor"
             href="https://angel.co/u/anthony-cruz-13"
           >
-            {/* <img className="github-logo" src={window.github} /> */}
             <FontAwesomeIcon icon={faAngellist} className="site-links" size="lg" />            
           </a>
           <Link
@@ -56,12 +47,7 @@ const navBar = ({ currentUser, logout, openModal }) => {
           >
             <img className="header-profile-logo" src={window.profile_img} />
           </Link>
-          {/* <button> */}
-          <Link to={`/users/${currentUser.id}/pins`}>
-            {/* <img className="dropdown-logo" src={window.dropdownlogo} /> */}
-            {/* <i class="fas fa-chevron-down"></i> */}
-          </Link>
-          {/* <i class="fas fa-chevron-down"></i> */}
+          <Link to={`/users/${currentUser.id}/pins`}></Link>
           <div className="dropdown-parent-nav">
             <FontAwesomeIcon className="dropdown-logo" icon={faChevronDown} />
             <Link className="dropdown-child-nav logout" to="/">
@@ -70,8 +56,6 @@ const navBar = ({ currentUser, logout, openModal }) => {
               </button>
             </Link>
           </div>
-          {/* </button> */}
-          {/* <p className="login-btn">user</p>  */}
         </div>
       </header>
     );
@@ -83,8 +67,29 @@ const navBar = ({ currentUser, logout, openModal }) => {
           <h1 className="logo-title">Pinspiration</h1>
         </div>
         <div className="btns">
-          <Link className="signup-btn" to="/signup">Sign up</Link>
+          <a
+            target="_blank"
+            className="site-links-anchor2"
+            href="https://github.com/Anthony-E-Cruz/Pinspiration"
+          >
+            <FontAwesomeIcon icon={faGithub} className="site-links" size="lg" />
+          </a>
+          <a
+            target="_blank"
+            className="site-links-anchor2"
+            href="https://www.linkedin.com/in/anthonyecruz/"
+          >
+            <FontAwesomeIcon className="site-links" icon={faLinkedin} size="lg" />
+          </a>
+          <a
+            target="_blank"
+            className="site-links-anchor2"
+            href="https://angel.co/u/anthony-cruz-13"
+          >
+            <FontAwesomeIcon icon={faAngellist} className="site-links" size="lg" />
+          </a>
           <Link className="login-btn" to="/login">Log in</Link>
+          <Link className="signup-btn" to="/signup">Sign up</Link>
         </div>
       </header>
     )
