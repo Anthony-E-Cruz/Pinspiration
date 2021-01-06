@@ -9,14 +9,6 @@ import {
   faTwitter
 } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
-// library.add(
-//   faUserGraduate,
-//   faImages,
-//   faGithubAlt,
-//   faGoogle,
-//   faFacebook,
-//   faTwitter
-// );
 
 const navBar = ({ currentUser, logout, openModal }) => {
   if (currentUser) {
