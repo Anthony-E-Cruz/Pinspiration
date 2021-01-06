@@ -1,7 +1,6 @@
 .create-pin-form {
   display: flex;
   justify-content: center;
-  // flex-direction: column;
   min-height: 91vh;  
   background: #EFEFEF;
 }
@@ -9,7 +8,6 @@
 .create-board-form-container {
   display: flex;
   justify-content: center;
-  // flex-direction: column;
   min-height: 91vh;  
   background: white;
 }
@@ -20,9 +18,6 @@
   border-radius: 20px;
   margin-top: 30px;
   height: 600px;
-  // justify-content: center;
-  // // flex-direction: column;
-  // align-items: center;
 }
 
 .center-dropdown{
@@ -34,18 +29,18 @@
 
 .dropdown-board-items {
   text-decoration: none;
-    background-color: white;
-    color: black;
-    font-weight: 500;
-    height: 40px;
-    width: 220px;
-    border: none;
-    font-size: 20px;
-    border-radius: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 2px;
-    margin-bottom: 2px;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  height: 40px;
+  width: 220px;
+  border: none;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .dropdown-board-items:hover {
@@ -97,52 +92,41 @@
 }
 
 .submit-pin {
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    text-decoration: none;
-    height: 48px;
-    min-width: 250px;
-    // margin: 5px;
-    color: black;
-    background-color: rgb(219, 213, 213);
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 30px;
-    padding: 15px;
-    margin-left: 12px;
-    border: none
-  }
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  text-decoration: none;
+  height: 48px;
+  min-width: 250px;
+  color: black;
+  background-color: rgb(219, 213, 213);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 15px;
+  margin-left: 12px;
+  border: none
+}
 
-  .center-dropdown:hover > .dropdown-board-items {
-    // display: block;
-  }
+.pin-form-button-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 
-  .pin-form-button-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    // justify-content: center;
-    // align-items: center;
-  }
-
-  .dropdown-items{ 
-    display: none;
-    background: white;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    width: 250px;
-    top: 73px;
-    border-radius: 20px;
-    left: 14px;
-    -webkit-box-shadow: 6px 6px 29px -2px rgba(161,156,161,1);
-    -moz-box-shadow: 6px 6px 29px -2px rgba(161,156,161,1);
-    box-shadow: 6px 6px 29px -2px rgba(161,156,161,1);
-  }
-
-  // .dropdown{ 
-  //   display: none;
-  // }
+.dropdown-items{ 
+  display: none;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 250px;
+  top: 73px;
+  border-radius: 20px;
+  left: 14px;
+  -webkit-box-shadow: 6px 6px 29px -2px rgba(161,156,161,1);
+  -moz-box-shadow: 6px 6px 29px -2px rgba(161,156,161,1);
+  box-shadow: 6px 6px 29px -2px rgba(161,156,161,1);
+}
 
 .submit-pin:hover {
   background-color: gray;
@@ -155,10 +139,7 @@
 }
 
 .photo-preview {
-  // margin-left: 10px;
   width: 275px;
-  // position: fixed;
-  // z-index: 2;
 }
 
 .dropzone {
@@ -175,12 +156,8 @@
 }
 
 .dropzone-preview{
-  // position: absolute;
   width: 250px;
 }
-// .pin-form-container {
-//   top: 100px;
-// }
 
 .heightUpload:focus {
   outline: none
@@ -218,10 +195,6 @@
   margin-left: 5px
 }
 
-// .trash-icon{
-//   height: 20px
-// }
-
 .drop-message {
   position: absolute
 }
@@ -230,8 +203,6 @@
   margin: 20px;
   width: 375px;
   height: 455px;
-  // background-image: url("https://i.imgur.com/TUOQo0E.png");
-  // background-image: url("https://i.imgur.com/elPWvzM.png");
 }
 
 .boxy:focus {
@@ -242,8 +213,6 @@
   margin: 20px;
   width: 345px;
   height: 455px;
-  // background-image: url("https://i.imgur.com/TUOQo0E.png");
-  // background-image: url("https://i.imgur.com/elPWvzM.png");
 }
 
 .heightUpload {

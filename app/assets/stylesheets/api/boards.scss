@@ -11,7 +11,6 @@
 .board {
   width: 320px;
   height: 215px;
-  // border: 2px solid black;
   border-radius: 20px;
 }
 
@@ -64,22 +63,17 @@
 
 
 .create-board-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* margin-top: 100px; */
-    font-size: 20px;
-    width: 400px;
-    height: 300px;
-    box-shadow: 8px 7px 20px #e3e0e0;
-    border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  width: 400px;
+  height: 300px;
+  box-shadow: 8px 7px 20px #e3e0e0;
+  border-radius: 20px;
 }
 
 .create-board-form-title {
   font-size: 35px;
 }
-
-// .pin-show-link {
-
-// }

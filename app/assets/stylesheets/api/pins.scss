@@ -3,9 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .pin-show {
-  // display: flex;
   justify-content: center;
-  // flex-wrap: wrap;
 }
 
 .pin-images {
@@ -20,8 +18,6 @@
   justify-content: center;
   flex: 100 100 220px;
   list-style: none;
-  // margin-right: 20px;
-  // margin-left: 20px;
 }
 
 .pins {
@@ -43,18 +39,18 @@
   font-size: 18px;
 }
 
-  .find-pins-btn {
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    text-decoration: none;
-    height: 40px;
-    width: 150px;
-    margin: 8px;
-    color: white;
-    background-color: rgb(116, 116, 116);
-    font-size: 16px;
-    font-weight: 450;
-    border-radius: 30px;
-    padding: 11px;
-    padding-right: 12px;
-    padding-left: 11px;
-  }
+.find-pins-btn {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  text-decoration: none;
+  height: 40px;
+  width: 150px;
+  margin: 8px;
+  color: white;
+  background-color: rgb(116, 116, 116);
+  font-size: 16px;
+  font-weight: 450;
+  border-radius: 30px;
+  padding: 11px;
+  padding-right: 12px;
+  padding-left: 11px;
+}
