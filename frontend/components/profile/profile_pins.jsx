@@ -1,17 +1,15 @@
 import { connect } from "react-redux";
 import React from "react";
-// import PinShow from './pin_show'
 import { Link } from "react-router-dom";
 import { fetchPins } from "../../actions/pin_actions";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { debug } from "webpack";
+import Profile from "./profile_boards";
 
 class Pins extends React.Component {
   constructor(props) {
     super(props);
-    // const currentUser: ownProps.match.params.username;
     const { pins } = this.props;
     const { currentUserId } = this.props;
     this.state = {
@@ -27,6 +25,7 @@ class Pins extends React.Component {
 
   componentDidMount() {
     this.props.fetchPins();
+    this.props.fetchUsers();
     this.getColumns();
     this.randomizePins();
     window.addEventListener('resize', this.getColumns);
@@ -49,26 +48,6 @@ class Pins extends React.Component {
     let columns = Math.floor((window.innerWidth - 100) / 200)
     this.setState({ columns: columns })
   }
-
-  // randomizePins() {
-  //   const { pins } = this.props;
-  //   const allPins = Object.values(pins);
-  //   const { userId } = this.props;
-  //   const userPins = allPins.filter(pin => parseInt(pin.user.id) === parseInt(userId));
-  //   if (!this.state.randomized && userPins.length > 0) {
-  //     let pinIndex = allPins.length,
-  //       pinHolder, randomPinIndex;
-  //     while (pinIndex > 0) {
-  //       randomPinIndex = Math.floor(Math.random() * pinIndex);
-  //       pinIndex -= 1;
-
-  //       pinHolder = allPins[pinIndex];
-  //       allPins[pinIndex] = allPins[randomPinIndex];
-  //       allPins[randomPinIndex] = pinHolder;
-  //     }
-  //     this.setState({ pins: allPins, randomized: true })
-  //   }
-  // }
 
   randomizePins() {
     const { pins } = this.props;
@@ -130,9 +109,6 @@ class Pins extends React.Component {
   }
 
   pinDisplay() {
-    // const { pins } = this.state;
-    // const allPins = Object.values(pins);
-    // const { columns } = this.state
     const allPins1 = (this.setPins())
     if (allPins1 !== 20) {
       return (
@@ -145,21 +121,10 @@ class Pins extends React.Component {
     }
   }
 
-  // render() {
-  //   const { pins } = this.props;
-  //   const allPins = Object.values(pins);
-  //   return (
-  //     <div>
-  //       {this.pinDisplay()}
-  //     </div>
-  //   );
-  // }
-
   render() {
     const { userId } = this.props;
     const { users } = this.props;
     const currentUser = users[userId];
-    this.randomizePins();
     if (currentUser) {
       return (
         <div>
@@ -175,15 +140,6 @@ class Pins extends React.Component {
                   icon={faPencilAlt}
                 />
               </Link>
-              {/* <FontAwesomeIcon icon="check-square" /> */}
-              {/* <button type="submit">
-                <i icon={faCoffee}></i>
-              </button> */}
-              {/* <i class="fas fa-pencil">Edit Profile</i> */}
-
-              {/* <Link className="login-btn" to={`/pin/new`}>
-              Create Pin
-            </Link> */}
               <div>
                 <Link
                   className="other-page-bttn"
@@ -197,9 +153,6 @@ class Pins extends React.Component {
                 >
                   Pins
                 </Link>
-                {/* <Link className="login-btn" to={`/boards/index`}>
-                View Boards
-              </Link> */}
               </div>
               <div>
                 <div className="dropdown-parent">
@@ -224,7 +177,6 @@ class Pins extends React.Component {
                   </div>
                 </div>
               </div>
-              {/* <Link className="" to={`/board/new`}></Link> */}
             </div>
           </div>
           {this.pinDisplay()}

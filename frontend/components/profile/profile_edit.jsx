@@ -6,19 +6,16 @@ class Profile extends React.Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
-    // const userId = ownProps.match.params.userId;
     const { userId } = this.props;
     const { user } = this.props;
     const currentUser = user[userId]
     this.state = {
-      // photoUrl: currentUser.photoUrl,
       first_name: currentUser.first_name || "first name", 
       last_name: currentUser.last_name, 
       username: currentUser.username,
       about_you: currentUser.about_you, 
       location: currentUser.location
     };
-    // this.handleFile = this.handleFile.bind(this);
   }
 
   update(field) {
@@ -26,10 +23,6 @@ class Profile extends React.Component {
       [field]: e.currentTarget.value
     });
   }
-
-  // handleFile(e) {
-  //   this.setState({photoUrl: e.currentTarget.files[0]})
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -44,19 +37,12 @@ class Profile extends React.Component {
     const {user} = this.props;
     const currentUser = user[currentUserId] ;
     return (
-      // <div>
-      //   <h1>Edit Page</h1>
-      //   <h1>{currentUser.email}</h1>
-      // </div>
       <div className="edit-form-container">
         <img src={currentUser.photoUrl} alt="" />
-        {/* <img src={currentUser.photoUrl}/> */}
-        {/* <input type="file" onChange={this.handleFile} name="" id=""/> */}
         <form onSubmit={this.handleSubmit} className="edit-form-box">
           <div className="profile">
             <div className="profile-header">
               <img className="profile-img" src={window.profile_img} />
-              {/* <input className="file-uploader" type="file" onChange={this.handleFile} name="" id="" /> */}
               <h1>{currentUser.username}</h1>
             </div>
           </div>
@@ -90,7 +76,6 @@ class Profile extends React.Component {
               <input
                 type="textarea"
                 placeholder={currentUser.about_you}
-                // placeholder="Write a little bit about yourself here"
                 onChange={this.update("about_you")}
               />
             </label>
@@ -99,7 +84,6 @@ class Profile extends React.Component {
               <input
                 type="text"
                 placeholder={currentUser.location}
-                // placeholder="New York City, San Francisco, .ect"
                 onChange={this.update("location")}
               />
             </label>
