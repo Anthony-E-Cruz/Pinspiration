@@ -1,13 +1,11 @@
 import { connect } from "react-redux";
 import React from "react";
-// import PinShow from './pin_show'
 import { Link } from "react-router-dom";
 import { fetchPins } from "../../actions/pin_actions";
 
 class Pins extends React.Component {
   constructor(props) {
     super(props);
-    // const currentUser: ownProps.match.params.username;
     const { pins } = this.props;
     const { currentUserId } = this.props;
     this.state = {
@@ -16,7 +14,6 @@ class Pins extends React.Component {
       photoFile: null,
       photo: null,
       user_id: currentUserId,
-      // board_id: ""
     };
   }
 
@@ -54,8 +51,6 @@ class Pins extends React.Component {
     });
   }
 
-  // renderPins
-
   pinDisplay() {
     const { pins } = this.props;
     const { currentUserId } = this.props;
@@ -69,8 +64,6 @@ class Pins extends React.Component {
               <div key={idx} className="pins">
                 <Link to={`/pins/${userPins[idx].id}`}>
                   <img className="pin-images" src={pin.photoUrl} />
-                  {/* <p>{pin.title}</p>
-                <p>{pin.id}</p> */}
                 </Link>
               </div>
             ))}
@@ -108,14 +101,6 @@ const msp = (state, ownProps) => {
     pins: pins,
     currentUserId: state.session.id,
   };
-  // const id = ownProps.match.params.userId;
-  // const pins = state.entities.users[id][id];
-  // const userPins = state.entities.users[id].pins;
-  // return {
-  //   userPins: userPins,
-  //   pins: pins,
-  //   currentUserId: id,
-  // };
 };
 
 const mdp = (dispatch) => ({

@@ -27,7 +27,6 @@ class signupForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    // .then(this.props.closeModal);;
   }
 
   renderErrors() {
@@ -46,8 +45,6 @@ class signupForm extends React.Component {
 
   render() {
     return (
-      // <div> 
-      //   <div onClick={this.props.closeModal} className="close-x">X</div>
       <div className="full-login">
         <div className="login-form-container">
           <div>

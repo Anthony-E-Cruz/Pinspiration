@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 class ShowBoard extends React.Component {
   constructor(props) {
     super(props);
-    // const currentUser: ownProps.match.params.username;
     const { boards } = this.props;
     const { currentUserId } = this.props;
     this.state = {
@@ -24,18 +23,19 @@ class ShowBoard extends React.Component {
     const { boards } = this.props;
     const allBoards = Object.values(boards);
     if (boards) {
-    return (
-      <div className="boards">
-        {allBoards.map((board, idx) => (
-          <Link key={idx} to={`/boards/${board.id}`}>
-            <div key={idx} className="board-container">
-              <div className="board"></div>
-              <p className="board-title">{board.title}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
-    )} else {
+      return (
+        <div className="boards">
+          {allBoards.map((board, idx) => (
+            <Link key={idx} to={`/boards/${board.id}`}>
+              <div key={idx} className="board-container">
+                <div className="board"></div>
+                <p className="board-title">{board.title}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )
+    } else {
       return null
     }
   }

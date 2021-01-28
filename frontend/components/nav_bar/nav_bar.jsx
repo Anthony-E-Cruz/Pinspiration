@@ -25,21 +25,21 @@ const navBar = ({ currentUser, logout, openModal }) => {
             className="site-links-anchor"
             href="https://github.com/Anthony-E-Cruz/Pinspiration"
           >
-            <FontAwesomeIcon icon={faGithub} className="site-links" size="lg" />            
+            <FontAwesomeIcon icon={faGithub} className="site-links" size="lg" />
           </a>
           <a
             target="_blank"
             className="site-links-anchor"
             href="https://www.linkedin.com/in/anthonyecruz/"
           >
-            <FontAwesomeIcon className="site-links" icon={faLinkedin} size="lg" />            
+            <FontAwesomeIcon className="site-links" icon={faLinkedin} size="lg" />
           </a>
           <a
             target="_blank"
             className="site-links-anchor"
             href="https://angel.co/u/anthony-cruz-13"
           >
-            <FontAwesomeIcon icon={faAngellist} className="site-links" size="lg" />            
+            <FontAwesomeIcon icon={faAngellist} className="site-links" size="lg" />
           </a>
           <Link
             className="header-profile-logo-link"

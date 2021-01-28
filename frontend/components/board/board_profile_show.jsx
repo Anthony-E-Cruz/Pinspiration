@@ -13,7 +13,6 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 class ShowBoard extends React.Component {
   constructor(props) {
     super(props)
-    // const currentUser: ownProps.match.params.username;
     const { boards } = this.props
     const { currentUserId } = this.props
     this.state = {
@@ -30,12 +29,12 @@ class ShowBoard extends React.Component {
 
   renderCollage(board) {
     const { userId } = this.props;
-    const { users } = this.props; 
+    const { users } = this.props;
     if (board[board.id]) {
       let pins = board[board.id]
       let pinUrls = Object.values(pins);
       const { userId } = this.props;
-      const { users } = this.props; 
+      const { users } = this.props;
 
       if (pinUrls.length > 2 && (parseInt(board.creator_id) === parseInt(userId))) {
         let url = Object.values(pinUrls[0]);
@@ -53,7 +52,6 @@ class ShowBoard extends React.Component {
       } else if (pinUrls.length > 1 && (parseInt(board.creator_id) === parseInt(userId))) {
         let url = Object.values(pinUrls[0]);
         let url2 = Object.values(pinUrls[1]);
-        // let url3 = Object.values(pinUrls[2]);
         return (
           <div className="board-collage-container">
             <img className="board-icon-large" src={url} />
@@ -66,8 +64,6 @@ class ShowBoard extends React.Component {
         );
       } else if (pinUrls.length > 0 && (parseInt(board.creator_id) === parseInt(userId))) {
         let url = Object.values(pinUrls[0]);
-        // let url2 = Object.values(pinUrls[1]);
-        // let url3 = Object.values(pinUrls[2]);
         return (
           <div className="board-collage-container">
             <img className="board-icon-large" src={url} />
@@ -95,20 +91,21 @@ class ShowBoard extends React.Component {
 
   renderBoard(allBoards) {
     const { userId } = this.props;
-    const { users } = this.props; 
+    const { users } = this.props;
     return (
       allBoards.map((board, idx) => {
-        if(parseInt(board.creator_id) === parseInt(userId)) {
+        if (parseInt(board.creator_id) === parseInt(userId)) {
           return (
-        <Link className="board-title-link" key={idx} to={`/boards/${board.id}`}>
-          <div key={idx} className="board-container">
-            <div className="board">
-              {this.renderCollage(board)}
-            </div>
-            <p className="board-title">{board.title}</p>
-          </div>
-        </Link>
-          )}
+            <Link className="board-title-link" key={idx} to={`/boards/${board.id}`}>
+              <div key={idx} className="board-container">
+                <div className="board">
+                  {this.renderCollage(board)}
+                </div>
+                <p className="board-title">{board.title}</p>
+              </div>
+            </Link>
+          )
+        }
       }));
   }
 
@@ -119,22 +116,22 @@ class ShowBoard extends React.Component {
     const { users } = this.props;
     const currentUser = users[userId];
     if (currentUser) {
-    return (
-      <div>
-      <div>
-        <div className="profile">
-          <div className="profile-header">
-            <img className="profile-img" src={window.profile_img} />
-            <h1 className="username-header">{currentUser.username}</h1>
-          </div>
-          <div className="profile-sub-header">
-            <Link to={`/${userId}/edit`}>
-              <FontAwesomeIcon
-                className="profile-link-icons"
-                icon={faPencilAlt}
-              />
-            </Link>
-            {/* <Link className="login-btn" to={`/${userId}/edit`}>
+      return (
+        <div>
+          <div>
+            <div className="profile">
+              <div className="profile-header">
+                <img className="profile-img" src={window.profile_img} />
+                <h1 className="username-header">{currentUser.username}</h1>
+              </div>
+              <div className="profile-sub-header">
+                <Link to={`/${userId}/edit`}>
+                  <FontAwesomeIcon
+                    className="profile-link-icons"
+                    icon={faPencilAlt}
+                  />
+                </Link>
+                {/* <Link className="login-btn" to={`/${userId}/edit`}>
               Edit Profile
             </Link>
             <Link className="login-btn" to={`/pin/new`}>
@@ -146,53 +143,53 @@ class ShowBoard extends React.Component {
             <Link className="login-btn" to={`/users/${userId}/pins`}>
               Pins
             </Link> */}
-            <div>
-              <Link
-                className="current-page-bttn"
-                to={`/users/${userId}/boards`}
-              >
-                Boards
+                <div>
+                  <Link
+                    className="current-page-bttn"
+                    to={`/users/${userId}/boards`}
+                  >
+                    Boards
               </Link>
-              <Link className="other-page-bttn" to={`/users/${userId}/pins`}>
-                Pins
+                  <Link className="other-page-bttn" to={`/users/${userId}/pins`}>
+                    Pins
               </Link>
-              {/* <Link className="login-btn" to={`/boards/index`}>
+                  {/* <Link className="login-btn" to={`/boards/index`}>
                 View Boards
               </Link> */}
-            </div>
-            <div>
-              <div className="dropdown-parent">
-                <FontAwesomeIcon className="profile-link-icons" icon={faPlus} />
-
-                <div className="dropdown-child">
-                  <ul>
-                      <li className="dropdown-links-header">Create</li>
-                    <li className="dropdown-links">
-                      <Link className="dropdown-links-text" to={`/pin/new`}>
-                        Pin
-                      </Link>
-                    </li>
-                    <li className="dropdown-links">
-                      <Link className="dropdown-links-text" to={`/board/new`}>
-                        Board
-                      </Link>
-                    </li>
-                  </ul>
                 </div>
-              </div>
-            </div>
-            {/* <Link className="login-btn" to={`/boards/index`}>
+                <div>
+                  <div className="dropdown-parent">
+                    <FontAwesomeIcon className="profile-link-icons" icon={faPlus} />
+
+                    <div className="dropdown-child">
+                      <ul>
+                        <li className="dropdown-links-header">Create</li>
+                        <li className="dropdown-links">
+                          <Link className="dropdown-links-text" to={`/pin/new`}>
+                            Pin
+                      </Link>
+                        </li>
+                        <li className="dropdown-links">
+                          <Link className="dropdown-links-text" to={`/board/new`}>
+                            Board
+                      </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                {/* <Link className="login-btn" to={`/boards/index`}>
               View Boards
             </Link>
             <Link className="login-btn" to={`/board/new`}>
               Create a Board
             </Link> */}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="boards">
-        {this.renderBoard(allBoards)}
-        {/* {allBoards.map((board, idx) => (
+          <div className="boards">
+            {this.renderBoard(allBoards)}
+            {/* {allBoards.map((board, idx) => (
           <Link key={idx} to={`/boards/${board.id}`}>
             <div key={idx} className="board-container">
               <div className="board">
@@ -202,10 +199,11 @@ class ShowBoard extends React.Component {
             </div>
           </Link>
         ))} */}
-      </div>
-      </div>
-    );
-  }}
+          </div>
+        </div>
+      );
+    }
+  }
 };
 
 const msp = (state, ownProps) => {

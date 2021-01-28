@@ -17,7 +17,6 @@ import BoardIndexContainer from './board/board_index_container'
 import BoardCreateContainer from './board/board_create_container'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
-// library.add(fab, faCheckSquare, faCoffee)
 
 const App = () => (
   <div className="outter-div">

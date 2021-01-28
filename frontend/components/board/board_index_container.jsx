@@ -9,7 +9,6 @@ import { fetchPins } from "../../actions/pin_actions";
 class ShowBoard extends React.Component {
   constructor(props) {
     super(props)
-    // const currentUser: ownProps.match.params.username;
     const { boards } = this.props
     const { currentUserId } = this.props
     this.state = {
@@ -27,7 +26,7 @@ class ShowBoard extends React.Component {
     if (board[board.id]) {
       let pins = board[board.id]
       let pinUrls = Object.values(pins);
-      
+
       if (pinUrls.length > 2) {
         let url = Object.values(pinUrls[0]);
         let url2 = Object.values(pinUrls[1]);
@@ -44,7 +43,6 @@ class ShowBoard extends React.Component {
       } else if (pinUrls.length > 1) {
         let url = Object.values(pinUrls[0]);
         let url2 = Object.values(pinUrls[1]);
-        // let url3 = Object.values(pinUrls[2]);
         return (
           <div className="board-collage-container">
             <img className="board-icon-large" src={url} />
@@ -57,14 +55,10 @@ class ShowBoard extends React.Component {
         );
       } else if (pinUrls.length > 0) {
         let url = Object.values(pinUrls[0]);
-        // let url2 = Object.values(pinUrls[1]);
-        // let url3 = Object.values(pinUrls[2]);
         return (
           <div className="board-collage-container">
             <img className="board-icon-large" src={url} />
             <div>
-              {/* <img className="board-icon-small-top" src={url2} /> */}
-
               <div className="board-icon-small-top"></div>
               <div className="board-icon-small-bottom-placeholder"></div>
             </div>

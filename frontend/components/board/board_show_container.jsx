@@ -7,7 +7,6 @@ import { Link, Redirect } from "react-router-dom";
 class ShowBoard extends React.Component {
   constructor(props) {
     super(props);
-    // const currentUser: ownProps.match.params.username;
     const { boards } = this.props;
     const { currentUserId } = this.props;
     this.state = {

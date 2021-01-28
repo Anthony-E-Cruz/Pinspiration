@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 class Pin extends React.Component {
   constructor(props) {
     super(props);
-    // const currentUser: ownProps.match.params.username;
     const { pins } = this.props;
     const { currentUserId } = this.props;
     const allPins = Object.values(pins);
@@ -18,10 +17,9 @@ class Pin extends React.Component {
 
   }
 
-  componentDidMount() { 
+  componentDidMount() {
     const { currentPinId } = this.props;
     this.props.fetchPin(currentPinId);
-    // this.props.fetch
     $.ajax({
       url: `api/users/${"2"}`,
       method: "GET",
@@ -38,7 +36,6 @@ class Pin extends React.Component {
 
       const ownerId = currentPin.user_id;
       const ownerUsername = currentPin.username
-      // const { user } = this.props;
 
       return (
         <div className="single-pin-show-inner-container">
@@ -50,7 +47,7 @@ class Pin extends React.Component {
             <div className="pin-show-header"></div>
             <p className="pin-show-title">{currentPin.title}</p>
             <p className="pin-show-description">
-              {currentPin.description} 
+              {currentPin.description}
             </p>
             <div className="owner-pin-links">
               <Link className="pin-show-link" to={`/users/${owner.id}/pins`}>
@@ -63,7 +60,8 @@ class Pin extends React.Component {
             </div>
           </div>
         </div>
-      );} else { 
+      );
+    } else {
       return "20"
     };
   };
@@ -71,26 +69,24 @@ class Pin extends React.Component {
   render() {
     const { pins } = this.props;
     const allPins = Object.values(pins);
-    const {currentPinId} = this.props;
+    const { currentPinId } = this.props;
     const currentPin = pins[currentPinId];
-    const {user} = this.props;
-    // const pinOwnerId = currentPin.user_id
+    const { user } = this.props;
     return (
       <div className="outerrr">
         <div className="single-pin-show-container">
           <div>{this.img()}</div>
         </div>
         <p className="single-pin-text">
-        Explore More Pins
+          Explore More Pins
         </p>
         <PinIndexContainer />
       </div>
     );
   }
-} 
+}
 
 const msp = (state, ownProps) => {
-  // const currentPinId = ownProps.match.params.pinId;
   return {
     currentPinId: ownProps.match.params.pinId,
     pins: state.entities.pins,

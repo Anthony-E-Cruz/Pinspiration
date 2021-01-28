@@ -11,12 +11,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    // const currentUser: ownProps.match.params.username;
     const { userId } = this.props;
     const { users } = this.props;
     const currentUser = users[userId];
     this.state = {
-      // user_id: currentUserId,
       columns: 0,
       pins: [],
       randomized: false
@@ -29,8 +27,6 @@ class Profile extends React.Component {
   componentDidMount() {
     const { userId } = this.props;
     this.props.fetchUser(userId);
-    // this.getColumns();
-    // this.randomizePins();
     window.addEventListener('resize', this.getColumns);
     this.props.fetchPins();
   }
@@ -99,7 +95,6 @@ class Profile extends React.Component {
   }
 
   pinDisplay() {
-    // const { pins } = this.props;
     const { currentUserId } = this.props;
     const allPins1 = this.state;
     const { userId } = this.props;
