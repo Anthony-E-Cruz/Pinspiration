@@ -21,21 +21,11 @@ import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 const App = () => (
   <div className="outter-div">
     <div className="header-container">
-      {/* <header className="header">
-        <Link to="/" className="header-link">
-          <div className="logo_and_title">
-            <img className="logo" src={window.logo} />
-            <h1 className="logo-title">Pinspiration</h1>
-          </div>
-        </Link> */}
       <NavBar />
-      {/* </header> */}
     </div>
-    {/* <ModalContainer /> */}
     <div className="switch">
       <Switch>
         <Route exact path="/" component={PinIndexContainer} />
-        {/* <AuthRoute exact path="/" component={LogInFormContainer} /> */}
         <Route exact path="/home" component={PinIndexContainer} />
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
@@ -57,7 +47,6 @@ const App = () => (
           component={ProfileEditContainer}
         />
         <Route exact path="/:userId/edit" component={ProfileEditContainer} />
-        {/* <Route exact path="/pins/:pinId" component={PinShowContainer} /> */}
         <Route exact path="/pins/:pinId" component={PinShowContainer} />
         <Route exact path="/pins/pins/:pinId" component={PinShowContainer} />
         <Route exact path="/pins" component={PinIndexContainer} />
@@ -66,8 +55,6 @@ const App = () => (
         <Route exact path="/boards/:boardId" component={BoardShowContainer} />
         <Route exact path="/board/new" component={BoardCreateContainer} />
         <Route exact path="/:pinId" component={PinIndexContainer} />
-        {/* <Route exact path="/:pinId/edit" component={ProfileEditContainer} /> */}
-        {/* <Route path="/" component */}
       </Switch>
     </div>
   </div>
