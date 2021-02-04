@@ -27,4 +27,4 @@ Current Features
 
 ## Authentication
 Users have the option of creating an acount, logging in with an existing account or browse as a demo user.
-<img src="./app/assets/images/auth.gif" alt="Logo" >
+<img src="./app/assets/images/auth.gif" alt="Logo" width="600" height="450">
