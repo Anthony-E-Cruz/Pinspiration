@@ -36,10 +36,10 @@
   }
 
   input:focus {
-    border: solid rgb(72, 184, 228);
+    outline: none;
+    border: solid 2px rgb(72, 184, 228) !important;
     border-block: 10px;
   }
-
 
   .full-login {
     display: flex;
@@ -154,11 +154,17 @@
   button:hover {
     cursor: pointer;
   }
-
+/* 
   .login-input:focus{
     outline: none;
     box-shadow: 5px red;
-  }
+    border: solid 2px rgb(72, 184, 228);
+    border-block: 10px;
+  } */
+
+  /* input:focus {
+    border: 3px ;
+  } */
 
   .errors {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
