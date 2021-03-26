@@ -5,7 +5,6 @@ import { fetchPins } from "../../actions/pin_actions";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Profile from "./profile_boards";
 
 class Pins extends React.Component {
   constructor(props) {

@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { signup, demoUser, resetErrors } from '../../actions/session_actions';
 import signupForm from './signup_form';
-import { openModal, closeModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
   return {
