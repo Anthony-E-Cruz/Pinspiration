@@ -1,14 +1,11 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import DropZone from 'react-dropzone';
-import { fetchBoards, createBoard } from '../../actions/board_actions'
+import { createBoard } from '../../actions/board_actions'
 
 class CreateBoard extends React.Component {
   constructor(props) {
     super(props)
-    const { boards } = this.props
     const { currentUserId } = this.props
-    const {userBoards} = this.props
     this.state = {
       title: "",
       creator_id: `${currentUserId}`

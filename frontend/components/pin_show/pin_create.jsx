@@ -1,22 +1,13 @@
-import { connect } from 'react-redux';
 import React from 'react';
 import DropZone from 'react-dropzone';
-import { fetchUser } from '../../actions/user_actions'
-import { fetchPins } from '../../actions/pin_actions'
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-
-
 class CreatePin extends React.Component {
   constructor(props) {
     super(props);
-    const { pins } = this.props;
     const { currentUserId } = this.props;
-    const { currentUser } = this.props;
-    const boards = currentUser[currentUserId].boards;
 
     this.state = {
       title: "",
@@ -40,7 +31,6 @@ class CreatePin extends React.Component {
   }
 
   componentDidMount() {
-    const { currentUserId } = this.props;
     this.props.fetchPins();
   }
 
@@ -157,7 +147,6 @@ class CreatePin extends React.Component {
 
   boardsDropdown() {
     const { pins } = this.props;
-    const allPins = Object.values(pins);
     const { currentUserId } = this.props;
     const { currentUser } = this.props;
     const boardObjects = currentUser[currentUserId].boards;
@@ -200,12 +189,10 @@ class CreatePin extends React.Component {
     } else {
       dropdown[0].style.display = "flex";
     }
-
   }
 
   render() {
     const { pins } = this.props;
-    const allPins = Object.values(pins);
     const { currentUserId } = this.props;
     const { currentUser } = this.props;
     const boardObjects = currentUser[currentUserId].boards;
@@ -215,7 +202,6 @@ class CreatePin extends React.Component {
       <div>
         <div className="create-pin-form">
           <div className="create-pin-form-inner">
-            {/* {this.photoPreview()} */}
             <div>
               <h1 className={this.state.status}>Immage Successfully Saved!</h1>
               <div className="dropzone">

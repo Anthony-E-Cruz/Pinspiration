@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import DropZone from 'react-dropzone';
 import { fetchBoards } from '../../actions/board_actions'
 import { Link } from "react-router-dom";
 import { fetchPins } from "../../actions/pin_actions";
@@ -9,7 +8,6 @@ import { fetchPins } from "../../actions/pin_actions";
 class ShowBoard extends React.Component {
   constructor(props) {
     super(props)
-    const { boards } = this.props
     const { currentUserId } = this.props
     this.state = {
       title: "",

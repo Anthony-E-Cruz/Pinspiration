@@ -1,29 +1,17 @@
-import { connect } from "react-redux";
 import React from "react";
+import { connect } from "react-redux";
 import { fetchPins, fetchPin } from "../../actions/pin_actions";
 import PinIndexContainer from './pin_index_container'
-import * as Scroll from "react-scroll";
 import { Link } from "react-router-dom";
-
 
 class Pin extends React.Component {
   constructor(props) {
     super(props);
-    const { pins } = this.props;
-    const { currentUserId } = this.props;
-    const allPins = Object.values(pins);
-    const { currentPinId } = this.props;
-    const currentPin = pins[currentPinId];
-
   }
 
   componentDidMount() {
     const { currentPinId } = this.props;
     this.props.fetchPin(currentPinId);
-    $.ajax({
-      url: `api/users/${"2"}`,
-      method: "GET",
-    });
   }
 
   img() {
@@ -33,10 +21,6 @@ class Pin extends React.Component {
     if (currentPin) {
       const owner = currentPin.user
       const board = currentPin.board
-
-      const ownerId = currentPin.user_id;
-      const ownerUsername = currentPin.username
-
       return (
         <div className="single-pin-show-inner-container">
           <a name="top-of-page"></a>
@@ -62,16 +46,13 @@ class Pin extends React.Component {
         </div>
       );
     } else {
-      return "20"
+      return (
+        <h1>Pin Not Found</h1>
+      )
     };
   };
 
   render() {
-    const { pins } = this.props;
-    const allPins = Object.values(pins);
-    const { currentPinId } = this.props;
-    const currentPin = pins[currentPinId];
-    const { user } = this.props;
     return (
       <div className="outerrr">
         <div className="single-pin-show-container">

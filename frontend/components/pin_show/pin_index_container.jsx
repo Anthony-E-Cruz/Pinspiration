@@ -6,7 +6,6 @@ import { fetchPins } from "../../actions/pin_actions";
 class Pins extends React.Component {
   constructor(props) {
     super(props);
-    const { pins } = this.props;
     const { currentUserId } = this.props;
     this.state = {
       user_id: currentUserId,
@@ -102,9 +101,6 @@ class Pins extends React.Component {
   }
 
   pinDisplay() {
-    const { pins } = this.props;
-    const allPins = Object.values(pins);
-    const { columns } = this.state
     const allPins1 = (this.setPins())
     if (allPins1 !== 20) {
       return (
@@ -118,8 +114,6 @@ class Pins extends React.Component {
   }
 
   render() {
-    const { pins } = this.props;
-    const allPins = Object.values(pins);
     return (
       <div>
         {this.pinDisplay()}

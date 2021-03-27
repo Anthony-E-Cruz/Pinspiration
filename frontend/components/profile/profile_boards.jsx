@@ -10,7 +10,6 @@ class Profile extends React.Component {
     super(props);
     const { userId } = this.props;
     const { users } = this.props;
-    const currentUser = users[userId];
   }
 
   render() {

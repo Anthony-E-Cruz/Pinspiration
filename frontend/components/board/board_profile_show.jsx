@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import DropZone from 'react-dropzone';
 import { fetchBoards } from '../../actions/board_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import { Link } from "react-router-dom";
@@ -9,11 +8,9 @@ import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-
 class ShowBoard extends React.Component {
   constructor(props) {
     super(props)
-    const { boards } = this.props
     const { currentUserId } = this.props
     this.state = {
       title: "",
@@ -29,12 +26,10 @@ class ShowBoard extends React.Component {
 
   renderCollage(board) {
     const { userId } = this.props;
-    const { users } = this.props;
     if (board[board.id]) {
       let pins = board[board.id]
       let pinUrls = Object.values(pins);
       const { userId } = this.props;
-      const { users } = this.props;
 
       if (pinUrls.length > 2 && (parseInt(board.creator_id) === parseInt(userId))) {
         let url = Object.values(pinUrls[0]);
@@ -57,7 +52,6 @@ class ShowBoard extends React.Component {
             <img className="board-icon-large" src={url} />
             <div>
               <img className="board-icon-small-top" src={url2} />
-
               <div className="board-icon-small-bottom"></div>
             </div>
           </div>
@@ -68,8 +62,6 @@ class ShowBoard extends React.Component {
           <div className="board-collage-container">
             <img className="board-icon-large" src={url} />
             <div>
-              {/* <img className="board-icon-small-top" src={url2} /> */}
-
               <div className="board-icon-small-top"></div>
               <div className="board-icon-small-bottom-placeholder"></div>
             </div>
@@ -91,7 +83,6 @@ class ShowBoard extends React.Component {
 
   renderBoard(allBoards) {
     const { userId } = this.props;
-    const { users } = this.props;
     return (
       allBoards.map((board, idx) => {
         if (parseInt(board.creator_id) === parseInt(userId)) {
@@ -131,18 +122,6 @@ class ShowBoard extends React.Component {
                     icon={faPencilAlt}
                   />
                 </Link>
-                {/* <Link className="login-btn" to={`/${userId}/edit`}>
-              Edit Profile
-            </Link>
-            <Link className="login-btn" to={`/pin/new`}>
-              Create Pin
-            </Link>
-            <Link className="login-btn" to={`/users/${userId}/boards`}>
-              Boards
-            </Link>
-            <Link className="login-btn" to={`/users/${userId}/pins`}>
-              Pins
-            </Link> */}
                 <div>
                   <Link
                     className="current-page-bttn"
@@ -153,9 +132,6 @@ class ShowBoard extends React.Component {
                   <Link className="other-page-bttn" to={`/users/${userId}/pins`}>
                     Pins
               </Link>
-                  {/* <Link className="login-btn" to={`/boards/index`}>
-                View Boards
-              </Link> */}
                 </div>
                 <div>
                   <div className="dropdown-parent">
@@ -178,27 +154,11 @@ class ShowBoard extends React.Component {
                     </div>
                   </div>
                 </div>
-                {/* <Link className="login-btn" to={`/boards/index`}>
-              View Boards
-            </Link>
-            <Link className="login-btn" to={`/board/new`}>
-              Create a Board
-            </Link> */}
               </div>
             </div>
           </div>
           <div className="boards">
             {this.renderBoard(allBoards)}
-            {/* {allBoards.map((board, idx) => (
-          <Link key={idx} to={`/boards/${board.id}`}>
-            <div key={idx} className="board-container">
-              <div className="board">
-                {this.renderCollage(board)}
-              </div>
-              <p className="board-title">{board.title}</p>
-            </div>
-          </Link>
-        ))} */}
           </div>
         </div>
       );
