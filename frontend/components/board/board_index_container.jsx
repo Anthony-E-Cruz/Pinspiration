@@ -1,26 +1,17 @@
+import React, { useEffect } from "react";
 import { connect } from 'react-redux';
-import React from 'react';
 import { fetchBoards } from '../../actions/board_actions'
 import { Link } from "react-router-dom";
 import { fetchPins } from "../../actions/pin_actions";
 
+const ShowBoard = props => {
 
-class ShowBoard extends React.Component {
-  constructor(props) {
-    super(props)
-    const { currentUserId } = this.props
-    this.state = {
-      title: "",
-      user_id: currentUserId
-    };
-  }
+  useEffect(() => {
+    props.fetchBoards();
+    props.fetchPins();
+  })
 
-  componentDidMount() {
-    this.props.fetchBoards();
-    this.props.fetchPins();
-  }
-
-  renderCollage(board) {
+  const renderCollage = (board) => {
     if (board[board.id]) {
       let pins = board[board.id]
       let pinUrls = Object.values(pins);
@@ -76,24 +67,23 @@ class ShowBoard extends React.Component {
     };
   };
 
-  render() {
-    const { boards } = this.props;
-    const allBoards = Object.values(boards);
-    return (
-      <div className="boards">
-        {allBoards.map((board, idx) => (
-          <Link key={idx} to={`/boards/${board.id}`}>
-            <div key={idx} className="board-container">
-              <div className="board">
-                {this.renderCollage(board)}
-              </div>
-              <p className="board-title">{board.title}</p>
+  const { boards } = props;
+  const allBoards = Object.values(boards);
+  return (
+    <div className="boards">
+      {allBoards.map((board, idx) => (
+        <Link key={idx} to={`/boards/${board.id}`}>
+          <div key={idx} className="board-container">
+            <div className="board">
+              {renderCollage(board)}
             </div>
-          </Link>
-        ))}
-      </div>
-    );
-  }
+            <p className="board-title">{board.title}</p>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+
 };
 
 const msp = (state) => {

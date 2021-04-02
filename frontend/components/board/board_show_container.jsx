@@ -1,184 +1,67 @@
-import { connect } from 'react-redux';
-import React from 'react';
-import { fetchBoards } from '../../actions/board_actions';
-import { fetchUsers } from '../../actions/user_actions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchBoards } from "../../actions/board_actions";
 import { Link } from "react-router-dom";
-import { fetchPins } from "../../actions/pin_actions";
-import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-class ShowBoard extends React.Component {
-  constructor(props) {
-    super(props)
-    const { currentUserId } = this.props
-    this.state = {
-      title: "",
-      user_id: currentUserId
-    };
-  }
+const ShowBoard = props => {
 
-  componentDidMount() {
-    this.props.fetchBoards();
-    this.props.fetchPins();
-    this.props.fetchUsers();
-  }
+  useEffect(() => {
+    props.fetchBoards();
+  }, []);
 
-  renderCollage(board) {
-    const { userId } = this.props;
-    if (board[board.id]) {
-      let pins = board[board.id]
-      let pinUrls = Object.values(pins);
-      const { userId } = this.props;
-
-      if (pinUrls.length > 2 && (parseInt(board.creator_id) === parseInt(userId))) {
-        let url = Object.values(pinUrls[0]);
-        let url2 = Object.values(pinUrls[1]);
-        let url3 = Object.values(pinUrls[2]);
-        return (
-          <div className="board-collage-container">
-            <img className="board-icon-large" src={url} />
-            <div>
-              <img className="board-icon-small-top" src={url2} />
-              <img className="board-icon-small-bottom" src={url3} />
-            </div>
-          </div>
-        );
-      } else if (pinUrls.length > 1 && (parseInt(board.creator_id) === parseInt(userId))) {
-        let url = Object.values(pinUrls[0]);
-        let url2 = Object.values(pinUrls[1]);
-        return (
-          <div className="board-collage-container">
-            <img className="board-icon-large" src={url} />
-            <div>
-              <img className="board-icon-small-top" src={url2} />
-              <div className="board-icon-small-bottom"></div>
-            </div>
-          </div>
-        );
-      } else if (pinUrls.length > 0 && (parseInt(board.creator_id) === parseInt(userId))) {
-        let url = Object.values(pinUrls[0]);
-        return (
-          <div className="board-collage-container">
-            <img className="board-icon-large" src={url} />
-            <div>
-              <div className="board-icon-small-top"></div>
-              <div className="board-icon-small-bottom-placeholder"></div>
-            </div>
-          </div>
-        );
-      }
-    } else if ((parseInt(board.creator_id) === parseInt(userId))) {
+  const boardDisplay = () => {
+    const { boards } = props;
+    const { boardId } = props;
+    const currentBoard = boards[boardId];
+    if (currentBoard && currentBoard.pins.length > 0) {
+      const pins = Object.values(currentBoard[boardId]);
       return (
-        <div className="board-collage-container">
-          <div className="board-icon-large" ></div>
-          <div>
-            <div className="board-icon-small-top"></div>
-            <div className="board-icon-small-bottom-placeholder"></div>
+        <div className="board-show-page-container">
+          <h1 className="board-show-title">{currentBoard.title}</h1>
+          <div className="board-show-container">
+            {pins.map((pin, idx) => (
+              <div key={idx} className="pins">
+                <Link
+                  className="board-pin-show-link"
+                  to={`/pins/${currentBoard.pins[idx].id}`}
+                >
+                  <img className="pin-images" src={pin.photoUrl} />
+                  <p>{currentBoard.pins[idx].title}</p>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       );
-    };
-  };
-
-  renderBoard(allBoards) {
-    const { userId } = this.props;
-    return (
-      allBoards.map((board, idx) => {
-        if (parseInt(board.creator_id) === parseInt(userId)) {
-          return (
-            <Link className="board-title-link" key={idx} to={`/boards/${board.id}`}>
-              <div key={idx} className="board-container">
-                <div className="board">
-                  {this.renderCollage(board)}
-                </div>
-                <p className="board-title">{board.title}</p>
-              </div>
-            </Link>
-          )
-        }
-      }));
-  }
-
-  render() {
-    const { boards } = this.props;
-    const allBoards = Object.values(boards);
-    const { userId } = this.props;
-    const { users } = this.props;
-    const currentUser = users[userId];
-    if (currentUser) {
+    } else {
       return (
-        <div>
-          <div>
-            <div className="profile">
-              <div className="profile-header">
-                <img className="profile-img" src={window.profile_img} />
-                <h1 className="username-header">{currentUser.username}</h1>
-              </div>
-              <div className="profile-sub-header">
-                <Link to={`/${userId}/edit`}>
-                  <FontAwesomeIcon
-                    className="profile-link-icons"
-                    icon={faPencilAlt}
-                  />
-                </Link>
-                <div>
-                  <Link
-                    className="current-page-bttn"
-                    to={`/users/${userId}/boards`}
-                  >
-                    Boards
-              </Link>
-                  <Link className="other-page-bttn" to={`/users/${userId}/pins`}>
-                    Pins
-              </Link>
-                </div>
-                <div>
-                  <div className="dropdown-parent">
-                    <FontAwesomeIcon className="profile-link-icons" icon={faPlus} />
-
-                    <div className="dropdown-child">
-                      <ul>
-                        <li className="dropdown-links-header">Create</li>
-                        <li className="dropdown-links">
-                          <Link className="dropdown-links-text" to={`/pin/new`}>
-                            Pin
-                      </Link>
-                        </li>
-                        <li className="dropdown-links">
-                          <Link className="dropdown-links-text" to={`/board/new`}>
-                            Board
-                      </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="boards">
-            {this.renderBoard(allBoards)}
-          </div>
+        <div className="no-pins-container">
+          <p>There aren’t any Pins on this board yet</p>
+          <Link to="/">
+            <button className="find-pins-btn">New ideas</button>
+          </Link>
         </div>
       );
     }
   }
-};
+
+  return (
+    <div className="boards">
+      {boardDisplay()}
+    </div>
+  );
+}
 
 const msp = (state, ownProps) => {
   return {
-    users: state.entities.users,
-    userId: ownProps.match.params.userId,
+    boardId: ownProps.match.params.boardId,
     boards: state.entities.boards,
-    currentUserId: state.session.id
-  }
-}
+    currentUserId: state.session.id,
+  };
+};
 
-const mdp = dispatch => ({
+const mdp = (dispatch) => ({
   fetchBoards: () => dispatch(fetchBoards()),
-  fetchPins: () => dispatch(fetchPins()),
-  fetchUsers: () => dispatch(fetchUsers()),
-})
+});
 
 export default connect(msp, mdp)(ShowBoard);

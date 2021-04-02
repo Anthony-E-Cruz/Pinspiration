@@ -5,11 +5,10 @@ import {
   faGithub,
   faLinkedin,
   faAngellist,
-  faTwitter
 } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 
-const navBar = ({ currentUser, logout, openModal }) => {
+const navBar = ({ currentUser, logout }) => {
   if (currentUser) {
     return (
       <header className="header">

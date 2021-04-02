@@ -1,35 +1,25 @@
 import { connect } from 'react-redux';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { fetchBoards } from '../../actions/board_actions';
-import { fetchUsers } from '../../actions/user_actions';
 import { Link } from "react-router-dom";
 import { fetchPins } from "../../actions/pin_actions";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-class ShowBoard extends React.Component {
-  constructor(props) {
-    super(props)
-    const { currentUserId } = this.props
-    this.state = {
-      title: "",
-      user_id: currentUserId
-    };
-  }
+const ShowBoard = props => {
 
-  componentDidMount() {
-    this.props.fetchBoards();
-    this.props.fetchPins();
-    this.props.fetchUsers();
-  }
+  useEffect(() => {
+    props.fetchBoards();
+    props.fetchPins();
+  }, []);
 
-  renderCollage(board) {
-    const { userId } = this.props;
+  const renderCollage = (board) => {
+    const { userId } = props;
     if (board[board.id]) {
       let pins = board[board.id]
       let pinUrls = Object.values(pins);
-      const { userId } = this.props;
+      const { userId } = props;
 
       if (pinUrls.length > 2 && (parseInt(board.creator_id) === parseInt(userId))) {
         let url = Object.values(pinUrls[0]);
@@ -81,8 +71,8 @@ class ShowBoard extends React.Component {
     };
   };
 
-  renderBoard(allBoards) {
-    const { userId } = this.props;
+  const renderBoard = (allBoards) => {
+    const { userId } = props;
     return (
       allBoards.map((board, idx) => {
         if (parseInt(board.creator_id) === parseInt(userId)) {
@@ -90,7 +80,7 @@ class ShowBoard extends React.Component {
             <Link className="board-title-link" key={idx} to={`/boards/${board.id}`}>
               <div key={idx} className="board-container">
                 <div className="board">
-                  {this.renderCollage(board)}
+                  {renderCollage(board)}
                 </div>
                 <p className="board-title">{board.title}</p>
               </div>
@@ -100,69 +90,67 @@ class ShowBoard extends React.Component {
       }));
   }
 
-  render() {
-    const { boards } = this.props;
-    const allBoards = Object.values(boards);
-    const { userId } = this.props;
-    const { users } = this.props;
-    const currentUser = users[userId];
-    if (currentUser) {
-      return (
+  const { boards } = props;
+  const allBoards = Object.values(boards);
+  const { userId } = props;
+  const { users } = props;
+  const currentUser = users[userId];
+  if (currentUser) {
+    return (
+      <div>
         <div>
-          <div>
-            <div className="profile">
-              <div className="profile-header">
-                <img className="profile-img" src={window.profile_img} />
-                <h1 className="username-header">{currentUser.username}</h1>
+          <div className="profile">
+            <div className="profile-header">
+              <img className="profile-img" src={window.profile_img} />
+              <h1 className="username-header">{currentUser.username}</h1>
+            </div>
+            <div className="profile-sub-header">
+              <Link to={`/${userId}/edit`}>
+                <FontAwesomeIcon
+                  className="profile-link-icons"
+                  icon={faPencilAlt}
+                />
+              </Link>
+              <div>
+                <Link
+                  className="current-page-bttn"
+                  to={`/users/${userId}/boards`}
+                >
+                  Boards
+              </Link>
+                <Link className="other-page-bttn" to={`/users/${userId}/pins`}>
+                  Pins
+              </Link>
               </div>
-              <div className="profile-sub-header">
-                <Link to={`/${userId}/edit`}>
-                  <FontAwesomeIcon
-                    className="profile-link-icons"
-                    icon={faPencilAlt}
-                  />
-                </Link>
-                <div>
-                  <Link
-                    className="current-page-bttn"
-                    to={`/users/${userId}/boards`}
-                  >
-                    Boards
-              </Link>
-                  <Link className="other-page-bttn" to={`/users/${userId}/pins`}>
-                    Pins
-              </Link>
-                </div>
-                <div>
-                  <div className="dropdown-parent">
-                    <FontAwesomeIcon className="profile-link-icons" icon={faPlus} />
+              <div>
+                <div className="dropdown-parent">
+                  <FontAwesomeIcon className="profile-link-icons" icon={faPlus} />
 
-                    <div className="dropdown-child">
-                      <ul>
-                        <li className="dropdown-links-header">Create</li>
-                        <li className="dropdown-links">
-                          <Link className="dropdown-links-text" to={`/pin/new`}>
-                            Pin
+                  <div className="dropdown-child">
+                    <ul>
+                      <li className="dropdown-links-header">Create</li>
+                      <li className="dropdown-links">
+                        <Link className="dropdown-links-text" to={`/pin/new`}>
+                          Pin
                       </Link>
-                        </li>
-                        <li className="dropdown-links">
-                          <Link className="dropdown-links-text" to={`/board/new`}>
-                            Board
+                      </li>
+                      <li className="dropdown-links">
+                        <Link className="dropdown-links-text" to={`/board/new`}>
+                          Board
                       </Link>
-                        </li>
-                      </ul>
-                    </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="boards">
-            {this.renderBoard(allBoards)}
-          </div>
         </div>
-      );
-    }
+        <div className="boards">
+          {renderBoard(allBoards)}
+        </div>
+      </div>
+    );
   }
 };
 
@@ -178,7 +166,6 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
   fetchBoards: () => dispatch(fetchBoards()),
   fetchPins: () => dispatch(fetchPins()),
-  fetchUsers: () => dispatch(fetchUsers()),
 })
 
 export default connect(msp, mdp)(ShowBoard);
